@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1062/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean
+END
+DeliveryCompanyBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/DeliveryCompanyBean.java
+END
+OrderBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1218/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/OrderBean.java
+END
+GenericPagingResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GenericPagingResult.java
+END
+GoodsBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1172/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsBean.java
+END
+SearchRequestForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1189/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/SearchRequestForm.java
+END
+PaymentBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PaymentBean.java
+END
+OrderDeliveryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/OrderDeliveryBean.java
+END
+GoodsStorageCourseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/1200/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsStorageCourseBean.java
+END
+ComponentContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/ComponentContext.java
+END
+PaymentTransferBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PaymentTransferBean.java
+END
+RegionBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/RegionBean.java
+END
+GoodsPhotoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsPhotoBean.java
+END
+DataGridRequestForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/DataGridRequestForm.java
+END
+TimeSpan_zh_CN.properties
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/TimeSpan_zh_CN.properties
+END
+OrderReceiptBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/OrderReceiptBean.java
+END
+PieChartDataBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PieChartDataBean.java
+END
+AccountingTypeBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/AccountingTypeBean.java
+END
+GoodsDepositoryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1112/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsDepositoryBean.java
+END
+GoodsStorageBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsStorageBean.java
+END
+LineChartDataBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/LineChartDataBean.java
+END
+CustomerTypeBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/CustomerTypeBean.java
+END
+MemorialDayTypeBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/MemorialDayTypeBean.java
+END
+GoodsStorageTransferBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsStorageTransferBean.java
+END
+DataBackupFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/DataBackupFile.java
+END
+BaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/BaseBean.java
+END
+GoodsUnitBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsUnitBean.java
+END
+PaymentRecordBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PaymentRecordBean.java
+END
+ContractBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/ContractBean.java
+END
+GoodsTypeBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsTypeBean.java
+END
+FollowWayBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/FollowWayBean.java
+END
+GoodsIssueBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsIssueBean.java
+END
+GoodsSerialNumberBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/GoodsSerialNumberBean.java
+END
+ActionResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/ActionResult.java
+END
+OrderPrinter.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/OrderPrinter.java
+END
+CustomerLevelBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/CustomerLevelBean.java
+END
+PaymentAccountBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PaymentAccountBean.java
+END
+OrderItemBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1200/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/OrderItemBean.java
+END
+AccountingBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/AccountingBean.java
+END
+TimeSpan.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/TimeSpan.java
+END
+ContactBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/ContactBean.java
+END
+PaymentWayBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/PaymentWayBean.java
+END
+CustomerBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/CustomerBean.java
+END
+ProjectBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/ProjectBean.java
+END

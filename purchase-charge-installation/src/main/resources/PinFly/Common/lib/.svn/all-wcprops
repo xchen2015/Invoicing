@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1148/trunk/purchase-charge-installation/src/main/resources/PinFly/Common/lib
+END
+startCryptoTool.bat
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1148/trunk/purchase-charge-installation/src/main/resources/PinFly/Common/lib/startCryptoTool.bat
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1148/trunk/purchase-charge-installation/src/main/resources/PinFly/Common/lib/log4j.properties
+END

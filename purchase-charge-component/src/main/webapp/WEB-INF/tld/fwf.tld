@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- 
+Taglib definitions for the Carefx Web Framework tag library.
+By convention, this tag library uses a prefix of fwf.
+-->
+
+<!DOCTYPE taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.2</jspversion>
+    <shortname>Tags for Carefx Fusion Web Framework</shortname>
+    <uri>http://www.carefx.com/framework</uri>
+
+	<!--  
+		Tag that returns the current framework namespace.
+		This includes the portlet namespace and, if there is
+		a current patient, information about the patient.
+	 -->
+    <tag>
+        <name>namespace</name>
+        <tagclass>com.cxx.purchasecharge.component.utils.Namespace</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+</taglib>

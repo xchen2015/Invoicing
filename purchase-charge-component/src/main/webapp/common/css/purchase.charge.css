@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/* * {
+	font-size: 12px;
+} */
+.demo-info {
+	background: #FFFEE6;
+	color: #8F5700;
+	padding: 12px;
+}
+
+.demo-tip {
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+	float: left;
+}
+
+/* purchase charge form style */
+.fm {
+	margin: 0;
+	padding: 10px 20px;
+}
+
+.ftitle {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+	margin-bottom: 5px;
+	margin-right: 20px;
+}
+
+.fitem label {
+	display: inline-block;
+	width: 120px;
+}
+
+.divHidden {
+	display: none;
+}
+
+/* purchase charge message style */
+div.info, div.success, div.warning, div.error {
+	border: 1px solid;
+	margin: 10px 0px;
+	padding: 15px 10px 15px 50px;
+}
+
+div.info {
+	color: #00529B;
+	background: #BDE5F8 url('../images/messager_icons.png') no-repeat scroll
+		0 0;
+}
+
+div.success {
+	color: #4F8A10;
+	background: #DFF2BF url('../images/messager_icons.png') no-repeat scroll
+		-32px 0;
+}
+
+div.warning {
+	color: #9F6000;
+	background: #FEEFB3 url('../images/messager_icons.png') no-repeat scroll
+		-96px 0;
+}
+
+div.error {
+	color: #D8000C;
+	background: #FFBABA url('../images/messager_icons.png') no-repeat scroll
+		-64px 0;
+}
+
+span.success, span.error {
+	margin: 5px 5px 5px 5px;
+}
+
+span.success {
+	color: #4F8A10;
+}
+
+span.error {
+	color: #D8000C;
+}
+
+a.easyui-linkbutton.c5 {
+	color: #fff;
+}
+
+input.easyui-searchbox {
+	width: 200px
+}
+
+.pc-dialog {
+	width: 777px;
+	height: 417px;
+	padding: 15px;
+}
+
+.css-dlg-formField input,.css-dlg-formField select {
+	width: 150px;
+}
+
+.css-dlg-formField {
+	float: left;
+	width: 33%;
+	margin: 5px auto;
+}
+
+.css-dlg-formField div {
+	width: 155px;
+	margin: 0 auto;
+}
+
+.ui-label-green {
+	background: #78cd51;
+}
+
+.ui-label-gray {
+	background: #999;
+}
+
+.ui-label-orange {
+	background: #f67f00;
+}
+.ui-label-orangeRed {
+	background: #F74C23;
+}
+
+.ui-label {
+	font-family: sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	padding: 3px 6px;
+	border: 0;
+	text-shadow: none;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #fff;
+}
+
+.datagrid-btable .datagrid-row .datagrid-cell 
+{
+	text-overflow: ellipsis;
+}
+
+.css-dlg-formField2
+{
+	float: left;
+	width: 100%;
+	margin: 5px auto;
+}
+.css-dlg-formField2 input, .css-dlg-formField2 select
+{
+	width: 200px;
+}
+.css-dlg-formField2 div
+{
+	width: 205px;
+	margin: 0 auto;
+}
+
+.css-dlg-formField3
+{
+	float: left;
+	width: 50%;
+	margin: 5px auto;
+}
+.css-dlg-formField3 input, .css-dlg-formField3 select
+{
+	width: 150px;
+}
+.css-dlg-formField3 div
+{
+	width: 155px;
+	margin: 0 auto;
+}

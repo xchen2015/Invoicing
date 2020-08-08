@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/security
+     http://www.springframework.org/schema/security/spring-security.xsd
+     http://www.springframework.org/schema/util 
+     http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- put before security:http -->
+	<bean id="myWebInvocationPrivilegeEvaluator" class="com.pinfly.purchasecharge.app.security.MyWebInvocationPrivilegeEvaluator">
+		<constructor-arg type="org.springframework.security.access.intercept.AbstractSecurityInterceptor" ref="myFilter"></constructor-arg>
+	</bean>
+	
+	<security:global-method-security pre-post-annotations="enabled"
+		secured-annotations="enabled" />
+		
+	<security:http use-expressions="true" auto-config="true"
+		access-denied-page="/accessDenied.jsp">
+		<!-- Allow all requests to the following paths. -->
+		<security:intercept-url pattern="/common/css/**" access="permitAll()" />
+		<security:intercept-url pattern="/common/images/**" access="permitAll()" />
+		<security:intercept-url pattern="/common/js/**" access="permitAll()" />
+		<security:intercept-url pattern="/favicon.ico" access="permitAll()" />
+		<security:intercept-url pattern="/login.do" access="permitAll()" />
+		<security:intercept-url pattern="/**/*.htm" access="permitAll()" />
+		
+		<security:http-basic/>
+		<security:remember-me/>
+		<!-- -->
+		<!-- Application Path Authorization -->
+		<!-- The Application Framework will verify that -->
+		<!-- user is a member of a role before rendering -->
+		<!-- the navigation link to the following paths. -->
+		<!-- <security:intercept-url pattern="/admin.do" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" /> -->
+
+		<security:form-login login-page="/login.do"
+			authentication-success-handler-ref="authSuccessHandler"
+			authentication-failure-handler-ref="authFailureHandler" />
+
+		<security:logout invalidate-session="true" success-handler-ref="logoutSuccessHandler"
+			logout-url="/logout" />
+		<!--x509 / --><!-- Uncomment to enable X509 client authentication support -->
+
+
+		<!-- "记住我"功能，采用持久化策略（将用户的登录信息存放在数据库表中） -->
+		<!-- <security:remember-me data-source-ref="dataSource" /> -->
+	
+		<!-- 检测失效的sessionId,超时时定位到另外一个URL -->
+		<security:session-management session-authentication-strategy-ref="sas" />
+		<!-- <security:session-management invalid-session-url="/timeout.jsp" session-authentication-strategy-ref="sas" />
+			<security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" expired-url="/concurrencyLogin.jsp"/>
+		</security:session-management> -->
+	
+		<!-- 增加一个自定义的filter，放在FILTER_SECURITY_INTERCEPTOR之前， 实现用户、角色、权限、资源的数据库管理。 -->
+		<security:custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		<security:custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrencyFilter" />
+	</security:http>
+
+	<!-- 一个自定义的filter，必须包含authenticationManager, accessDecisionManager,securityMetadataSource三个属性。 -->
+	<bean id="myFilter" class="com.pinfly.purchasecharge.app.security.MyFilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="accessDecisionManager" ref="myAccessDecisionManager" />
+		<property name="securityMetadataSource" ref="mySecurityMetadataSource" />
+		<property name="componentContext" ref="componentContext" />
+	</bean>
+	
+	<!-- 注意能够为authentication-manager 设置alias别名 -->
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider user-service-ref="userDetailsManager">
+			<!-- <security:password-encoder ref="passwordEncoder">
+				<security:salt-source user-property="username" />
+			</security:password-encoder> -->
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
+	<bean id="myAccessDecisionManager" class="com.pinfly.purchasecharge.app.security.MyAccessDecisionManager">
+	</bean>
+
+	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
+	<bean id="mySecurityMetadataSource"
+		class="com.pinfly.purchasecharge.app.security.MyInvocationSecurityMetadataSourceService">
+		<property name="componentContext" ref="componentContext" />
+		<property name="initialized" value="${pc.dataInitFlag}" />
+		<property name="securityAuthorityList" ref="securityAuthorityList" />
+	</bean>
+	
+	
+	<bean id="authSuccessHandler"
+		class="com.pinfly.purchasecharge.app.security.AuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/index.jsp" />
+		<property name="alwaysUseDefaultTargetUrl" value="false" />
+		<property name="componentContext" ref="componentContext" />
+	</bean>
+
+	<bean id="authFailureHandler"
+		class="com.pinfly.purchasecharge.app.security.BaseAuthenticationFailureHandler">
+		<property name="defaultFailureUrl" value="/login.do?authfailed=true" />
+	</bean>
+
+	<bean id="logoutSuccessHandler"
+		class="com.pinfly.purchasecharge.app.security.BaseLogoutSuccessHandler">
+		<property name="defaultTargetUrl" value="/login.do" />
+		<property name="componentContext" ref="componentContext" />
+	</bean>
+	
+	<bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+	<bean id="sas"
+		class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
+		<constructor-arg name="sessionRegistry" ref="sessionRegistry" />
+		<property name="maximumSessions" value="1" />
+	</bean>
+
+	<bean id="concurrencyFilter"
+		class="com.pinfly.purchasecharge.app.security.MyConcurrentSessionFilter">
+		<property name="sessionRegistry" ref="sessionRegistry" />
+		<!-- <property name="expiredUrl" value="/concurrencyLogin.jsp" /> -->
+	</bean>
+	
+	
+	<bean id="basicAdmin" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="系统设置" />
+		<property name="url" value="/admin.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="用户角色权限管理" />
+					<property name="url" value="/admin/userManagement.do" />
+					<property name="authorities" ref="userMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="系统操作日志" />
+					<property name="url" value="/admin/auditLog.do" />
+					<property name="authorities" ref="logMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="系统备份与恢复" />
+					<property name="url" value="/admin/backupAndRestore.do" />
+					<property name="authorities" ref="dataBackupAndRestoreMgmtAuthorities" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="financeAdmin" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="资金管理" />
+		<property name="url" value="/finance.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="客户收款" />
+					<property name="url" value="/finance/payInManagement.do" />
+					<property name="authorities" ref="customerPayMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="供应商付款" />
+					<property name="url" value="/finance/payOutManagement.do" />
+					<property name="authorities" ref="providerPayMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="其它收支记录" />
+					<property name="url" value="/finance/expenseRecordManagement.do" />
+					<property name="authorities" ref="accountingMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="支付账号明细" />
+					<property name="url" value="/finance/payAccountFinance.do" />
+					<property name="authorities" ref="paymentAccountMgmtAuthorities" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="homePage" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="首页" />
+		<property name="url" value="/dashboard.do" />
+	</bean>
+	<bean id="statisticReport" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="统计报表" />
+		<property name="url" value="/report.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="销量与利润统计" />
+					<property name="url" value="/report/financeReport.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="货物与订单统计" />
+					<property name="url" value="/report/goodsReportQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="客户与订单统计" />
+					<property name="url" value="/report/customerReportQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="供应商与订单统计" />
+					<property name="url" value="/report/providerReportQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="其它收支统计" />
+					<property name="url" value="/report/accountingReportQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="销售单利润查询" />
+					<property name="url" value="/report/orderProfitReport.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="销售单明细查询" />
+					<property name="url" value="/report/orderOutItemQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="采购单明细查询" />
+					<property name="url" value="/report/orderInItemQuery.do" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="库存余额查询" />
+					<property name="url" value="/report/storageStatisticQuery.do" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="outOrder" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="出库" />
+		<property name="url" value="/order.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="出库管理" />
+					<property name="url" value="/order/outOrderManagement.do" />
+					<property name="authorities" ref="outOrderMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="出库单物流管理" />
+					<property name="url" value="/order/orderDelivery.do" />
+					<property name="authorities" ref="outOrderDeliveryMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="客户管理" />
+					<property name="url" value="/order/customerManagement.do" />
+					<property name="authorities" ref="customerMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="工程管理" />
+					<property name="url" value="/order/projectManagement.do" />
+					<property name="authorities" ref="projectMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="合同管理" />
+					<property name="url" value="/order/contractManagement.do" />
+					<property name="authorities" ref="contractMgmtAuthorities" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="goodsStorageAdmin" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="仓储管理" />
+		<property name="url" value="/storage.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="库存调拨" />
+					<property name="url" value="/storage/storageTransfer.do" />
+					<property name="authorities" ref="goodsStorageMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="库存盘点" />
+					<property name="url" value="/storage/storageCheck.do" />
+					<property name="authorities" ref="goodsStorageMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="库存调价" />
+					<property name="url" value="/storage/goodsCostRevise.do" />
+					<property name="authorities" ref="goodsStorageMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="货物序列号管理" />
+					<property name="url" value="/storage/goodsSerialManagement.do" />
+					<property name="authorities" ref="goodsSerialNumberMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="货物返修管理" />
+					<property name="url" value="/storage/afterSaleManagement.do" />
+					<property name="authorities" ref="goodsIssueMgmtAuthorities" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="inOrder" class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+		<property name="name" value="入库" />
+		<property name="url" value="/goods.do" />
+		<property name="authorities">
+			<list>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="入库管理" />
+					<property name="url" value="/goods/inOrderManagement.do" />
+					<property name="authorities" ref="inOrderMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="供应商管理" />
+					<property name="url" value="/goods/providerManagement.do" />
+					<property name="authorities" ref="providerMgmtAuthorities" />
+				</bean>
+				<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+					<property name="name" value="货物管理" />
+					<property name="url" value="/goods/goodsManagement.do" />
+					<property name="authorities" ref="goodsMgmtAuthorities" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="securityAuthorityList" class="com.pinfly.purchasecharge.app.security.SecurityAuthorityList">
+		<property name="securityAuthorities" ref="securityAuthorities" />
+	</bean>
+	<util:list id="securityAuthorities">
+		<ref bean="homePage" />
+		<ref bean="inOrder" />
+		<ref bean="outOrder" />
+		<ref bean="goodsStorageAdmin" />
+		<ref bean="statisticReport" />
+		<ref bean="financeAdmin" />
+		<ref bean="basicAdmin" />
+	</util:list>
+	
+	<util:list id="inOrderMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增入库单" />
+			<property name="url" value="/inOrder/addModel.html" />
+		</bean>
+		<!-- <bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑入库单" />
+			<property name="url" value="/inOrder/updateModel.html" />
+		</bean> -->
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除入库单" />
+			<property name="url" value="/inOrder/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="outOrderMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增出库单" />
+			<property name="url" value="/outOrder/addModel.html" />
+		</bean>
+		<!-- <bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑出库单" />
+			<property name="url" value="/outOrder/updateModel.html" />
+		</bean> -->
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除出库单" />
+			<property name="url" value="/outOrder/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="projectMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增工程" />
+			<property name="url" value="/project/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑工程" />
+			<property name="url" value="/project/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除工程" />
+			<property name="url" value="/project/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="contractMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增合同" />
+			<property name="url" value="/contract/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑合同" />
+			<property name="url" value="/contract/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除合同" />
+			<property name="url" value="/contract/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="goodsSerialNumberMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物序列号" />
+			<property name="url" value="/goodsSerialNumber/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物序列号" />
+			<property name="url" value="/goodsSerialNumber/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物序列号" />
+			<property name="url" value="/goodsSerialNumber/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="goodsIssueMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物返修" />
+			<property name="url" value="/goodsIssue/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物返修" />
+			<property name="url" value="/goodsIssue/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物返修" />
+			<property name="url" value="/goodsIssue/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="goodsStorageMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增库存调拨" />
+			<property name="url" value="/goodsStorage/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="生成库存盘点单据" />
+			<property name="url" value="/goodsStorage/generateStorageCheckRecord.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="生成库存调价单据" />
+			<property name="url" value="/goodsStorage/generateStoragePriceRevise.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="outOrderDeliveryMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑出库单物流" />
+			<property name="url" value="/outOrderDelivery/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增物流公司" />
+			<property name="url" value="/deliveryCompany/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑物流公司" />
+			<property name="url" value="/deliveryCompany/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除物流公司" />
+			<property name="url" value="/deliveryCompany/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="customerMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增客户" />
+			<property name="url" value="/customer/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑客户" />
+			<property name="url" value="/customer/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除客户" />
+			<property name="url" value="/customer/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增客户类型" />
+			<property name="url" value="/customerType/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑客户类型" />
+			<property name="url" value="/customerType/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除客户类型" />
+			<property name="url" value="/customerType/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增客户等级" />
+			<property name="url" value="/customerLevel/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑客户等级" />
+			<property name="url" value="/customerLevel/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除客户等级" />
+			<property name="url" value="/customerLevel/deleteModels.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="启用客户等级" />
+			<property name="url" value="/customerLevel/enableLevel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="禁用客户等级" />
+			<property name="url" value="/customerLevel/disableLevel.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="providerMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增供应商" />
+			<property name="url" value="/provider/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑供应商" />
+			<property name="url" value="/provider/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除供应商" />
+			<property name="url" value="/provider/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增供应商类型" />
+			<property name="url" value="/providerType/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑供应商类型" />
+			<property name="url" value="/providerType/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除供应商类型" />
+			<property name="url" value="/providerType/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="customerPayMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑客户收款" />
+			<property name="url" value="/customerPay/updateModel.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="providerPayMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑供应商付款" />
+			<property name="url" value="/providerPay/updateModel.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="accountingMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增记账类型" />
+			<property name="url" value="/accountingType/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑记账类型" />
+			<property name="url" value="/accountingType/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除记账类型" />
+			<property name="url" value="/accountingType/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增记账记录" />
+			<property name="url" value="/accounting/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑记账记录" />
+			<property name="url" value="/accounting/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除记账记录" />
+			<property name="url" value="/accounting/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="paymentAccountMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增支付账号" />
+			<property name="url" value="/paymentAccount/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑支付账号" />
+			<property name="url" value="/paymentAccount/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除支付账号" />
+			<property name="url" value="/paymentAccount/deleteModels.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增内部转账/充值" />
+			<property name="url" value="/paymentAccount/addAccountTransfer.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增支付方式" />
+			<property name="url" value="/paymentWay/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑支付方式" />
+			<property name="url" value="/paymentWay/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除支付方式" />
+			<property name="url" value="/paymentWay/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="userMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增系统用户" />
+			<property name="url" value="/user/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑系统用户" />
+			<property name="url" value="/user/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除系统用户" />
+			<property name="url" value="/user/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增系统角色" />
+			<property name="url" value="/role/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑系统角色" />
+			<property name="url" value="/role/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除系统角色" />
+			<property name="url" value="/role/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="logMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="启用操作事件" />
+			<property name="url" value="/logEvent/enableLogEvent.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="禁用操作事件" />
+			<property name="url" value="/logEvent/disableLogEvent.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="dataBackupAndRestoreMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="系统数据备份" />
+			<property name="url" value="/dataBackupAndRestore/backup.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="系统数据恢复" />
+			<property name="url" value="/dataBackupAndRestore/restore.html" />
+		</bean>
+	</util:list>
+	
+	<util:list id="goodsMgmtAuthorities">
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物" />
+			<property name="url" value="/goods/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物" />
+			<property name="url" value="/goods/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物" />
+			<property name="url" value="/goods/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物单位" />
+			<property name="url" value="/goodsUnit/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物单位" />
+			<property name="url" value="/goodsUnit/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物单位" />
+			<property name="url" value="/goodsUnit/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物类型" />
+			<property name="url" value="/goodsType/addModelWithResponse.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物类型" />
+			<property name="url" value="/goodsType/updateModelWithResponse.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物类型" />
+			<property name="url" value="/goodsType/deleteModels.html" />
+		</bean>
+		
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="新增货物仓库" />
+			<property name="url" value="/goodsDepository/addModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="编辑货物仓库" />
+			<property name="url" value="/goodsDepository/updateModel.html" />
+		</bean>
+		<bean class="com.pinfly.purchasecharge.app.security.SecurityAuthority">
+			<property name="name" value="删除货物仓库" />
+			<property name="url" value="/goodsDepository/deleteModels.html" />
+		</bean>
+	</util:list>
+	
+</beans>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1051/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods
+END
+GoodsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1202/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsDao.java
+END
+GoodsUnitDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsUnitDao.java
+END
+GoodsDepositoryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsDepositoryDao.java
+END
+GoodsTypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsTypeDao.java
+END
+GoodsStorageCheckDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsStorageCheckDao.java
+END
+GoodsStorageDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1173/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsStorageDao.java
+END
+GoodsStoragePriceReviseDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsStoragePriceReviseDao.java
+END
+GoodsIssueDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsIssueDao.java
+END
+GoodsSerialNumberDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsSerialNumberDao.java
+END
+GoodsStorageTransferDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsStorageTransferDao.java
+END
+GoodsPictureDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1173/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/goods/GoodsPictureDao.java
+END

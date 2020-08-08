@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1053/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/in
+END
+ProviderPayManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/in/ProviderPayManager.java
+END
+ProviderManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/in/ProviderManager.java
+END
+ProviderTypeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/in/ProviderTypeManager.java
+END
+InOrderManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/in/InOrderManager.java
+END

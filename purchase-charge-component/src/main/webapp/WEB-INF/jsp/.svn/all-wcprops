@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1062/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp
+END
+authorityManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1119/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/authorityManagement.jsp
+END
+commonJs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1107/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/commonJs.jsp
+END
+providerManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/providerManagement.jsp
+END
+accountingManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/accountingManagement.jsp
+END
+paymentAccountManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1176/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/paymentAccountManagement.jsp
+END
+goodsStorageWarn.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsStorageWarn.jsp
+END
+paymentWayManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1112/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/paymentWayManagement.jsp
+END
+reportCustomer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/reportCustomer.jsp
+END
+outOrderManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1218/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/outOrderManagement.jsp
+END
+customerTypeManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/customerTypeManagement.jsp
+END
+goodsStoragePriceRevise.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsStoragePriceRevise.jsp
+END
+memorialDayTypeManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/663/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/memorialDayTypeManagement.jsp
+END
+projectManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/projectManagement.jsp
+END
+reportIndex.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/reportIndex.jsp
+END
+commonChartJs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/835/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/commonChartJs.jsp
+END
+deliveryCompanyManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1112/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/deliveryCompanyManagement.jsp
+END
+reportGoods.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/reportGoods.jsp
+END
+goodsUnitManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsUnitManagement.jsp
+END
+goodsTypeManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsTypeManagement.jsp
+END
+contractManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/contractManagement.jsp
+END
+settingManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/663/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/settingManagement.jsp
+END
+outOrderProfitQuery.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/outOrderProfitQuery.jsp
+END
+paymentAccountFinance.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/paymentAccountFinance.jsp
+END
+logManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/logManagement.jsp
+END
+followWayManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/663/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/followWayManagement.jsp
+END
+customerLevelManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/customerLevelManagement.jsp
+END
+goodsStorageQuery.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsStorageQuery.jsp
+END
+reportAccounting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/reportAccounting.jsp
+END
+reportProvider.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/reportProvider.jsp
+END
+resetSystem.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/resetSystem.jsp
+END
+providerTypeManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/providerTypeManagement.jsp
+END
+backupAndRestoreManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/backupAndRestoreManagement.jsp
+END
+accountingTypeManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/accountingTypeManagement.jsp
+END
+goodsStorageCheck.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsStorageCheck.jsp
+END
+roleManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1200/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/roleManagement.jsp
+END
+customerManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/customerManagement.jsp
+END
+inOrderManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1218/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/inOrderManagement.jsp
+END
+passwordManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1176/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/passwordManagement.jsp
+END
+providerPayManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/providerPayManagement.jsp
+END
+goodsStorageTransfer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsStorageTransfer.jsp
+END
+outOrderDelivery.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/outOrderDelivery.jsp
+END
+customerPayManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/customerPayManagement.jsp
+END
+goodsManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsManagement.jsp
+END
+userManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/userManagement.jsp
+END
+inOrderAdd.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/inOrderAdd.jsp
+END
+inOrderDetailQuery.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/inOrderDetailQuery.jsp
+END
+outOrderAdd.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/outOrderAdd.jsp
+END
+outOrderDetailQuery.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/outOrderDetailQuery.jsp
+END
+myIndex.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1221/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/myIndex.jsp
+END
+regionManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/663/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/regionManagement.jsp
+END
+goodsIssueManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsIssueManagement.jsp
+END
+goodsSerialNumberManagement.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1220/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsSerialNumberManagement.jsp
+END
+goodsDepositoryMgmt.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/webapp/WEB-INF/jsp/goodsDepositoryMgmt.jsp
+END

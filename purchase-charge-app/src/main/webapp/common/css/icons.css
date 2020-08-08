@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/* CSS Document */
+/* Cxx commented 
+.iconSpan16 { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+.iconSpan24 { display: inline-block; width: 24px; height: 24px; vertical-align: middle; }
+.iconSpan32 { display: inline-block; width: 32px; height: 32px; vertical-align: middle;}*/
+.iconSpan16 { display: inline-block; width: 16px; height: 16px; }
+.iconSpan24 { display: inline-block; width: 24px; height: 24px; }
+.iconSpan32 { display: inline-block; width: 32px; height: 32px; }
+
+.disabled .iconSpan16, .disabled .iconSpan24, .disabled .iconSpan32 { 
+	opacity:0.3;
+	filter:alpha(opacity=30); 
+}
+
+/* Line Dividers */
+/*.topMenu ul li { background:url(../images/icons.png) -555px -76px no-repeat; float: left; display: inline-block; padding: 0 10px; }
+.footerMenu ul li { background:url(../images/icons.png) -555px -76px no-repeat; float: left; display: inline-block; padding: 0 10px; }
+.userMenu ul li { background:url(../images/icons.png) -544px -144px no-repeat; float: left; display: inline-block; padding: 0 10px; }
+ul.toolbarMenu li { background:url(../images/icons.png) -543px -179px no-repeat; float: left; display: inline-block; padding: 0 10px; } */
+
+
+/* 16x16 icons */
+.search { background: url(../images/icons.png) -512px -416px no-repeat; }
+.provider { background: url(../images/icons.png) -432px -448px no-repeat; }
+.add16, .newButton { background: url(../images/icons.png) -32px -528px no-repeat; }
+.editButton { background:url(../images/icons.png) -496px -432px no-repeat; }
+.deleteButton { background:url(../images/icons.png) -239px -416px no-repeat; }
+.deleteButton:hover { background:iconsUrl -239px -416px no-repeat; }
+.graphOff { background: url(../images/icons.png) -288px -400px no-repeat;}
+.graphOn { background: url(../images/icons.png) -304px -400px no-repeat;}
+.options { background: url(../images/icons.png) -432px -432px no-repeat; }
+
+.redFlag { background: url(../images/icons.png) -384px -528px no-repeat; }
+.viewEye { background: url(../images/icons.png) -368px -574px no-repeat; }
+.required { background: url(../images/icons.png) -512px -560px no-repeat; }
+
+.actionsMenu16 { background: url(../images/icons.png) -480px -480px no-repeat; width: 24px !important; }
+.allergyRed16 { background: url(../images/icons.png) -320px -544px no-repeat; width: 24px !important; }
+.allergyYellow16 { background: url(../images/icons.png) -320px -560px no-repeat; width: 24px !important; }
+.allergy16 { background: url(../images/icons.png) -320px -528px no-repeat; }
+
+.newFolder { background: url(../images/icons.png) -336px -400px no-repeat; }
+.renameFolder { background: url(../images/icons.png) -368px -400px no-repeat; }
+.deleteFolder { background: url(../images/icons.png) -352px -400px no-repeat; }
+.folder { background: url(../images/icons.png) -336px -416px no-repeat; }
+.draft { background: url(../images/icons.png) -529px -400px no-repeat;  }
+.inbox { background: url(../images/icons.png) -496px -400px no-repeat; }
+.sent { background: url(../images/icons.png) -512px -400px no-repeat;  }
+.trash { background: url(../images/icons.png) -480px -400px no-repeat; }
+.refresh { background: url(../images/icons.png) -479px -416px no-repeat;  }
+.attached { background: url(../images/icons.png) -192px -400px no-repeat;  }
+.attach { background: url(../images/icons.png) -256px -400px no-repeat; }
+.ptInfo {  background: url(../images/icons.png) -320px -400px no-repeat;}
+.ptSearch16 { background: url(../images/icons.png) -480px -448px no-repeat; }
+.info16 { background: url(../images/icons.png) -416px -400px no-repeat; }
+.warning16 { background: url(../images/icons.png) -272px -400px no-repeat; }
+.close { background: url(../images/icons.png) -464px -400px no-repeat;  }
+.close:hover { background: url(../images/icons.png) -464px -416px no-repeat; }
+.expand { background: url(../images/icons.png) -351px -480px no-repeat; }
+.expand:hover { background:url(../images/icons.png) -351px -496px no-repeat; }
+.expanded { background: url(../images/icons.png) -367px -480px no-repeat; }
+.expanded:hover { background:url(../images/icons.png) -367px -496px no-repeat; }
+.sideArrow16 { background: url(../images/icons.png) -304px -432px no-repeat; }
+.downArrow16 { background: url(../images/icons.png) -272px -432px no-repeat; }
+.calendar16 {background: url(../images/icons.png) -208px -400px no-repeat; }
+.user-entered16 { background: url(../images/icons.png) -448px -448px no-repeat; }
+.system-entered16 { background: url(../images/icons.png) -464px -448px no-repeat; }
+.user-lock16 { background: url(../images/icons.png) -416px -416px no-repeat;}
+.facesheet16 { background: url(../images/icons.png) -544px -416px no-repeat;}
+.encounter16 { background: url(../images/icons.png) -288px -416px no-repeat;}
+.fallrisk16 { background: url(../images/icons.png) -304px -416px no-repeat;}
+.navigateRight16 { background: url(../images/icons.png) -224px -464px no-repeat;}
+.navigateRight16:hover { background: url(../images/icons.png) -192px -464px no-repeat;}
+.navigateDown16 { background: url(../images/icons.png) -240px -464px no-repeat;}
+.navigateDown16:hover { background: url(../images/icons.png) -208px -464px no-repeat;}
+.checkmark16 { background: url(../images/icons.png) -448px -416px no-repeat;}
+.dnr16 { background: url(../images/icons.png) -320px -416px no-repeat;}
+.isolation16 { background: url(../images/icons.png) -448px -464px no-repeat;}
+.contagious16 { background: url(../images/icons.png) -480px -432px no-repeat;}
+.vip16 { background: url(../images/icons.png) -432px -464px no-repeat;}
+.new16 { background: url(../images/icons.png) -288px -464px no-repeat; width: 32px !important;}
+.incomplete16 { background: url(../images/icons.png) -304px -480px no-repeat; width: 48px !important; }
+.accept16 { background: url(../images/icons.png) -400px -400px no-repeat; }
+.reject16 { background: url(../images/icons.png) -448px -400px no-repeat; }
+.reject16:hover { background: iconsUrl -464px -400px no-repeat; }
+.expandCollapse16 { background: url(../images/icons.png) -384px -432px no-repeat; }
+.expandCollapse16:hover { background: url(../images/icons.png) -400px -432px no-repeat; }
+.print16 { background: url(../images/icons.png) -496px -464px no-repeat; }
+.male16 { background: url(../images/icons.png) -256px -464px no-repeat; }
+.female16 { background: url(../images/icons.png) -272px -464px no-repeat; }
+.export16 { background: url(../images/icons.png) -528px -416px no-repeat; }
+.archive16 { background: url(../images/icons.png) -512px -432px no-repeat; }
+.plus16 { background: url(../images/icons.png) -352px -448px no-repeat;}
+.minus16 { background: url(../images/icons.png) -352px -464px no-repeat;}
+.prevPageInactive16 { background: url(../images/icons.png) -352px -608px no-repeat;}
+.nextPage16 { background: url(../images/icons.png) -368px -608px no-repeat;}
+.firstPageInactive16 { background: url(../images/icons.png) -448px -608px no-repeat;}
+.lastPage16 { background: url(../images/icons.png) -400px -608px no-repeat;}
+.vDragger16 { background: url(../images/icons.png) -464px -480px no-repeat;}
+.vDraggerGray16 { background: url(../images/icons.png) -447px -480px no-repeat;}
+
+.filterOn16 { background: url(../images/icons.png) -384px -480px no-repeat;}
+.filterOff16 { background: url(../images/icons.png) -400px -480px no-repeat;}
+.urgent16 { background: url(../images/icons.png) -256px -432px no-repeat;}
+.reply16 { background: url(../images/icons.png) -288px -496px no-repeat;}
+.forward16 { background: url(../images/icons.png) -304px -496px no-repeat;}
+.myAssignments16 { background: url(../images/icons.png) -336px -432px no-repeat;}
+.completedItems16 { background: url(../images/icons.png) -336px -464px no-repeat;}
+.previous16 { background: url(../images/icons.png) -320px -464px no-repeat;}
+.previousArrow { background: url(../images/icons.png) -384px -496px no-repeat;}
+.nextArrow { background: url(../images/icons.png) -352px -480px no-repeat;}
+.upArrow { background: url(../images/icons.png) -400px -496px no-repeat;}
+.question { background: url(../images/icons.png) -464px -464px no-repeat;}
+.newMail { background: url(../images/icons.png) -416px -496px no-repeat;}
+.lock16 { background: url(../images/icons.png) -288px -480px no-repeat;}
+.unlock16 { background: url(../images/icons.png) -272px -496px no-repeat;}
+
+.pdf16 { background: url(../images/icons.png) -224px -400px no-repeat; }
+.word16 {background: url(../images/icons.png) -240px -400px no-repeat}
+.img16 { background: url(../images/icons.png) -336px -496px no-repeat;}
+.txt16 { background: url(../images/icons.png) -320px -512px no-repeat;}
+.xls16 { background: url(../images/icons.png) -320px -496px no-repeat;}
+.chart16 { background: url(../images/icons.png) -336px -512px no-repeat;}
+.comment16 { background: url(../images/icons.png) -400px -512px no-repeat;}
+.waiting16 {  background: url("../images/icons.png") no-repeat scroll -448px -496px transparent; }
+.inOffice16 { background: url("../images/icons.png") no-repeat scroll -432px -496px transparent; }
+.yesTxt16 { background: url("../images/icons.png") no-repeat scroll -305px -512px transparent; }
+
+.noShow16 { background: url(../images/icons.png) -368px -544px no-repeat;}
+.cancelled16 { background: url(../images/icons.png) -384px -544px no-repeat; }
+
+.secure16 { background: url(../images/icons.png) -416px -416px no-repeat; }
+.inProgress16 { background: url(../images/icons.png) -432px -512px no-repeat; }
+.crossmark16 { background: url(../images/icons.png) -464px -496px no-repeat; }
+.inactiveCheckmark16 { background: url(../images/icons.png) -464px -512px no-repeat; }
+.undetermined16 { background: url(../images/icons.png) -480px -512px no-repeat; }
+.download16 { background: url(../images/icons.png) -368px -512px no-repeat; }
+
+.refreshGreen16 { background: url(../images/icons.png) -432px -400px no-repeat; }
+.viewDetails16 { background: url(../images/icons.png) -528px -432px no-repeat; }
+.alert16 { background: url(../images/icons.png) -272px -480px no-repeat; }
+.expandPanel16 { background: url(../images/icons.png) -272px -512px no-repeat; }
+.collapsePanel16 { background: url(../images/icons.png) -288px -512px no-repeat; }
+.expandPanelW16 { background: url(../images/icons.png) -272px -528px no-repeat; }
+.collapsePanelW16 { background: url(../images/icons.png) -288px -528px no-repeat; }
+.record16 { background: url(../images/icons.png) -256px -528px no-repeat; }
+
+.link16 { background: url(../images/icons.png) -416px -544px no-repeat; width: 24px !important; }
+.unlink16 { background: url(../images/icons.png) -448px -544px no-repeat; width: 24px !important; }
+.addPerson16 { background: url(../images/icons.png) -544px -400px no-repeat; }
+.return16 { background: url(../images/icons.png) -304px -528px no-repeat; }
+.save16 { background: url(../images/icons.png) -400px -464px no-repeat; }
+.merge16 { background: url(../images/icons.png) -480px -544px no-repeat; width: 24px !important;}
+.unmerge16 { background: url(../images/icons.png) -512px -544px no-repeat; width: 24px !important; }
+
+.shiftDoubleUpBlue { background: url(../images/icons.png) -385px -448px no-repeat; }
+.shiftDoubleDownBlue { background: url(../images/icons.png) -365px -448px no-repeat; }
+.shiftDoubleUpBlue:hover { background: url(../images/icons.png) -385px -465px no-repeat; }
+.shiftDoubleDownBlue:hover { background: url(../images/icons.png) -365px -465px no-repeat; }
+
+/* 24x24 Icons */
+.pt { background: url(../images/icons.png) -264px -120px no-repeat; }
+.ptInfo24 {  background: url(../images/icons.png) -457px -120px no-repeat;}
+.ptSearch24 { background: url(../images/icons.png) -23px -120px no-repeat; }
+.ptList { background: url(../images/icons.png) -312px -120px no-repeat; }
+.link24 { background: url(../images/icons.png) -216px -96px no-repeat;}
+.unlink24 { background: url(../images/icons.png) -240px -96px no-repeat;}
+.mergeB24 { background: url(../images/icons.png) -264px -96px no-repeat;}
+.unmergeB24 { background: url(../images/icons.png) -288px -96px no-repeat;}
+.lab24 { background: url(../images/icons.png) -168px -120px no-repeat;}
+.mail24 { background: url(../images/icons.png) -312px -96px no-repeat;}
+.calendar24 { background: url(../images/icons.png) -336px -96px no-repeat;}
+.overdueBill24 { background: url(../images/icons.png) -360px -96px no-repeat;}
+.bill24 { background: url(../images/icons.png) -384px -96px no-repeat;}
+.report24 { background: url(../images/icons.png) -408px -96px no-repeat;}
+.print24 { background: url(../images/icons.png) -432px -96px no-repeat; }
+.apple24 { background: url(../images/icons.png) -480px -96px no-repeat; }
+.help24 { background: url(../images/icons.png) -456px -96px no-repeat; }
+.chart24 { background: url(../images/icons.png) -0px -120px no-repeat; }
+.note24 { background: url(../images/icons.png) -72px -120px no-repeat; }
+.noteB24 { background: url(../images/icons.png) -96px -120px no-repeat; }
+.meds24 { background: url(../images/icons.png) -288px -120px no-repeat; }
+.alert24 { background: url(../images/icons.png) -504px -96px no-repeat; }
+.secure24 { background: url(../images/icons.png) -192px -96px no-repeat; }
+.pageSettings16 { background: url(../images/icons.png) -544px -432px no-repeat; }
+
+
+
+/* 32x32 Icons */
+.closeDiv { background:url(../images/icons.png) -98px -178px no-repeat; }
+.closeDiv:hover { background:url(../images/icons.png) -130px -178px no-repeat;}
+.delete32 { background: url(../images/icons.png) -96px -208px no-repeat; }
+.delete32-disabled { background: url(../images/icons.png) -96px -240px no-repeat; }
+.compose32 { background: url(../images/icons.png) -256px -176px no-repeat;  }
+.send32 { background: url(../images/icons.png) -64px -176px no-repeat;  }
+.cancel32 { background: url(../images/icons.png) 8px 4px no-repeat; }
+.attach32 { background: url(../images/icons.png) -192px -144px no-repeat; }
+.print32 {background: url(../images/icons.png) -449px -178px no-repeat; }
+.saveDraft32 {background: url(../images/icons.png) -256px -208px no-repeat; }
+.getNewMsgs32 { background: url(../images/icons.png) -64px -208px no-repeat;}
+.ptInfoB {  background: url(../images/icons.png) -160px -176px no-repeat; }
+.reply32 { background: url(../images/icons.png) -288px -176px no-repeat; }
+.forward32 { background: url(../images/icons.png) -320px -176px no-repeat;}
+.ccow-question32 { background: url(../images/icons.png) -191px -240px no-repeat; width: 32px; }
+.ccow32 { background: url(../images/icons.png) -223px -240px no-repeat; width: 32px; }
+.ccow-broken32 { background: url(../images/icons.png) -256px -240px no-repeat; width: 32px; }
+.empi32 { background: url(../images/icons.png) -352px -240px no-repeat;}
+.medRec32 { background: url(../images/icons.png) -320px -240px no-repeat; }
+
+.moveDown32 { background: url(../images/icons.png) -384px -240px no-repeat; }
+.moveUp32 { background: url(../images/icons.png) -416px -240px no-repeat; }
+.moveDown32:hover { background: url(../images/icons.png) -448px -240px no-repeat; }
+.moveUp32:hover { background: url(../images/icons.png) -480px -240px no-repeat; }
+
+.view1s { background: url(../images/icons.png) -256px -336px no-repeat; }
+.view1 { background: url(../images/icons.png) -256px -304px no-repeat; }
+
+.view2 { background: url(../images/icons.png) -288px -336px no-repeat; }
+.view2s { background: url(../images/icons.png) -288px -304px no-repeat; }
+
+.secureAttach32 { background: url(../images/icons.png) -224px -144px no-repeat; }
+.ptInfoAttach32 { background: url(../images/icons.png) -256px -144px no-repeat; }
+

@@ -1,0 +1,196 @@
+# Add message keys here, and they will automatically be generated in the Messages class 
+
+title = PurchaseCharge
+save = Save
+cancel = Cancel
+id = ID
+name = Name
+newType = New Type
+editType = Edit Type
+removeType = Remove Type
+refresh = Refresh
+pleaseInputValue = Please Input Value
+
+# User Management
+userId = User Id
+firstName = First Name
+lastName = Last Name
+phone = Phone
+email = Email
+userManagement = User Management
+newUser = New User
+editUser = Edit User
+removeUser = Remove User
+user = User
+
+# Contact Type Management
+contactTypeManagement = Contact Type Management
+contactType = Contact Type
+
+# Customer Level Management
+customerLevelManagement = Customer Level Management
+customerLevel = Customer Level
+newLevel = New Level
+editLevel = Edit Level
+removeLevel = Remove Level
+
+# Customer Scale Management
+customerScaleManagement = Customer Scale Management
+customerScale = Customer Scale
+newScale = New Scale
+editScale = Edit Scale
+removeScale = Remove Scale
+
+# Customer Source Management
+customerSourceManagement = Customer Source Management
+customerSource = Customer Source
+newSource = New Source
+editSource = Edit Source
+removeSource = Remove Source
+
+# Customer Status Management
+customerStatusManagement = Customer Status Management
+customerStatus = Customer Status
+newStatus = New Status
+editStatus = Edit Status
+removeStatus = Remove Status
+
+# Customer Trade Management
+customerTradeManagement = Customer Trade Management
+customerTrade = Customer Trade
+newTrade = New Trade
+editTrade = Edit Trade
+removeTrade = Remove Trade
+
+# Follow Way Management
+followWayManagement = Follow Way Management
+followWay = Follow Way
+newWay = New Way
+editWay = Edit Way
+removeWay = Remove Way
+
+# Goods Type Management
+goodsTypeManagement = Goods Type Management
+goodsType = Goods Type
+newRootType = New Root Type
+appendType = Append Type
+expand = Expand
+collapse = Collapse
+parentId = Parent ID
+
+# Region Management
+regionManagement = Region Management
+region = Region
+newRootRegion = New Root Region
+appendRegion = Append Region
+editRegion = Edit Region
+removeRegion = Remove Region
+
+# Goods Unit Management
+goodsUnitManagement = Goods Unit Management
+goodsUnit = Goods Unit
+newUnit = New Unit
+editUnit = Edit Unit
+removeUnit = Remove Unit
+
+# Logger Event Management
+loggerEventManagement = Logger Event Management
+loggerEvent = Logger Event
+newEvent = New Event
+editEvent = Edit Event
+removeEvent = Remove Event
+
+# MemorialDay Type Management
+memorialDayTypeManagement = MemorialDay Type Management
+memorialDayType = MemorialDay Typ
+
+# Payment Type Management
+paymentTypeManagement = Payment Type Management
+paymentType = Payment Type
+
+# Goods Management
+goodsManagement = Goods Management
+serialNumber = Serial Number
+maker = Maker
+barCode = Bar Code
+specification = Specification
+technicalParameters = Technical Parameter
+importPrice = Import Price
+retailPrice = Retail Price
+tradePrice = Trade Price
+available = Available
+unit = Unit
+newGoods = New Goods
+editGoods = Edit Goods
+goods = Goods
+removeGoods = Remove Goods
+enable = enable
+unavailable = unavailable
+
+# Customer
+customerManagement = Customer Management
+customer = Customer
+newCustomer = New Customer
+editCustomer = Edit Customer
+removeCustomer = Remove Customer
+
+customer.shortName = Short name
+customer.type = Type
+customer.companyName = Company name
+customer.companyIntroduction = Company introduction
+customer.address = Address
+customer.zipCode = Zip code
+customer.email = Email
+customer.fax = Fax
+customer.fixedPhone = Fixed phone
+customer.isDeleted = Is deleted
+customer.scale = Scale
+customer.trade = Trade
+customer.source = Source
+customer.goodsIntention = Goods intention
+customer.legalPerson = Legal person
+customer.memberAccount = Member account
+customer.webSite = Web site
+customer.registerDate = Register date
+customer.registerFund = Register fund
+customer.region = Region
+customer.comment = Comment
+customer.createDate = Create date
+customer.lastUpdated = Last updated
+customer.signUserId = Sign user id
+customer.isSharable = Is sharable
+customer.level = Level
+customer.status = Status
+customer.option.enSharable = Sharable
+customer.option.unSharable = Not Sharable
+customer.option.enterprise = Enterprise
+customer.option.individual = Individual
+
+# Contact
+contact.contactManagement = Contact Management
+contact.contact = Contact
+contact.newContact = New Contact
+contact.editContact = Edit Contact
+contact.removeContact = Remove Contact
+
+contact.name = Name
+contact.customer = Customer
+contact.genderCode = Gender
+contact.mobilePhone = Mobile Phone
+contact.qq = QQ
+contact.skype = Skype
+contact.email = Email
+contact.weiXin = Wei Xin
+contact.wangWang = Wang Wang
+contact.dept = Dept
+contact.post = Post
+contact.concernedBusiness = Concerned Business
+contact.interest = Interest
+contact.address = Address
+contact.webSite = Web Site
+contact.region = Region
+contact.type = Type
+
+contact.option.male = Male
+contact.option.female = Female
+

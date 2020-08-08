@@ -1,0 +1,40 @@
+/*
+ * Defines CSS styles for pages that have three columns of components.
+ * Most of the information is from the imported LayoutCommon file.  This
+ * file only defines the styles associated with the divs containing the
+ * components.
+ *
+ */
+@import 'LayoutCommon.less';
+
+#left {
+    width:33.3%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-left: @componentSpacing;
+        margin-right: @componentSpacing;
+    }
+}
+
+#middle {
+    width:33.3%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-right: @componentSpacing;
+    }
+}
+
+#right {
+    width:33.3%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-right: @componentSpacing;
+    }
+}
+

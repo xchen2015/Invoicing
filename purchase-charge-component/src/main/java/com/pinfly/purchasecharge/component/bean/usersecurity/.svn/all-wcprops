@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/usersecurity
+END
+UserBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1154/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/usersecurity/UserBean.java
+END
+RoleBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1154/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/usersecurity/RoleBean.java
+END
+AuthorityBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/bean/usersecurity/AuthorityBean.java
+END

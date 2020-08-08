@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1062/trunk/purchase-charge-component/src/main/webapp/WEB-INF
+END
+purchasecharge-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/webapp/WEB-INF/purchasecharge-servlet.xml
+END
+applicationContextTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1144/trunk/purchase-charge-component/src/main/webapp/WEB-INF/applicationContextTest.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/946/trunk/purchase-charge-component/src/main/webapp/WEB-INF/web.xml
+END

@@ -1,0 +1,20 @@
+# Page Keys
+Dashboard = Dash Board
+Admin = Administration
+GoodsManagement = Goods Management
+UserManagement = User Management
+FollowWayManagement = FollowWay Management
+PaymentTypeManagement = PaymentType Management
+MemorialDayTypeManagement = MemorialDayType Management
+LoggerEventManagement = LoggerEvent Management
+ContactManagement = Contact Management
+CustomerManagement = Customer Management
+Audit = Audit
+
+Welcome = Welcome
+Logout = Logout
+loginForm.signIn = Sign In
+loginForm.unsucessfulLogin = Your login attempt was not successful, try again.
+loginForm.userId = User ID
+loginForm.password = Password
+loginForm.loginButton = Log In

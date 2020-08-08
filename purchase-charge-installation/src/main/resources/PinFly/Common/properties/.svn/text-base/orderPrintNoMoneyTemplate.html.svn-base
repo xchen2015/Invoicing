@@ -1,0 +1,84 @@
+﻿<table width="100%" style="font-size:12px;">
+	<col align="left" width="17%" />
+	<col align="left" width="34%" />
+	<col align="left" width="14%" />
+	<col align="left" width="14%" />
+	<col align="left" width="21%" />
+	
+	<thead>
+		<tr>
+			<td colspan="7">
+				<table width="100%">
+					<col align="left" width="12%" />
+					<col align="left" width="13%" />
+					<col align="left" width="15%" />
+					<col align="left" width="15%" />
+					<col align="left" width="15%" />
+					<col align="left" width="15%" />
+					<col align="left" width="15%" />
+					<tr>
+						<td colspan="1">开单日期:</td>
+						<td colspan="1">{:orderDate}</td>
+						<td colspan="3" rowspan="2" align="center" valign="top" style="font-size:20px; font-weight:bold">{:title}</td>
+						<td colspan="2" rowspan="1" align="center" valign="top" style="font-size:20px; font-weight:bold">{:orderId}</td>
+					</tr>
+					<tr>
+						<td colspan="1">客户:</td>
+						<td colspan="1">{:customerName}</td>
+						<td colspan="2" rowspan="1" align="center" style="">印期: {:printDate}</td>
+					</tr>
+					<tr>
+						<td colspan="1">联系人:</td>
+						<td colspan="1">{:contactName}</td>
+						<td colspan="1" align="right">手机:</td>
+						<td colspan="1">{:contactPhone}</td>
+						<td colspan="1" align="right">地址:</td>
+						<td colspan="2">{:contactAddress}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+		<tr>
+			<th id="goodsId@" align="left" style="border-bottom:1px solid">货物编码</th>
+			<th id="goodsName@" align="left" style="border-bottom:1px solid">货物名称</th>
+			<th id="goodsUnit@" align="left" style="border-bottom:1px solid">单位</th>
+			<th id="goodsAmount@" align="left" style="border-bottom:1px solid">数量</th>
+			<th id="comment@" align="left" style="border-bottom:1px solid">备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		{:orderContent}
+	</tbody>
+	<tfoot valign="bottom">
+		<tr style="font-weight:bold">
+			<td colspan="3">合计</td>
+			<td>{:amountSum}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<table width="100%">
+					<tr>
+						<td width="10%">经手人:</td>
+						<td width="15%">{:operator}</td>
+						<td width="10%">业务员:</td>
+						<td width="15%">{:salesman}</td>
+						<td width="12%">客户签字:</td>
+						<td width="13%"></td>
+						<td width="12%">签字日期:</td>
+						<td width="13%"></td>
+					</tr>
+					<tr>
+						<td colspan="8" align="center">{:footer}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</tfoot>
+</table>

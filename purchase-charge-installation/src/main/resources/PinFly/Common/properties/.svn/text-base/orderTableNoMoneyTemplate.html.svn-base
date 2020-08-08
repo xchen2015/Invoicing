@@ -1,0 +1,29 @@
+﻿<table width="100%">
+	<col align="left" width="17%" />
+	<col align="left" width="34%" />
+	<col align="left" width="7%" />
+	<col align="left" width="14%" />
+	<col align="left" width="7%" />
+	<col align="left" width="21%" />
+	
+	<thead>
+		<tr>
+			<th id="goodsId@" align="left" style="border-bottom:1px solid">货物编码</th>
+			<th id="goodsName@" align="left" style="border-bottom:1px solid">货物名称</th>
+			<th id="goodsUnit@" align="left" style="border-bottom:1px solid">单位</th>
+			<th id="goodsDepository@" align="left" style="border-bottom:1px solid">仓库</th>
+			<th id="goodsAmount@" align="left" style="border-bottom:1px solid">数量</th>
+			<th id="comment@" align="left" style="border-bottom:1px solid">备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		{:orderContent}
+	</tbody>
+	<tfoot valign="bottom">
+		<tr style="font-weight:bold">
+			<td colspan="4">合计</td>
+			<td>{:amountSum}</td>
+			<td></td>
+		</tr>
+	</tfoot>
+</table>

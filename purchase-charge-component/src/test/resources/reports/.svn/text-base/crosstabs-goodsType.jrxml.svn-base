@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+	name="crosstabs-goodsType" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50">
+	
+	<!--<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Bold" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Italic" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+	<style name="ColumnHeader" isDefault="false" style="Sans_Bold" mode="Opaque" forecolor="#FFFFFF" backcolor="#333333"/>-->
+	<style name="CellStyle" isDefault="false" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{ROW_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#E0E0E0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Detail" isDefault="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}.intValue() % 2 == 0 ? Boolean.TRUE : Boolean.FALSE]]></conditionExpression>
+			<style mode="Opaque" backcolor="#E0E0E0"/>
+		</conditionalStyle>
+	</style>
+	
+	<subDataset name="GoodsPriceQuantity">
+		<parameter name="goodsTypeParam" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT g.name as goodsName, g.unit, g.importPrice, g.retailPrice, g.tradePrice, g.type_id, gt.name as goodsType FROM pc_goods g, pc_goods_type gt where g.type_id=gt.id and gt.name=$P{goodsTypeParam}]]>
+		</queryString>
+		<field name="goodsName" class="java.lang.String" />
+		<field name="unit" class="java.lang.String" />
+		<field name="importPrice" class="java.lang.Float" />
+		<field name="retailPrice" class="java.lang.Float" />
+		<field name="tradePrice" class="java.lang.Float" />
+		<field name="goodsType" class="java.lang.String" />
+	</subDataset>
+	
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="reportSubTitle" class="java.lang.String"/>
+	
+	<queryString>
+    	<![CDATA[select gt.name as goodsTypeName from pc_goods_type gt group by gt.name order by gt.name]]>
+  	</queryString>
+	<field name="goodsTypeName" class="java.lang.String" />
+
+	<title>
+		<band height="70">
+			<line>
+				<reportElement x="0" y="0" width="515" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement x="0" y="10" width="515" height="30"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{reportTitle}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="40" width="515" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{reportSubTitle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	
+	<detail>
+		<band height="300">
+			<crosstab isRepeatColumnHeaders="false">
+				<reportElement width="515" y="0" x="0" height="300" />
+				<crosstabParameter name="goodsTypeParam">
+					<parameterValueExpression><![CDATA[$F{goodsTypeName}]]></parameterValueExpression>
+				</crosstabParameter>
+				<crosstabDataset>
+					<dataset>
+						<datasetRun subDataset="GoodsPriceQuantity">
+							<datasetParameter name="goodsTypeParam">
+								<datasetParameterExpression><![CDATA[$F{goodsTypeName}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+				</crosstabDataset>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<pen lineWidth="1.0"/>
+						</box>
+						<staticText>
+							<reportElement x="0" y="0" width="100" height="20"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<text><![CDATA[Goods highest/lowest price]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="goodsRowGroup" width="100" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String">
+              				<![CDATA[$F{goodsName}]]>
+						</bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents style="CellStyle">
+							<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+							<textField>
+								<reportElement y="0" x="0" width="100" height="20" />
+								<textElement textAlignment="Center" verticalAlignment="Middle" />
+								<textFieldExpression>
+                  					<![CDATA[$V{goodsRowGroup}]]>
+								</textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents>
+							<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="20" />
+								<textElement textAlignment="Center" verticalAlignment="Middle" />
+								<text><![CDATA[Highest]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="0" y="20" width="100" height="20" />
+								<textElement textAlignment="Center" verticalAlignment="Middle" />
+								<text><![CDATA[Lowest]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="goodsTypeColumnGroup" height="20" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String">
+							$F{goodsType}
+						</bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents>
+							<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+							<textField isStretchWithOverflow="true">
+								<reportElement width="60" y="0" x="0" height="20" />
+								<textElement textAlignment="Center" verticalAlignment="Middle" />
+								<textFieldExpression>
+                  					<![CDATA[$V{goodsTypeColumnGroup}]]>
+								</textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents>
+							<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+							<staticText>
+								<reportElement width="60" y="0" x="0" height="20" />
+								<textElement textAlignment="Center" verticalAlignment="Middle" />
+								<text><![CDATA[Highest]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="importPriceHighest" class="java.lang.Float" calculation="Highest">
+					<measureExpression><![CDATA[$F{importPrice}]]></measureExpression>
+				</measure>
+				<measure name="importPriceLowest" class="java.lang.Float" calculation="Lowest">
+					<measureExpression><![CDATA[$F{importPrice}]]></measureExpression>
+				</measure>
+				<crosstabCell height="20" width="60">
+					<cellContents style="CellStyle">
+						<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceHighest}
+							</textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="40" width="60" rowTotalGroup="goodsRowGroup">
+					<cellContents backcolor="#FFFF00" mode="Opaque">
+						<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceHighest}
+							</textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="20" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceLowest}
+							</textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				
+				<crosstabCell height="20" width="60" columnTotalGroup="goodsTypeColumnGroup">
+					<cellContents backcolor="#00FF00" mode="Opaque">
+						<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceHighest}
+							</textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="40" width="60" rowTotalGroup="goodsRowGroup" columnTotalGroup="goodsTypeColumnGroup">
+					<cellContents backcolor="#808080" mode="Opaque">
+						<box><pen lineWidth="1.0" lineColor="#000000"/></box>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceHighest}
+							</textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="20" width="55" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle" />
+							<textFieldExpression class="java.lang.Float">
+								$V{importPriceLowest}
+							</textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<whenNoDataCell>
+					<cellContents>
+						<staticText>
+							<reportElement x="0" y="0" width="250" height="25"/>
+							<textElement/>
+							<text><![CDATA[No data]]></text>
+						</staticText>
+					</cellContents>
+				</whenNoDataCell>
+			</crosstab>
+		</band>
+	</detail>
+	
+</jasperReport>

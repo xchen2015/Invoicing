@@ -1,0 +1,18 @@
+﻿<table width="100%">
+	<col align="left" width="25%" />
+	<col align="left" width="25%" />
+	<col align="left" width="25%" />
+	<col align="left" width="25%" />
+	
+	<thead>
+		<tr>
+			<th id="sumOrderReceivable@" align="left" style="border-bottom:1px solid">销售额</th>
+			<th id="sumProfit@" align="left" style="border-bottom:1px solid">毛利润</th>
+			<th id="sumCustomerUnPay@" align="left" style="border-bottom:1px solid">客户欠款</th>
+			<th id="sumProviderUnPay@" align="left" style="border-bottom:1px solid">供应商欠款</th>
+		</tr>
+	</thead>
+	<tbody>
+		{:tbody}
+	</tbody>
+</table>

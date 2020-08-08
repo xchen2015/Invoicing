@@ -1,0 +1,244 @@
+navigation.GoodsManagement = 货物管理
+navigation.GoodsUnitAndType = 货物单位及类型
+navigation.UserManagement = 用户
+navigation.FollowWayManagement = 客户跟进方式
+navigation.PaymentTypeManagement = 订单支付方式
+navigation.MemorialDayTypeManagement = 客户纪念日类型
+navigation.LoggerEventManagement = 系统日志事件
+navigation.CustomerAndContact = 客户及联系人
+navigation.CustomerManagement = 客户管理
+navigation.providerManagement = 供应商管理
+navigation.ContactManagement = 联系人管理
+navigation.inOrderManagement = 采购单管理
+navigation.outOrderManagement = 销售单管理
+navigation.storageManagement = 库存管理
+navigation.afterSaleManagement = 售后管理
+navigation.financeManagement = 财务
+
+# Contact Type Management
+contactTypeManagement = 联系人类型管理
+contactType = 联系人类型
+
+# Customer Level Management
+customerLevelManagement = 客户级别管理
+customerLevel = 客户级别
+newLevel = 新增级别
+editLevel = 编辑级别
+removeLevel = 删除级别
+
+# Customer Scale Management
+customerScaleManagement = 客户公司规模管理
+customerScale = 客户公司规模
+newScale = 新增规模
+editScale = 编辑规模
+removeScale = 删除规模
+
+# Customer Source Management
+customerSourceManagement = 客户来源管理
+customerSource = 客户来源
+newSource = 新增来源
+editSource = 编辑来源
+removeSource = 删除来源
+
+# Customer Status Management
+customerStatusManagement = 客户状态管理
+customerStatus = 客户状态
+newStatus = 新增状态
+editStatus = 编辑状态
+removeStatus = 删除状态
+
+# Customer Trade Management
+customerTradeManagement = 客户行业管理
+customerTrade = 客户行业
+newTrade = 新增行业
+editTrade = 编辑行业
+removeTrade = 删除行业
+
+# Follow Way Management
+followWayManagement = 客户跟进方式管理
+followWay = 客户跟进方式
+newWay = 新增方式
+editWay = 编辑方式
+removeWay = 删除方式
+
+# Goods Type Management
+goodsTypeManagement = 货物类型管理
+goodsType = 货物类型
+newRootType = 新增顶级类型
+appendType = 追加子类型
+expand = 展开
+collapse = 收缩
+parentId = 父结点编号
+
+# Region Management
+regionManagement = 区域管理
+region = 区域
+newRootRegion = 新增顶级区域
+appendRegion = 追加子区域
+editRegion = 编辑区域
+removeRegion = 删除区域
+
+# Goods Unit Management
+goodsUnitManagement = 货物单位管理
+goodsUnit = 货物单位
+newUnit = 新增单位
+editUnit = 编辑单位
+removeUnit = 删除单位
+
+# Logger Event Management
+loggerEventManagement = 日志事件管理
+loggerEvent = 日志事件
+newEvent = 新增事件
+editEvent = 编辑事件
+removeEvent = 删除事件
+
+# MemorialDay Type Management
+memorialDayTypeManagement = 纪念日类型管理
+memorialDayType = 纪念日类型
+
+# Payment Type Management
+paymentTypeManagement = 支付类型管理
+paymentType = 支付类型
+
+# Goods Management
+goodsManagement = 货物管理
+serialNumber = 序列号
+maker = 制造厂
+barCode = 条形码
+specification = 规格
+technicalParameters = 技术参数
+importPrice = 进货价
+retailPrice = 零售参考价
+tradePrice = 批发价
+available = 是否可用
+newGoods = 新增货物
+editGoods = 编辑货物
+goods = 货物
+removeGoods = 删除货物
+enable = 可用
+unavailable = 不可用
+
+unit = 单位
+goods.type = 类型
+goods.selectAnType = 选择一个类型...
+
+# Customer
+customerManagement = 客户管理
+customer = 客户
+newCustomer = 新增客户
+editCustomer = 编辑客户
+removeCustomer = 删除客户
+customer.shortName = 简称
+customer.type = 类型
+customer.companyName = 公司名称
+customer.companyIntroduction = 公司简介
+customer.address = 地址
+customer.zipCode = 邮政编号
+customer.email = 电子邮箱
+customer.fax = 传真
+customer.fixedPhone = 固定电话
+customer.isDeleted = 是否删除
+customer.scale = 规模
+customer.trade = 行业
+customer.source = 来源
+customer.goodsIntention = 意向产品
+customer.legalPerson = 法人
+customer.memberAccount = 会员帐号
+customer.webSite = 网址
+customer.registerDate = 注册时间
+customer.registerFund = 注册资金
+customer.region = 区域
+customer.comment = 备注
+customer.createDate = 创建日期
+customer.lastUpdated = 最后更新
+customer.signUserId = 所属业务员
+customer.isSharable = 是否共享
+customer.level = 级别
+customer.status = 状态
+customer.option.enSharable = 可共享
+customer.option.unSharable = 不可共享
+customer.option.enterprise = 企业
+customer.option.individual = 个人
+
+# Contact
+contact.contactManagement = 联系人管理
+contact.contact = 联系人
+contact.newContact = 新增联系人
+contact.editContact = 编辑联系人
+contact.removeContact = 删除联系人
+
+contact.name = 名称
+contact.customer = 对应客户
+contact.genderCode = 性别
+contact.mobilePhone = 手机
+contact.qq = QQ
+contact.skype = Skype
+contact.email = 电子邮箱
+contact.weiXin = 微信
+contact.wangWang = 阿里旺旺
+contact.dept = 部门
+contact.post = 职位
+contact.concernedBusiness = 关心的业务
+contact.interest = 兴趣爱好
+contact.address = 地址
+contact.webSite = 个人主页
+contact.region = 区域
+contact.type = 类型
+
+contact.option.male = 男
+contact.option.female = 女
+
+Report = 统计
+navigation.basicData = 基础数据
+GoodsReportManagement = 货物统计
+countPriceByType=按类型统计货物价格
+countQuantityByType=按类型统计货物数量
+
+Order = 订单
+OrderManagement = 订单管理
+Customer = 客户
+Goods = 货物
+
+# Order Management
+order.orderManagement=订单管理
+order.customer=客户
+order.dealMoney=应付额
+order.paidMoney=实付额
+order.profit=利润
+order.payDate=付款日期
+order.payDeadline=付款期限
+order.signUserId=业务员
+order.statusCode=状态
+order.order=订单
+order.newOrder=新增订单
+order.editOrder=编辑订单
+order.removeOrder=删除订单
+order.option.start=开始
+order.option.return=退回
+order.option.cancel=取消
+order.option.finished=完成
+order.product=产品
+order.unit=单位
+order.unitPrice=单价
+order.amount=数量
+order.sum=金额
+order.note=备注
+order.append=添加
+order.accept=保存
+order.remove=删除
+order.items=订单项
+
+order.viewOrder=查看订单
+order.updatePaid=新增回款
+order.updateStatus=编辑状态
+order.paidRecord=回款记录
+print=打印
+order.searchAndSelectCustomer=查询和选择客户
+order.payMoney=金额
+order.createDate=创建日期
+order.id=订单号
+
+# Report
+report.countHighLowPrice=统计货物价格
+report.countGoodsQuantityByType=统计货物数量(饼图)
+report.countGoodsQuantityByType2=统计货物数量(柱图)

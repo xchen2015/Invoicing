@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/usersecurity
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/usersecurity/Role.java
+END
+UserSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/usersecurity/UserSession.java
+END
+Authority.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/usersecurity/Authority.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/usersecurity/User.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report
+END
+ReportProviderManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/!svn/ver/1208/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/ReportProviderManager.java
+END
+ReportAccountingManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/!svn/ver/1208/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/ReportAccountingManager.java
+END
+ReportGoodsManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/1208/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/ReportGoodsManager.java
+END
+GoodsReportManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/GoodsReportManager.java
+END
+ReportCustomerManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/!svn/ver/1208/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/ReportCustomerManager.java
+END
+ReportIndexManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/1200/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/report/ReportIndexManager.java
+END

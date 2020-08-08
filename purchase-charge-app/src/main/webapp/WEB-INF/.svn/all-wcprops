@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1040/trunk/purchase-charge-app/src/main/webapp/WEB-INF
+END
+PcApp-navigation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1207/trunk/purchase-charge-app/src/main/webapp/WEB-INF/PcApp-navigation.xml
+END
+PcApp-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1013/trunk/purchase-charge-app/src/main/webapp/WEB-INF/PcApp-servlet.xml
+END
+PcApp-security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1209/trunk/purchase-charge-app/src/main/webapp/WEB-INF/PcApp-security.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1171/trunk/purchase-charge-app/src/main/webapp/WEB-INF/applicationContext.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/857/trunk/purchase-charge-app/src/main/webapp/WEB-INF/web.xml
+END
+framework-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1013/trunk/purchase-charge-app/src/main/webapp/WEB-INF/framework-servlet.xml
+END

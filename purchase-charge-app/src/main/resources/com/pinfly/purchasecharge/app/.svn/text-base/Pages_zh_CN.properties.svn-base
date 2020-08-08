@@ -1,0 +1,100 @@
+# Page Keys
+navigation.Dashboard = 首页
+navigation.Goods = 入库
+navigation.Order = 出库
+navigation.Customer = 客户
+navigation.Report = 报表
+navigation.financeManagement = 资金
+navigation.basicData = 设置
+
+navigation.Admin = 管理
+navigation.CustomerManagement = 客户
+navigation.providerManagement = 供应商
+navigation.inOrderManagement = 入库单
+navigation.outOrderManagement = 出库单
+navigation.projectManagement = 工程管理
+navigation.contractManagement = 合同管理
+navigation.financeReport = 销量与利润
+navigation.goodsReportQuery = 货物订单
+navigation.customerReportQuery = 客户订单
+navigation.providerReportQuery = 供应商订单
+navigation.accountingReportQuery = 其他收支
+navigation.GoodsManagement = 货物
+navigation.storageManagement = 库存
+navigation.storageCheck = 库存盘点
+navigation.storageTransfer = 库存调拨
+navigation.goodsCostRevise = 库存调价
+navigation.orderDelivery = 出库单配送
+navigation.GoodsUnitAndTypeAndDepository = 货物单位类型仓库
+navigation.UserManagement = 用户角色权限
+navigation.FollowWayManagement = 客户跟进方式
+navigation.PaymentTypeManagement = 支付账号
+navigation.MemorialDayTypeManagement = 客户纪念日类型
+navigation.LogManagement = 系统操作日志
+navigation.CustomerAndContact = 客户类型
+navigation.AuditLog = 系统操作日志
+navigation.afterSaleManagement = 货物返修
+navigation.goodsSerialManagement = 货物序列号
+navigation.financeInManagement = 客户应收款
+navigation.financeOutManagement = 供应商应付款
+navigation.customerFinanceManagement = 客户应收款
+navigation.providerFinanceManagement = 供应商应付款
+navigation.orderProfitQuery = 销售单利润查询
+navigation.orderInItemQuery = 采购单明细查询
+navigation.orderOutItemQuery = 销售单明细查询
+navigation.storageStatisticQuery = 库存余额查询
+navigation.payAccountAndWay = 支付账号方式
+navigation.payAccountManagement = 支付账号
+navigation.payAccountFinance = 支付账号明细
+navigation.payWayManagement = 支付方式
+navigation.expenseRecordManagement = 其他收支记录
+navigation.expenseTypeManagement = 收支类型
+navigation.BackupAndRestore = 系统备份与恢复
+navigation.ResetSystem = 恢复出厂设置
+navigation.tabMenu = 菜单
+
+UserManagement = 用户管理
+RoleManagement = 角色管理
+AuthorityManagement = 权限管理
+ResourceManagement = 资源管理
+GoodsUnitManagement = 货物单位
+GoodsTypeManagement = 货物类型
+GoodsDepositoryManagement = 货物仓库
+
+CustomerTypeManagement = 客户类型
+ProviderTypeManagement = 供应商类型
+RegionManagement = 区域管理
+CompanyBankAccount = 公司银行账号
+
+appSetting.userSetting = 用户设置
+appSetting.changePassword = 修改密码
+PasswordManagement = 修改密码
+
+Welcome = 欢迎
+WelcomeTo = 欢迎来到
+System = 系统
+Logout = 注销
+loginForm.signIn = 欢迎来到{0}系统
+loginForm.unsucessfulLogin = 登录失败，请重试.
+loginForm.userId = 用户名
+loginForm.password = 密码
+loginForm.rememberMeTwoWeeks = 免登陆两个星期
+loginForm.helpInfo = 忘记密码或其他登录问题，请联系管理员
+loginForm.loginButton = 登录
+loginFooter.aboutUs = 关于我们
+loginFooter.contactUs = 联系我们
+
+accessDeny.title = 访问受限
+accessDeny.info = 访问受限!
+accessDeny.backToLast = 返回
+accessDeny.sessionExpired = 会话过期
+accessDeny.thisSessionExpired = 会话已经过期!
+concurrencyLogin.title = 并发登录
+concurrencyLogin.info = 会话已经过期(由于多个并发登录相同的用户正在尝试)!
+concurrencyLogin.switchUser = 更换用户
+
+pc.name = 品飞进销存管理
+pc.copyright = 2014-2016 品飞信息
+pc.version = 2.0
+
+

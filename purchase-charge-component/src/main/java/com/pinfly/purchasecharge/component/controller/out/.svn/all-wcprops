@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1053/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out
+END
+OutOrderDeliveryManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/OutOrderDeliveryManager.java
+END
+CustomerLevelManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/CustomerLevelManager.java
+END
+CustomerPayManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/CustomerPayManager.java
+END
+CustomerManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/CustomerManager.java
+END
+CustomerTypeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/CustomerTypeManager.java
+END
+OutOrderManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/1218/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/out/OutOrderManager.java
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session
+END
+FrameworkSessionItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session/FrameworkSessionItem.java
+END
+FrameworkSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session/FrameworkSession.java
+END
+FrameworkSessionImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session/FrameworkSessionImpl.java
+END
+SessionScope.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session/SessionScope.java
+END
+FrameworkSessionInternal.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/session/FrameworkSessionInternal.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1051/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl
+END
+AccountingDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1192/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/AccountingDaoImpl.java
+END
+PaymentAccountDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/PaymentAccountDaoImpl.java
+END
+DeliveryCompanyDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1036/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/DeliveryCompanyDaoImpl.java
+END
+AccountingTypeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/AccountingTypeDaoImpl.java
+END
+MysqlBackupAndRestore.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/MysqlBackupAndRestore.java
+END
+ContractDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/ContractDaoImpl.java
+END
+PaymentWayDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/PaymentWayDaoImpl.java
+END
+PaymentTransferDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1197/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/PaymentTransferDaoImpl.java
+END
+ProjectDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/ProjectDaoImpl.java
+END

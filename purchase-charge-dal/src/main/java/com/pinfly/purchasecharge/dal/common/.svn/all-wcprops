@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/common
+END
+AbstractGenericDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/common/AbstractGenericDao.java
+END
+PagingResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/common/PagingResult.java
+END
+MyGenericDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/common/MyGenericDaoImpl.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component
+END
+LogUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/LogUtilTest.java
+END
+ExportDocumentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1186/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/ExportDocumentTest.java
+END
+PcJasperReportTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/PcJasperReportTest.java
+END
+AsciiToolTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/433/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/AsciiToolTest.java
+END
+SpringBeanUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/SpringBeanUtilTest.java
+END
+JSONTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/JSONTest.java
+END
+PatReportPageEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/test/java/com/cxx/purchasecharge/component/PatReportPageEventHandler.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1011/trunk/purchase-charge-service/src/main/resources/META-INF/spring
+END
+purchase-charge-auditlog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/711/trunk/purchase-charge-service/src/main/resources/META-INF/spring/purchase-charge-auditlog.xml
+END
+purchase-charge-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1182/trunk/purchase-charge-service/src/main/resources/META-INF/spring/purchase-charge-service.xml
+END

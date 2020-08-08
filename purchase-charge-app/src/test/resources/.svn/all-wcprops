@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/434/trunk/purchase-charge-app/src/test/resources
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/434/trunk/purchase-charge-app/src/test/resources/log4j.properties
+END
+spring-aop-test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/341/trunk/purchase-charge-app/src/test/resources/spring-aop-test.xml
+END

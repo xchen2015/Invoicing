@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1042/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out
+END
+OrderDelivery.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/OrderDelivery.java
+END
+CustomerPayment.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/1190/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/CustomerPayment.java
+END
+Customer.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/Customer.java
+END
+OrderOutItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/OrderOutItem.java
+END
+OrderOut.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1190/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/OrderOut.java
+END
+CustomerType.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/CustomerType.java
+END
+OrderReceipt.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/OrderReceipt.java
+END
+CustomerLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1190/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/CustomerLevel.java
+END
+CustomerContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/CustomerContact.java
+END
+CustomerPaymentRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/1183/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/out/CustomerPaymentRecord.java
+END

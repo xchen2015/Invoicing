@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1062/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller
+END
+GenericController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/GenericController.java
+END
+ProjectManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/ProjectManager.java
+END
+IndexManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/IndexManager.java
+END
+AccountingManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/AccountingManager.java
+END
+PaymentAccountManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/1218/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/PaymentAccountManager.java
+END
+AccountingTypeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/AccountingTypeManager.java
+END
+BackupAndRestoreManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/BackupAndRestoreManager.java
+END
+ContractManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/ContractManager.java
+END
+PaymentWayManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/PaymentWayManager.java
+END
+RegionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/RegionManager.java
+END
+DeliveryCompanyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/DeliveryCompanyController.java
+END

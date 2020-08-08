@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1061/trunk/purchase-charge-service/src/main/java/com/pinfly/purchasecharge/service/impl
+END
+LogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1191/trunk/purchase-charge-service/src/main/java/com/pinfly/purchasecharge/service/impl/LogServiceImpl.java
+END
+PersistenceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1217/trunk/purchase-charge-service/src/main/java/com/pinfly/purchasecharge/service/impl/PersistenceServiceImpl.java
+END
+QueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1217/trunk/purchase-charge-service/src/main/java/com/pinfly/purchasecharge/service/impl/QueryServiceImpl.java
+END

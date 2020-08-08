@@ -1,0 +1,22 @@
+
+##########################################################
+# Keystore information
+##########################################################
+#
+# The following information specifies where the keystore 
+# is located and the information to query the keystore.
+#
+# The file specifies the name of the keystore file in the
+# Common/keystore folder.  The -Dpinfly.common.dir folder is
+# used to determine the folder.
+keystore.file=crypto.keystore
+
+# This specifies the alias used in the keystore file.
+keystore.alias=!encrypted!0000014484e826e1f9d0ca8afb62f5d33e5f0a4a203a28879caa7d852931ffbfa493d009e409b9501544584e9fc992a3910da94dac247f5fa3f90aa8d1262301
+
+
+# Specifies the key store password
+keystore.storePass=!encrypted!0000014484e88086f9d0ca8afb62f5d350439f15261bbdd59839382072c21e3796356d5760904dc9c9da4c3cc750ba135d4238e3dbcfe358f84a2b572a49de9279c6bc8452e5a284f5518788f0ee6546
+
+# Specifies the key password
+keystore.keyPass=!encrypted!0000014484e9246bf9d0ca8afb62f5d33c30a1d6e946b876f149033bb0b2deeaa44758e859b1cc89bbc69a82660fe55737a80058c0c78aadbcc84670210fe41a36fa38a6c5125f869153e6017b86dbcc

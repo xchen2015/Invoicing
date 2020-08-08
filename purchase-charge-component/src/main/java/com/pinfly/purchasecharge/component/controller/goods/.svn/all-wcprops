@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1053/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods
+END
+GoodsIssueManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsIssueManager.java
+END
+GoodsSerialNumberManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsSerialNumberManager.java
+END
+GoodsManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsManager.java
+END
+GoodsUnitManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsUnitManager.java
+END
+GoodsTypeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsTypeManager.java
+END
+GoodsDepositoryManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsDepositoryManager.java
+END
+GoodsStorageManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/goods/GoodsStorageManager.java
+END

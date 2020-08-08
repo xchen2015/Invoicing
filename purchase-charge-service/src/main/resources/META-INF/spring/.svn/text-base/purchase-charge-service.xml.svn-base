@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<import resource="classpath:META-INF/spring/purchase-charge-dao.xml"/>
+	
+	<bean id="persistenceService" class="com.pinfly.purchasecharge.service.impl.PersistenceServiceImpl">
+		<property name="customerDao" ref="customerDao" />
+		<property name="customerContactDao" ref="customerContactDao" />
+		<property name="customerTypeDao" ref="customerTypeDao" />
+		<property name="customerLevelDao" ref="customerLevelDao" />
+		<property name="customerPaymentDao" ref="customerPaymentDao" />
+		<property name="customerPaymentRecordDao" ref="customerPaymentRecordDao" />
+		<property name="providerDao" ref="providerDao" />
+		<property name="providerContactDao" ref="providerContactDao" />
+		<property name="providerTypeDao" ref="providerTypeDao" />
+		<property name="providerPaymentDao" ref="providerPaymentDao" />
+		<property name="providerPaymentRecordDao" ref="providerPaymentRecordDao" />
+		<property name="orderInDao" ref="orderInDao" />
+		<property name="orderInItemDao" ref="orderInItemDao" />
+		<property name="orderOutDao" ref="orderOutDao" />
+		<property name="orderOutItemDao" ref="orderOutItemDao" />
+		<property name="goodsDao" ref="goodsDao" />
+		<property name="goodsTypeDao" ref="goodsTypeDao" />
+		<property name="goodsUnitDao" ref="goodsUnitDao" />
+		<property name="goodsPictureDao" ref="goodsPictureDao" />
+		<property name="goodsDepositoryDao" ref="goodsDepositoryDao" />
+		<property name="goodsStorageDao" ref="goodsStorageDao" />
+		<property name="goodsIssueDao" ref="goodsIssueDao" />
+		<property name="goodsSerialNumberDao" ref="goodsSerialNumberDao" />
+		<property name="goodsStorageTransferDao" ref="goodsStorageTransferDao" />
+		<property name="goodsStorageCheckDao" ref="goodsStorageCheckDao" />
+		<property name="goodsStoragePriceReviseDao" ref="goodsStoragePriceReviseDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="roleDao" ref="roleDao" />
+		<property name="authorityDao" ref="authorityDao" />
+		<property name="accountingDao" ref="accountingDao" />
+		<property name="accountingTypeDao" ref="accountingTypeDao" />
+		<property name="paymentAccountDao" ref="paymentAccountDao" />
+		<property name="paymentTransferDao" ref="paymentTransferDao" />
+		<property name="paymentWayDao" ref="paymentWayDao" />
+		<property name="projectDao" ref="projectDao" />
+		<property name="orderDeliveryDao" ref="orderDeliveryDao" />
+		<property name="deliveryCompanyDao" ref="deliveryCompanyDao" />
+		<property name="queryService" ref="queryService" />
+	</bean>
+	
+	<bean id="queryService" class="com.pinfly.purchasecharge.service.impl.QueryServiceImpl">
+		<property name="customerDao" ref="customerDao" />
+		<property name="customerContactDao" ref="customerContactDao" />
+		<property name="customerTypeDao" ref="customerTypeDao" />
+		<property name="customerLevelDao" ref="customerLevelDao" />
+		<property name="customerPaymentDao" ref="customerPaymentDao" />
+		<property name="providerDao" ref="providerDao" />
+		<property name="providerContactDao" ref="providerContactDao" />
+		<property name="providerTypeDao" ref="providerTypeDao" />
+		<property name="providerPaymentDao" ref="providerPaymentDao" />
+		<property name="orderInDao" ref="orderInDao" />
+		<property name="orderInItemDao" ref="orderInItemDao" />
+		<property name="orderOutDao" ref="orderOutDao" />
+		<property name="orderOutItemDao" ref="orderOutItemDao" />
+		<property name="goodsDao" ref="goodsDao" />
+		<property name="goodsTypeDao" ref="goodsTypeDao" />
+		<property name="goodsUnitDao" ref="goodsUnitDao" />
+		<property name="goodsPictureDao" ref="goodsPictureDao" />
+		<property name="goodsDepositoryDao" ref="goodsDepositoryDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="roleDao" ref="roleDao" />
+		<property name="authorityDao" ref="authorityDao" />
+		<property name="accountingDao" ref="accountingDao" />
+		<property name="accountingTypeDao" ref="accountingTypeDao" />
+		<property name="paymentAccountDao" ref="paymentAccountDao" />
+		<property name="paymentWayDao" ref="paymentWayDao" />
+		<property name="deliveryCompanyDao" ref="deliveryCompanyDao" />
+	</bean>
+	
+	<bean id="logService" class="com.pinfly.purchasecharge.service.impl.LogServiceImpl">
+		<property name="logEventDao" ref="logEventDao" />
+		<property name="logDao" ref="logDao" />
+	</bean>
+	
+	<bean id="jobManager" class="com.pinfly.purchasecharge.service.schedule.JobManager" init-method="init">
+        <property name="queryService" ref="queryService"/>
+        <property name="persistenceService" ref="persistenceService" />
+        <property name="logService" ref="logService" />
+        <property name="dataBackupAndLoad" ref="dataBackupAndLoad" />
+        <property name="finishOrderSchedulerExpression" value="${pc.finishOrderSchedulerExpression}" />
+        <property name="deleteLogSchedulerExpression" value="${pc.deleteLogSchedulerExpression}" />
+        <property name="backupDataSchedulerExpression" value="${pc.backupDataSchedulerExpression}" />
+        <property name="sendReportMailSchedulerExpression" value="${pc.sendReportMailSchedulerExpression}" />
+        <property name="finishOrderHoursAgo" value="${pc.finishOrderHoursAgo}" />
+        <property name="deleteLogDaysAgo" value="${pc.deleteLogDaysAgo}" />
+    </bean>
+    
+    <bean id="serviceAspect" class="com.pinfly.purchasecharge.service.aspect.ServiceAspect">
+    	<property name="goodsDao" ref="goodsDao" />
+    </bean>
+    
+    <!-- <aop:config proxy-target-class="false">
+		<aop:pointcut id="addGoodsScope"
+			expression="execution(* com.pinfly.purchasecharge.service.impl.PersistenceServiceImpl.addGoods(..))" />
+		<aop:pointcut id="updateGoodsScope"
+			expression="execution(* com.pinfly.purchasecharge.service.impl.PersistenceServiceImpl.updateGoods(..))" />
+			
+		<aop:aspect ref="serviceAspect">
+			<aop:after pointcut-ref="addGoodsScope" method="executeAfterChangeGoods" />
+			<aop:after pointcut-ref="updateGoodsScope" method="executeAfterChangeGoods" />
+		</aop:aspect>
+	</aop:config> -->
+	
+</beans>

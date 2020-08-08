@@ -1,0 +1,8 @@
+
+TimeFrame.customize = --
+TimeFrame.today = 今天 
+TimeFrame.recent_three_days = 最近3天
+TimeFrame.recent_seven_days = 最近7天 
+TimeFrame.recent_fifteen_days = 最近15天
+TimeFrame.recent_thirty_days = 最近30天
+TimeFrame.current_month = 当月

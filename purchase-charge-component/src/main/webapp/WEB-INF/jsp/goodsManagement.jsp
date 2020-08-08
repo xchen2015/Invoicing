@@ -1,0 +1,312 @@
+﻿<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
+	<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+	<%@ page import="com.pinfly.purchasecharge.component.bean.TimeSpan"%>
+	<%@ page import="com.pinfly.purchasecharge.core.model.OrderTypeCode"%>
+	
+	<div style="width:100%; height:430px;">
+		<div class="easyui-layout" data-options="fit:true" style="width: 100%;">
+			<div data-options="region:'center',title:'', border:false" style="">
+				<table id="dg-goods" title="<spring:message code="goods.goodsManagement" />" class="easyui-datagrid" toolbar="#toolbar-goods" 
+					rownumbers="true" singleSelect="true" checkOnSelect="true" selectOnCheck="false" fitColumns="true" showFooter="true" pagination="true"  
+					data-options="sortName:'name', sortOrder:'asc', fit:true, onClickRow:onClickGoodsRow, onLoadSuccess:onLoadGoodsSuccess, 
+						onDblClickRow:onDblClickGoodsRow, onCheckAll:onCheckAllGoods, checkAll:onUnCheckGoods, onCheck:onCheckAllGoods, 
+						onUncheck:onUnCheckGoods, onBeforeLoad:onBeforeLoadGoods, onHeaderContextMenu:onGoodsHeaderContextMenu">
+					<thead>
+						<tr>
+							<th data-options="field:'ck',checkbox:true"></th>
+							<th data-options="field:'id',hidden:true"></th>
+							<th field="action" width="15" data-options="formatter:formatter_viewPictureAction"></th>
+							<th field="name" width="100" sortable="true" data-options="formatter:formatter_cellShowMore"><spring:message code="name" /></th>
+							<th field="shortCode" width="50" sortable="true"><spring:message code="goods.shortCode" /></th>
+							<th field="type" width="50" data-options="formatter:cellFormatter_goodsType"><spring:message code="goods.type" /></th>
+							<th field="unit" width="20" data-options="formatter:cellFormatter_goodsUnit"><spring:message code="goods.unit" /></th>
+							<th field="totalStock" width="50" sortable="false" data-options="formatter:cellFormatter_goodsStock"><spring:message code="goodsStorage.currentStock" /></th>
+							<th field="averagePrice" width="50"><spring:message code="goods.averagePrice" /></th>
+							<th field="totalValue" width="50"><spring:message code="goods.totalValue" /></th>
+							<th field="importPrice" width="50" sortable="false" data-options=""><spring:message code="goods.importPrice" /></th>
+							<th field="retailPrice" width="50" sortable="false" data-options=""><spring:message code="goods.retailPrice" /></th>
+							<th field="minStock" width="50"><spring:message code="goodsStorage.minStock" /></th>
+							<th field="maxStock" width="50"><spring:message code="goodsStorage.maxStock" /></th>
+							<th field="depository" width="50" data-options="formatter:cellFormatter_goodsDepository"><spring:message code="goods.preferedDepository" /></th>
+							<th field="specificationModel" width="50"><spring:message code="goods.specificationModel" /></th>
+							<th field="barCode" hidden="true" width="50"><spring:message code="goods.barCode" /></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="panelEast-goodsType" data-options="region:'east',title:'<spring:message code='goodsType' />',border:true,split:true" style="width: 200px;">
+				<jsp:include page="goodsTypeManagement.jsp" />
+			</div>
+		</div>
+	</div>
+		
+	<div id="toolbar-goods" style="padding:5px;height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton c7" iconCls="icon-add" plain="true" 
+			onclick="newModel('#dlg-goods', '<spring:message code="goods.newGoods" />', '#fm-goods', '<c:url value='/goods/addModel.html' />', newGoodsCallback)" title="<spring:message code="goods.newGoods" />"><spring:message code="goods.newGoods" /></a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton" id="btn-editGoods" disabled="true" iconCls="icon-edit" plain="true" 
+			onclick="editGoodsPredo()" title="<spring:message code="selectOneRow" /><spring:message code="goods.editGoods" />"><spring:message code="goods.editGoods" /></a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton" id="btn-deleteGoods" disabled="true" iconCls="icon-remove" plain="true" 
+			onclick="deleteGoodsPredo()" title="<spring:message code="selectOneRow" /><spring:message code="goods.removeGoods" />"><spring:message code="goods.removeGoods" /></a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" id="btn-viewStorageCourse" iconCls="icon-search" plain="true" disabled="true" 
+			onclick="viewStorageCourse()" title="<spring:message code="goods.searchGoodsCourse" />"><spring:message code="goods.searchGoodsCourse" /></a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton" id="btn-warnGoodsStorage" iconCls="icon-search" plain="true"   
+			onclick="warnGoodsStorage()" title="<spring:message code="goods.warnGoodsStorage" />"><spring:message code="goods.warnGoodsStorage" /></a> 
+		<%-- <a href="javascript:void(0)" id="" class="easyui-linkbutton" iconCls="icon-back" onclick="exportGoods('#dg-goods', '<c:url value='/pdf/goods/exportGoods.xlsx' />')"><spring:message code="export" /></a> --%>
+		<span id="tb-view-hasStorage">
+			<label style="cursor:pointer;"><input id="checkHasStorage" type="checkbox" style="width:20px" onclick="onCheckShowHasStorage(this)"><spring:message code="goods.hasStorage" /></label>
+		</span>
+		<%-- <c:if test="${sessionScope.login_user.admin}">
+			<a id="" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" 
+				onclick="showManageGoodsType()"><spring:message code="goodsTypeManagement" /></a> 
+		</c:if> --%>
+		<c:if test="${sessionScope.login_user.admin}">
+			<a id="" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" 
+				onclick="showManageGoodsUnit()"><spring:message code="goodsUnitManagement" /></a> 
+		</c:if>
+		<c:if test="${sessionScope.login_user.admin}">
+			<a id="" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" 
+				onclick="showManageGoodsDepository()"><spring:message code="goodsDepository.depositoryManagement" /></a> 
+		</c:if>
+		<span style="float:right; margin-right:5px">
+			<input id="goodsSearchBox" class="easyui-searchbox" style="width:200px" data-options="prompt:'商品名称或编码',searcher:doSearchGoods" />
+		</span>
+	</div>
+	
+	<div id="dlg-goods" class="easyui-dialog"
+		style="width: 800px; height: 500px; padding:15px 5px;" closed="true"
+		buttons="#dlg-buttons-goods" data-options="modal:true">
+		<div style="width:100%;height:100%">
+			<form id="fm-goods" class="fm" style="margin:0 auto;padding:0px;width:100%;height:100%;" method="post" novalidate>
+				<div class="fitem divHidden">
+					<input id="goodsId" name="id" value="0">
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="name" /><span class="iconSpan16 required" />:</label> 
+						<input id="goodsName" name="name" class="easyui-textbox" required="true" data-options="prompt:'<spring:message code="requiredField" />'" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.shortCode" /><span class="iconSpan16 required" />:</label> 
+						<input id="shortCode" name="shortCode" class="easyui-textbox" required="true" data-options="prompt:'<spring:message code="requiredFieldAndUnique" />'" 
+							validType="myRemote['<c:url value='/goods/checkExist.html' />', 'shortCode', '#goodsId']" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.specificationModel" />:</label> 
+						<input name="specificationModel" class="easyui-textbox" validType="myRemote['<c:url value='/goods/checkSpecificationModelExist.html' />', 'specificationModel', '#goodsId', '#goodsName']" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.barCode" />:</label> 
+						<input name="barCode" class="easyui-textbox" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.type" />:</label> 
+						<input id="goodsTypeId" name="typeBean.id" class="easyui-combotree" title="<spring:message code="goods.selectAnType" />" 
+							data-options="panelHeight:400, onShowPanel:showAllGoodsType, onChange:onChangeGoodsType" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.preferedDepository" />:</label> 
+						<input id="goodsDepositoryId" name="preferedDepositoryBean.id" class="easyui-combobox" panelHeight="auto" editable="false" 
+							data-options="valueField:'id',textField:'name',method:'post', onShowPanel:showAllDepository" />
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goodsStorage.minStock" />:</label> 
+						<input id="minStock" name="minStock" class="easyui-numberbox" data-options="value:0">
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goodsStorage.maxStock" />:</label> 
+						<input id="maxStock" name="maxStock" class="easyui-numberbox" data-options="value:20" validType="checkStock['#dlg-goods #fm-goods #minStock']">
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.unit" />:</label> 
+						<input id="unit" name="unitBean.id" class="easyui-combobox" panelHeight="250" editable="false"
+							data-options="valueField:'id',textField:'name',method:'post',onShowPanel:showGoodsUnitPanel">
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.importPrice" />:</label> 
+						<input id="importPrice" name="importPrice" class="easyui-numberbox" data-options="precision:2">
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.retailPrice" />:</label> 
+						<input id="retailPrice" name="retailPrice" class="easyui-numberbox" data-options="precision:2" validType="checkPrice['#dlg-goods #fm-goods #importPrice']">
+					</div>
+				</div>
+				<div class="fitem css-dlg-formField">
+					<div>
+						<label><spring:message code="goods.tradePrice" />:</label> 
+						<input id="tradePrice" name="tradePrice" class="easyui-numberbox" data-options="precision:2" validType="checkPrice['#dlg-goods #fm-goods #importPrice']">
+					</div>
+				</div>
+				
+				<div style="width:100%;float:left">
+					<div style="margin:0 auto;width:670px;">
+						<table id="dg-goodsStorage" class="easyui-datagrid" title="初始库存" style="width:670px;height:150px" 
+							data-options="
+								rownumbers: true,
+								singleSelect: true,
+								toolbar: '#toolbar-goodsStorage',
+								style:{marginBottom:0},
+								showFooter: true,
+								fitColumns:true,
+								onBeforeEdit:goods_onBeforeEdit, onAfterEdit:goods_onAfterEdit, onCancelEdit:goods_onCancelEdit">
+							<thead>
+								<tr>
+									<th data-options="field:'id',hidden:true"></th>
+									<th data-options="field:'name',hidden:true"></th>
+									<th data-options="field:'depository',width:100,
+										formatter:formatter_goods_storage,
+										editor:{
+											type:'combobox',
+											options:{
+												valueField:'id',
+												textField:'name',
+												url:'<c:url value='/goodsDepository/getAllModel.html' />',
+												method:'post',
+												required:true,
+												editable:false,
+												panelHeight:'auto'
+											}
+										}
+									"><spring:message code="goods.depository" /></th>
+									<th data-options="field:'depositoryName',hidden:true"></th>
+									<th data-options="field:'currentAmount',width:100,editor:{type:'numberbox',options:{required:true, onChange:onChangeGoodsAmount}}"><spring:message code="goods.initialAmount" /></th>
+									<th data-options="field:'currentPrice',width:100,editor:{type:'numberbox',options:{required:true, precision:2, onChange:onChangeGoodsUnitPrice}}"><spring:message code="goods.averagePrice" /></th>
+									<th data-options="field:'worth',width:100,editor:{type:'numberbox',options:{precision:2}}"><spring:message code="goods.initialTotal" /></th>
+									<th field="action" width="50" data-options="formatter:formatter_goodsAction"><spring:message code="action" /></th>
+								</tr>
+							</thead>
+						</table>
+						
+						<div id="toolbar-goodsStorage">
+							<a href="javascript:void(0)" class="easyui-linkbutton" id="btn-addGoodsStorage" data-options="iconCls:'icon-add',plain:true" onclick="insertGoods()" title=""><spring:message code="goods.newStorage" /></a>
+						</div>
+					</div>
+				</div>
+				<div class="fitem divHidden">
+					<input name="storageList" id="storageList" />
+				</div>
+				
+				<div class="fitem css-dlg-formField" style="width:100%">
+					<div style="width:670px">
+						<label><spring:message code="goods.comment" />:</label> 
+						<input name="comment" class="easyui-textbox" data-options="multiline:true" style="width:100%;height:50px" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="dlg-buttons-goods">
+		<a href="javascript:void(0)" class="easyui-linkbutton c7"
+			iconCls="icon-ok" onclick="saveModelForGrid('#dg-goods', '#dlg-goods', '#fm-goods', saveGoodsCallback, checkGoodsStorage)"><spring:message code="save" /></a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" onclick="javascript:$('#dlg-goods').dialog('close')"><spring:message code="cancel" /></a>
+	</div>
+	
+	<!-- 查看库存历程 -->
+	<div id="dlg-view-storage-course" class="easyui-dialog" style="width: 1024px; height: 500px; padding: 5px;" closed="true"
+		buttons="#dlg-buttons-view-storage-course" data-options="modal:true">
+		<table id="dg-storage-course" class="easyui-datagrid" rownumbers="true" toolbar="#toolbar-storage-course" showFooter="true" 
+			singleSelect="true" fitColumns="true" data-options="fit:true, pagination:true, onLoadSuccess:onLoadStorageCourseSuccess">
+			<thead>
+				<tr>
+					<th data-options="field:'goodsId',hidden:true"></th>
+					<th data-options="field:'orderId',hidden:true"></th>
+					<th field="goodsName" width="50"><spring:message code="goods.goods" /></th>
+					<th field="goodsCode" width="30">货物编码</th>
+					<th field="goodsSpecificationModel" width="30">货物型号</th>
+					<th field="orderCreateDate" width="50">下单时间</th>
+					<th field="orderBid" width="50" data-options="formatter:orderTooltipFormatter">订单号</th>
+					<th field="customerId" hidden="true"></th>
+					<th field="customerName" width="40">客户或供应商</th>
+					<th field="userCreatedBy" hidden="true"></th>
+					<th field="userCreated" width="40">业务员</th>
+					<th field="orderTypeCode" width="30" data-options="formatter:orderTypeFormatter">订单类型</th>
+					<th field="orderStatusCode" width="20" data-options="formatter:orderStatusFormatter">订单状态</th>
+					<th field="goodsDepository" width="20">仓库</th>
+					<th field="goodsAmount" width="20">数量</th>
+					<th field="goodsPrice" width="20">单价</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div id="dlg-buttons-view-storage-course">
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" 
+			onclick="javascript:$('#dlg-view-storage-course').dialog('close')"><spring:message code="close" /></a>
+	</div>
+	<div id="toolbar-storage-course" style="padding:5px;height:auto">
+		<span id="advanceSearchSpan" style="width: 100%; display: inline-block;">
+			<form id="" action="">
+				<span id="" style="margin-right:10px">
+					<label><input id="orderTypeCode_all" name="orderTypeCode_mode" type="radio" value="0" checked="checked" onclick="onSearchGoodsStorageByAdvance()">所有</label>&nbsp;&nbsp;
+					<label><input id="orderTypeCode_out" name="orderTypeCode_mode" type="radio" value="<%=OrderTypeCode.OUT%>" onclick="onSearchGoodsStorageByAdvance()">出库</label>&nbsp;&nbsp;
+					<label><input id="orderTypeCode_in" name="orderTypeCode_mode" type="radio" value="<%=OrderTypeCode.IN%>" onclick="onSearchGoodsStorageByAdvance()">入库</label>
+				</span>
+			
+				<label>时间:</label>
+				<input id="startDate" name="startDate" class="easyui-datebox" style="width:100px" 
+				editable="false" title="开始时间" data-options="onSelect: onGoodsStorageSelectStartDate">
+				- <input id="endDate" name="endDate" class="easyui-datebox" style="width:100px" 
+				editable="false" title="结束时间" data-options="onSelect: onGoodsStorageSelectStartDate">&nbsp;
+				<select id="timeFrame" name="timeFrame" class="easyui-combobox" style="width:80px" panelHeight="auto" editable="false" data-options="onSelect: onGoodsStorageSelectTimeFrame">
+					<option value="CUSTOMIZE"><spring:message code="<%=TimeSpan.CUSTOMIZE.getMessageCode ()%>" /></option>
+					<option value="TODAY"><spring:message code="<%=TimeSpan.TODAY.getMessageCode ()%>" /></option>
+					<option value="RECENT_THREE_DAYS"><spring:message code="<%=TimeSpan.RECENT_THREE_DAYS.getMessageCode ()%>" /></option>
+					<option value="RECENT_SEVEN_DAYS"><spring:message code="<%=TimeSpan.RECENT_SEVEN_DAYS.getMessageCode ()%>" /></option>
+					<option value="RECENT_FIFTEEN_DAYS"><spring:message code="<%=TimeSpan.RECENT_FIFTEEN_DAYS.getMessageCode ()%>" /></option>
+					<option value="RECENT_THIRTY_DAYS" selected="selected"><spring:message code="<%=TimeSpan.RECENT_THIRTY_DAYS.getMessageCode ()%>" /></option>
+					<option value="CURRENT_MONTH"><spring:message code="<%=TimeSpan.CURRENT_MONTH.getMessageCode ()%>" /></option>
+				</select>
+				&nbsp;
+				<label><spring:message code="goods.goods" />:</label>
+				<input id="goodsId" name="goodsId" class="easyui-combobox" style="width:200px" data-options="
+					valueField:'id',
+					textField:'name',
+					panelHeight:'250',
+					mode:'local', 
+					formatter: goodsStorageFormatter,
+					filter: comboboxFilter,
+					url:'<c:url value='/goods/getAllModel.html' />'" />
+				<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" title="查询货物经营历程" onclick="onSearchGoodsStorageByAdvance()">查询</a>
+			</form>
+        </span>
+	</div>
+	<!-- 查看库存历程 -->
+	
+	<!-- 查看图片 -->
+	<div id="dlg-view-goods-photo" class="easyui-dialog" title="查看图片" 
+		style="width: 800px; height: 500px; padding: 5px;" closed="true"
+		buttons="#dlg-buttons-view-goods-photo" data-options="modal:true">
+		<div id="uploadPictureBtn">
+			<a class="" href="javascript:void(0)" onclick="selectFile()">请选择图片文件</a>
+		</div>
+		<div id="previewPicture">
+		</div>
+		<div id="uploadedPicture">
+		</div>
+	</div>
+	<div id="dlg-buttons-view-goods-photo">
+		<!--<a href="javascript:void(0)" id="" class="easyui-linkbutton"
+			iconCls="icon-print" onclick="saveGoodsPicture()"><spring:message code="save" /></a>-->
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" 
+			onclick="javascript:$('#dlg-view-goods-photo').dialog('close')"><spring:message code="close" /></a>
+	</div>
+	<!-- 查看图片 -->	

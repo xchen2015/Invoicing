@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1013/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security
+END
+SecurityAuthority.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/SecurityAuthority.java
+END
+MyAccessDecisionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/MyAccessDecisionManager.java
+END
+Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/Utils.java
+END
+MyFilterSecurityInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/MyFilterSecurityInterceptor.java
+END
+AuthenticationSuccessHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/AuthenticationSuccessHandler.java
+END
+MyInvocationSecurityMetadataSourceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/MyInvocationSecurityMetadataSourceService.java
+END
+MyUserDetailsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/MyUserDetailsService.java
+END
+BaseLogoutSuccessHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/BaseLogoutSuccessHandler.java
+END
+SecurityAuthorityList.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/SecurityAuthorityList.java
+END
+security-authority.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1130/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/security-authority.xml
+END
+PreAuthFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/main/java/com/pinfly/purchasecharge/app/security/PreAuthFilter.java
+END

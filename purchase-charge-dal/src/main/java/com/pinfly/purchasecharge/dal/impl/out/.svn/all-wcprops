@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1043/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out
+END
+CustomerLevelDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerLevelDaoImpl.java
+END
+CustomerContactDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerContactDaoImpl.java
+END
+CustomerPaymentRecordDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerPaymentRecordDaoImpl.java
+END
+OrderDeliveryDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1162/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/OrderDeliveryDaoImpl.java
+END
+CustomerPaymentDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1202/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerPaymentDaoImpl.java
+END
+CustomerDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1168/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerDaoImpl.java
+END
+OrderOutItemDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1197/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/OrderOutItemDaoImpl.java
+END
+OrderOutDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1211/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/OrderOutDaoImpl.java
+END
+CustomerTypeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/CustomerTypeDaoImpl.java
+END
+OrderReceiptDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1087/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/out/OrderReceiptDaoImpl.java
+END

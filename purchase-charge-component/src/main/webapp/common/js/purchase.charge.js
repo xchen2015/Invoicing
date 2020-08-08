@@ -1,0 +1,1602 @@
+var saveOrEditUrl;
+var autoCompleteUrl;
+
+var setSaveOrEditUrl = function(requestUrl) 
+{
+	saveOrEditUrl = requestUrl;
+}
+var setAutoCompleteUrl = function (requestUrl) 
+{
+	autoCompleteUrl = requestUrl;
+}
+
+/**
+ * Common
+ */
+function newModel(dialogId, dialogTitle, formId, requestUrl, callback) {
+	$(dialogId + ' ' + formId).form('clear');
+	$(dialogId).dialog('open').dialog('setTitle', dialogTitle);
+	saveOrEditUrl = requestUrl;
+	if (callback != null) 
+	{
+		callback.call();
+	}
+}
+function editModel(dataGridId, dialogId, dialogTitle, formId, requestUrl, callback) {
+	$(dialogId + ' ' + formId).form('clear');
+	var row = $(dataGridId).datagrid('getSelected');
+	if(row == undefined || row == null) 
+	{
+		var checkedRows = $(dataGridId).datagrid('getChecked');
+		if(checkedRows.length == 1) 
+		{
+			row = checkedRows[0];
+		}
+	}
+	if (row) {
+		$(dialogId).dialog('open').dialog('setTitle', dialogTitle);
+		$(dialogId + ' ' + formId).form('load', row);
+		saveOrEditUrl = requestUrl;
+		if (callback != null) 
+		{
+			callback.call();
+		}
+	}
+}
+function saveModel(dataGridId, dialogId, formId, callback, predo, close) {
+	if (predo != null) 
+	{
+		var preResult = predo.call();
+		if(preResult != undefined) 
+		{
+			if(preResult == false) 
+			{
+				return;
+			}
+		}
+	}
+	$.ajax({
+        url: saveOrEditUrl,
+        type: 'post',
+        dataType: 'json',
+        data: $(dialogId + ' ' + formId).serialize(),
+		beforeSend: 
+			function (){
+				return $(dialogId + ' ' + formId).form('validate');
+			},
+        success: function(result){
+        	console.log(result);
+			if (result.statusCode == '400' || result.statusCode == '500') {
+				showFailureMsg (result.message);
+			}
+			else if (result.statusCode == '401' || result.statusCode == '403') {
+				showWarningMsg(result.message);
+			}
+			else {
+				showSuccessMsg (result.message);
+				$(dialogId + ' ' + formId).form('clear');
+				if(close == null) 
+				{
+					// window do not close and continue to add
+					$(dialogId).dialog('close'); // close the dialog  
+				}
+				if (callback != null) 
+				{
+					callback.call();
+				}
+				else 
+				{
+					$(dataGridId).datagrid('reload'); // reload the user data 
+				}
+			}
+        }
+    });
+}
+function saveModelForGrid(dataGridId, dialogId, formId, callback, predo) {
+	if (predo != null) 
+	{
+		var preResult = predo.call();
+		if(preResult != undefined) 
+		{
+			if(preResult == false) 
+			{
+				return;
+			}
+		}
+	}
+	$.ajax({
+        url: saveOrEditUrl,
+        type: 'post',
+        dataType: 'json',
+        data: $(dialogId + ' ' + formId).serialize(),
+		beforeSend: 
+			function (){
+				return $(dialogId + ' ' + formId).form('validate');
+			},
+        success: function(result){
+        	console.log(result);
+        	if (result.statusCode == '400' || result.statusCode == '500') {
+				showFailureMsg (result.message);
+			}
+			else if (result.statusCode == '401' || result.statusCode == '403') {
+				showWarningMsg(result.message);
+			}
+        	else {
+				showSuccessMsg (result.message);
+				$(dialogId + ' ' + formId).form('clear');
+				$(dialogId).dialog('close'); // close the dialog  
+				if (callback != null) 
+				{
+					callback.call();
+				}
+			}
+        }
+    });
+}
+function destroyModel(dataGridId, modelName, requestUrl, callback) {
+	var row = $(dataGridId).datagrid('getSelected');
+	if (row) {
+		$.messager.confirm('确认',
+				'您确认要删除这个 ' + modelName + ' 吗?', function(r) {
+					if (r) {
+						$.post(requestUrl, {
+							id : row.id
+						}, function(result) {
+							console.log(result);
+							//var result = eval('(' + result + ')');
+							if (result.statusCode == '400' || result.statusCode == '500') {
+								showFailureMsg (result.message);
+							}
+							else if (result.statusCode == '401' || result.statusCode == '403') {
+								showWarningMsg(result.message);
+							} else {
+								showSuccessMsg (result.message);
+								if (callback != null) 
+								{
+									callback.call();
+								}
+							}
+						}, 'json');
+					}
+				});
+	}
+}
+function destroyMultipleModel(dataGridId, modelName, requestUrl, callback) {
+	//var rows = $(dataGridId).datagrid('getSelections');
+	var rows = $(dataGridId).datagrid('getChecked');
+	if (rows.length > 0) {
+		var ids = "";
+		for(var i = 0; i < rows.length; i++) 
+		{
+			ids += (rows[i].id + ";");
+		}
+		$.messager.confirm('确认',
+				'您确认要删除这些 ' + modelName + '?', function(r) {
+					if (r) {
+						$.post(requestUrl, {
+							ids : ids.substring(0, ids.length-1)
+						}, function(result) {
+							console.log(result);
+							//var result = eval('(' + result + ')');
+							if (result.statusCode == '400' || result.statusCode == '500') {
+								showFailureMsg(result.message);
+							}
+							else if (result.statusCode == '401' || result.statusCode == '403') {
+								showWarningMsg(result.message);
+							} else {
+								showSuccessMsg(result.message);
+								if (callback != null) 
+								{
+									callback.call();
+								}
+								else 
+								{
+									$(dataGridId).datagrid('reload'); // reload the user data 
+								} 
+							}
+						}, 'json');
+					}
+				});
+	}
+}
+function enableMultipleModel(dataGridId, modelName, requestUrl, enable, callback) {
+	var rows = $(dataGridId).datagrid('getChecked');
+	if (rows.length > 0) {
+		var ids = "";
+		for(var i = 0; i < rows.length; i++) 
+		{
+			ids += (rows[i].id + ";");
+		}
+		var operation = enable ? '启用' : '禁用';
+		$.messager.confirm('确认',
+				'您确认要' + operation + '这些 ' + modelName + '?', function(r) {
+					if (r) {
+						$.post(requestUrl, {
+							ids : ids.substring(0, ids.length-1)
+						}, function(result) {
+							if (result.statusCode == '400' || result.statusCode == '500') {
+								showFailureMsg(result.message);
+							}
+							else if (result.statusCode == '401' || result.statusCode == '403') {
+								showWarningMsg(result.message);
+							} else {
+								showSuccessMsg(result.message);
+								if (callback != null) 
+								{
+									callback.call();
+								}
+								else 
+								{
+									$(dataGridId).datagrid('reload'); // reload the user data 
+								} 
+							}
+						}, 'json');
+					}
+				});
+	}
+}
+function loadGridData (dataGridId, requestUrl, param) 
+{
+	$(dataGridId).datagrid('loadData', []);
+	$(dataGridId).datagrid('loading');
+	$.post(requestUrl, param,
+		function(result) 
+		{
+			if(result != '') 
+			{
+				$(dataGridId).datagrid('loadData', result);
+			}
+			$(dataGridId).datagrid('loaded');
+		}, 
+		'json');
+}
+function loadGridData2 (dataGridId, param) 
+{
+	$(dataGridId).datagrid('loadData', []);
+	$(dataGridId).datagrid('load', param);
+}
+function loadTreeData (dataTreeId, requestUrl, checkNodeId) 
+{
+	$(dataTreeId).mask('加载中...');
+	$.post(requestUrl, 
+		function(result) 
+		{
+			//console.log(result);
+			$(dataTreeId).unmask();
+			$(dataTreeId).tree('loadData', result);
+			if(checkNodeId) 
+			{
+				var node = $(dataTreeId).tree('find', checkNodeId);
+				$(dataTreeId).tree('check', node.target);
+			}
+		}, 
+		'json');
+}
+function loadComboboxData (comboboxId, requestUrl, checkNodeId, callback) 
+{
+	$(comboboxId).mask('加载中...');
+	$.post(requestUrl, 
+		function(result) 
+		{
+			//console.log(result);
+			$(comboboxId).unmask();
+			$(comboboxId).combobox('loadData', result);
+			if(checkNodeId) 
+			{
+				$(comboboxId).combobox('clear');
+				$(comboboxId).combobox('setValue', checkNodeId);
+			}
+			if (callback) 
+			{
+				callback.call();
+			}
+		}, 
+		'json');
+}
+
+function ajaxPostRequest (requestUrl, requestParam, callback) 
+{
+	$.post(requestUrl, requestParam, 
+			function(result) 
+			{
+				//console.log(result);
+				if (result.statusCode == '400' || result.statusCode == '500') {
+					showFailureMsg(result.message);
+				}
+				else if (result.statusCode == '401' || result.statusCode == '403') {
+					showWarningMsg(result.message);
+				} else {
+					showSuccessMsg(result.message);
+					if (callback != null) 
+					{
+						callback.call();
+					}
+				}
+			}, 
+			'json');
+}
+
+var dealMoney_styler = function(value,row,index) 
+{
+	if(value < 0) 
+	{
+		return 'font-weight:bold';
+	}
+	else if(value > 0) 
+	{
+		return 'font-weight:bold';
+	}
+	/*if(row.typeCode == undefined) 
+	{
+		return 'color:blue; font-weight:bold';
+	}*/
+}
+function formatter_payment_customer(value,row,index) 
+{
+	if(row.customerBean) 
+	{
+		return row.customerBean.shortName;
+	}
+}
+function formatter_payment_typeCode(value,row,index) 
+{
+	var result = '';
+	if(value == 'IN_ORDER') 
+	{
+		result = '采购进货';
+	}
+	else if(value == 'IN_ORDER_RETURN') 
+	{
+		result = '采购退货';
+	}
+	else if(value == 'OUT_ORDER') 
+	{
+		result = '销售出货';
+	}
+	else if(value == 'OUT_ORDER_RETURN') 
+	{
+		result = '销售退货';
+	}
+	else if(value == 'IN_PAID_MONEY') 
+	{
+		result = "<span class='ui-label ui-label-green'>付款</span>";
+	}
+	else if(value == 'OUT_PAID_MONEY') 
+	{
+		result = "<span class='ui-label ui-label-green'>收款</span>";
+	}
+	else if(value == 'INITIAL_BALANCE') 
+	{
+		result = '期初余额';
+	}
+	return result;
+}
+function cellFormatter_customerSharable(value,row,index)
+{
+	if(row.id) 
+	{
+		if (value){
+			return "<span class='ui-label ui-label-green'>可共享</span>";
+		} else {
+			return "<span class='ui-label ui-label-gray'>不可共享</span>";
+		}
+	}
+}
+function formatter_cellShowMore(value,row,index)
+{
+	if(value) 
+	{
+		return '<span style="display:block" title="'+ value +'">' + value + '</span>';
+	}
+}
+function formatter_customerLatestSaleTimeInterval(interval,row,index) 
+{
+	if(row.id) 
+	{
+		if(0 < interval && 60 >  interval) 
+		{
+			return interval + "秒钟前";
+		}
+		else if(60 <= interval && 3600 > interval) 
+		{
+			return Math.round(interval / 60) + "分钟前";
+		}
+		else if(3600 <= interval && 24 * 3600 > interval) 
+		{
+			return Math.round(interval / 3600) + "小时前";
+		}
+		else if(24 * 3600 <= interval && 30 * 24 * 3600 > interval) 
+		{
+			return Math.round(interval / (24 * 3600)) + "天前";
+		}
+		else if(30 * 24 * 3600 <= interval && 12 * 30 * 24 * 3600 > interval) 
+		{
+			return "<span class='ui-label ui-label-gray'>"+Math.round(interval / (30 * 24 * 3600)) + "月前</span>";
+		}
+		else if(12 * 30 * 24 * 3600 <= interval) 
+		{
+			return "<span class='ui-label ui-label-gray'>"+Math.round(interval / (12 * 30 * 24 * 3600)) + "年前</span>";
+		}
+		return "<span class='ui-label ui-label-gray'>无记录</span>";
+	}
+}
+function formatter_customerPaymentDuedInterval(interval,row,index) 
+{
+	if(0 < interval && 60 >  interval) 
+	{
+		return interval + "秒钟";
+	}
+	else if(60 <= interval && 3600 > interval) 
+	{
+		return Math.round(interval / 60) + "分钟";
+	}
+	else if(3600 <= interval && 24 * 3600 > interval) 
+	{
+		return Math.round(interval / 3600) + "小时";
+	}
+	else if(24 * 3600 <= interval && 30 * 24 * 3600 > interval) 
+	{
+		return Math.round(interval / (24 * 3600)) + "天";
+	}
+	else if(30 * 24 * 3600 <= interval && 12 * 30 * 24 * 3600 > interval) 
+	{
+		return "<span class='ui-label ui-label-gray'>"+Math.round(interval / (30 * 24 * 3600)) + "月</span>";
+	}
+	else if(12 * 30 * 24 * 3600 <= interval) 
+	{
+		return "<span class='ui-label ui-label-gray'>"+Math.round(interval / (12 * 30 * 24 * 3600)) + "年</span>";
+	}
+}
+var orderGroupFormatter = function(value,rows)
+{
+	return value + '(' + rows.length + '项) - <b>' + rows[0].customerName + '</b> - ' + rows[0].orderCreate;
+}
+var goodsStorageFormatter = function(row){
+	if(row) 
+	{
+		var sumAmount = 0;
+		var goodsStorage = '';
+		if(row.storageBeans && row.storageBeans.length > 0) 
+		{
+			for(var i = 0; i < row.storageBeans.length; i ++) 
+			{
+				var storageBean = row.storageBeans[i];
+				if(row.unitBean) 
+				{
+					goodsStorage += (storageBean.depositoryBean.name + " - <b style='color:black'>" + storageBean.currentAmount + "</b>" + row.unitBean.name + " ");
+				}
+				else 
+				{
+					goodsStorage += (storageBean.depositoryBean.name + " - <b style='color:black'>" + storageBean.currentAmount + "</b>" + " ");
+				}
+				sumAmount += storageBean.currentAmount;
+			}
+			goodsStorage = goodsStorage.substring (0, goodsStorage.length-1);
+		}
+		if(goodsStorage == '') 
+		{
+			goodsStorage = sumAmount;
+		}
+		var s = '<span style="font-weight:bold">' + row.name + '</span>_<span style="font-weight:bold">' + row.shortCode + '</span><br/>' +
+				'<span>' + goodsStorage + '</span>';
+		return s;
+	}
+}
+function goodsTypeWithGoodsAmountFormatter(node)
+{
+	var s = node.text;
+	if(node.goodsAmount && node.goodsAmount > 0) 
+	{
+		s += '&nbsp;<span style=\'color:blue\'>(' + node.goodsAmount + ')</span>';
+	}
+	return s;
+}
+var cellFormatter_goodsUnit = function(value, row, index) {
+	if (row.unitBean) {
+		return row.unitBean.name;
+	}
+}
+function cellFormatter_goodsType(value, row, index) {
+	if (row.typeBean) {
+		return row.typeBean.text;
+	}
+}
+var customerUnpayMoneyFormatter = function(row){
+	if(row) 
+	{
+		var s = '<span style="font-weight:bold">' + row.shortName + '</span> - ' +
+		'<span>' + row.unpayMoney + '</span>';
+		return s;
+	}
+}
+var accountRemainMoneyFormatter = function(row){
+	if(row) 
+	{
+		var s = '<span style="font-weight:bold">' + row.name + '</span> - ' +
+				'<span>' + row.remainMoney + '</span>';
+		return s;
+	}
+}
+
+var getPreferedCustomerContact = function(customer) {
+	var preferedContact;
+	if(customer && customer.contactBeans) 
+	{
+		for(var i = 0; i < customer.contactBeans.length; i ++) 
+		{
+			var contact = customer.contactBeans[i];
+			if(contact.prefered) 
+			{
+				preferedContact = contact;
+				break;
+			}
+		}
+	}
+	return preferedContact;
+}
+
+/**
+ * For Goods Type/Region Management.
+ */
+var newOrEdit;
+function appendToTree(treeId, parentInputId, dialogId, dialogTitle, requestUrl, callback)
+{
+	$(dialogId + ' form').form('clear');
+	var t = $(treeId);
+    var node = t.tree('getSelected');
+    if(node) 
+    {
+    	$(parentInputId).val(node.id);
+    	saveOrEditUrl = requestUrl;
+    	$(dialogId).dialog('open').dialog('setTitle', dialogTitle);
+    	newOrEdit = 'newChild';
+    }
+	if(callback) 
+	{
+		callback.call ();
+	}
+}
+function newRootTreeNode(dialogId, dialogTitle, requestUrl, callback)
+{
+	$(dialogId + ' form').form('clear');
+	$(dialogId).dialog('open').dialog('setTitle', dialogTitle);
+	saveOrEditUrl = requestUrl;
+	newOrEdit = 'newRoot';
+	if(callback) 
+	{
+		callback.call ();
+	}
+}
+function editTree(treeId, parentInputId, currentInputId, currentNameId, dialogId, dialogTitle, requestUrl, callback)
+{
+	var t = $(treeId);
+    var node = t.tree('getSelected');
+    if(node) 
+    {
+        var parentNode = t.tree('getParent', node.target);
+        if(parentNode) 
+        {
+            $(parentInputId).val(parentNode.id);
+        }
+        $(currentInputId).val(node.id);
+        $(currentNameId).val(node.text);
+    	$(dialogId).dialog('open').dialog('setTitle', dialogTitle);
+    	saveOrEditUrl = requestUrl;
+    	newOrEdit = 'edit';
+    }
+	if(callback) 
+	{
+		callback.call ();
+	}
+}
+function saveTree (treeId, formId, dialogId, close) 
+{
+	var t = $(treeId);
+	var node = t.tree('getSelected');
+	
+	$.ajax({
+		url: saveOrEditUrl,
+		type: 'post',
+		dataType: 'json',
+		data: $(dialogId + ' ' + formId).serialize(),
+		beforeSend: 
+			function (){
+			return $(dialogId + ' ' + formId).form('validate');
+		},
+		success: function(result){
+			console.log(result);
+			if (result.statusCode == '400' || result.statusCode == '500') {
+				showFailureMsg (result.message);
+			}
+			else if (result.statusCode == '401' || result.statusCode == '403') {
+				showWarningMsg(result.message);
+			}
+			else {
+				var savedNode = t.tree('find', result.parent ? result.parent.id : null);
+				if(newOrEdit == 'newChild') 
+				{
+					t.tree('append', {
+						parent: (savedNode ? savedNode.target : null),
+						data: [{
+							id : result.id,
+							text: result.name
+						}]
+					});
+				}
+				else 
+				{
+					var parentNode = node.target;
+					t.tree('remove', node.target);
+					t.tree('reload', '');
+				}
+				$(dialogId + ' ' + formId).form('clear');
+				showSuccessMsg('');
+				if(close == true) 
+				{
+					// window do not close and continue to add
+					$(dialogId).dialog('close'); // close the dialog  
+				}
+			}
+		}
+	});
+}
+function saveTree2 (treeId, saveOrEditUrl, data) 
+{
+	var t = $(treeId);
+    var node = t.tree('getSelected');
+    
+    $.ajax({
+        url: saveOrEditUrl,
+        type: 'post',
+        dataType: 'json',
+        data: data,
+        success: function(result){
+        	console.log(result);
+        	t.tree('reload', '');
+			if (result.statusCode == '400' || result.statusCode == '500') {
+				showFailureMsg (result.message);
+			}
+			else if (result.statusCode == '401' || result.statusCode == '403' || result.statusCode == '406') {
+				showWarningMsg(result.message);
+			}
+			else {
+				showSuccessMsg('');
+			}
+        }
+    });
+}
+function removeFromTree(treeId, requestUrl){
+    var node = $(treeId).tree('getSelected');
+	if (node) {
+		$.messager.confirm('确认',
+				'您确认要删除 ' + node.text + '?', function(r) {
+					if (r) {
+						$.post(requestUrl, {
+							ids : node.id
+						}, function(result) {
+							console.log(result);
+							if (result.statusCode == '400' || result.statusCode == '500') {
+								showFailureMsg(result.message);
+							}
+							else if (result.statusCode == '401' || result.statusCode == '403') {
+								showWarningMsg(result.message);
+							} else {
+								$(treeId).tree('remove', node.target);
+								showSuccessMsg (result.message);
+							}
+						}, 'json');
+					}
+				});
+	}
+}
+function removeMultipleFromTree(treeId, requestUrl){
+	var nodes = $(treeId).tree('getChecked');
+	if (nodes.length > 0) {
+		var ids = "";
+		for(var i = 0; i < nodes.length; i++) 
+		{
+			ids += (nodes[i].id + ";");
+		}
+		$.messager.confirm('确认',
+				'您确认要删除这些结点?', function(r) {
+			if (r) {
+				$.post(requestUrl, {
+					ids : ids.substring(0, ids.length-1)
+				}, function(result) {
+					console.log(result);
+					if (result.statusCode == '400' || result.statusCode == '500') {
+						showFailureMsg(result.message);
+					}
+					else if (result.statusCode == '401' || result.statusCode == '403') {
+						showWarningMsg(result.message);
+					} else {
+						/*for(var i = 0; i < nodes.length; i++) 
+						{
+							$(treeId).tree('remove', nodes[i].target);  
+						}*/
+						showSuccessMsg (result.message);
+						$(treeId).tree('reload', '');
+					}
+				}, 'json');
+			}
+		});
+	}
+}
+function collapseTree(treeId){
+    var node = $(treeId).tree('getSelected');
+    $(treeId).tree('collapse',node.target);
+}
+function expandTree(treeId){
+    var node = $(treeId).tree('getSelected');
+    $(treeId).tree('expand',node.target);
+}
+function collapseAll(treeId){
+    $(treeId).tree('collapseAll');
+}
+function expandAll(treeId){
+    $(treeId).tree('expandAll');
+}
+var fillSelectedTreeNode = function(requestUrl, combotreeId, selectedId) 
+{
+	$.post(requestUrl, 
+		function(result) 
+		{
+			//console.log(result);
+			$(combotreeId).combotree('loadData', result);
+			$(combotreeId).combotree('setValue', selectedId);
+		}, 
+		'json');
+}
+
+var customerLoader = function(param,success,error){
+	//console.log(param);
+    var q = param.q || '';
+    var typeCode = param.customerTypeCode || '';
+    if (q.length <= 1){return false}
+    $.ajax({
+    	type: "POST",
+        url: autoCompleteUrl,
+        dataType: 'jsonp',
+        jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+        jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+        data: {
+            shortName: q
+        },
+        success: function(data){
+        	//console.log (data);
+            success(data);
+        },
+        error: function(){
+            error.apply(this, arguments);
+        }
+    });
+}
+var goodsLoader = function(param,success,error){
+	var q = param.q || '';
+	var goodsType = param.goodsType || '';
+	if (q.length <= 1){return false}
+	$.ajax({
+		type: "POST",
+		url: autoCompleteUrl,
+		dataType: 'jsonp',
+		jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+		jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+		data: {
+			name: q,
+			goodsType: goodsType
+		},
+		success: function(data){
+			//console.log (data);
+			/*var items = $.map(data, function(item){
+				return {
+					id: item.id,
+					nameAndCurrentStock: item.nameAndCurrentStock,
+					unit: item.unitBean.name,
+					importPrice: item.importPrice
+				};
+			});*/
+			success(data);
+		},
+		error: function(){
+			error.apply(this, arguments);
+		}
+	});
+}
+
+// extends validate box
+$.extend($.fn.validatebox.defaults.rules, {
+	numberGreatThan: {
+		validator: function(value, param){
+			return !isNaN(value) && value >= param[0];
+		},
+		message: '请输入大于或等于 {0} 的数字.'
+	}
+});
+$.extend($.fn.validatebox.defaults.rules, {
+	phoneCheck: {
+		validator: function(value, param){
+			if(value.length != 10 && value.length != 11 && value.length != 12 && value.length != 13) 
+			{
+				return false;
+			}
+			return value.match("^((13|15|18|17)[0-9]{9})|(0\\d{2,3}-?\\d{7,8})$") != null;
+		},
+		message: '请输入有效的11位手机号码或带区号的7-8位的座机号码'
+	}
+});
+
+var remoteMessage = '已经存在，请修改.';
+$.extend($.fn.validatebox.defaults.rules, {
+    myRemote: {
+        validator: function(value, param){
+        	var data={};
+        	data[param[1]]=value;
+        	if(param.length > 2) 
+        	{
+        		for(var i=2; i<param.length; i++) 
+        		{
+        			if(param[i].startsWith('#')) 
+        			{
+        				data[param[i].substring(1)] = $(param[i]).val();
+        			}
+        			else 
+        			{
+        				data[param[i]] = $(param[i]).val();
+        			}
+        		}
+        	}
+        	var _3ee=$.ajax({url:param[0],dataType:"json",data:data,async:false,cache:false,type:"post"}).responseText;
+        	return _3ee=="true";
+        },
+        message: remoteMessage
+    }
+});
+$.extend($.fn.textbox.methods, {
+	addClearBtn: function(jq, iconCls){
+		return jq.each(function(){
+			var t = $(this);
+			var opts = t.textbox('options');
+			opts.icons = opts.icons || [];
+			opts.icons.unshift({
+				iconCls: iconCls,
+				handler: function(e){
+					$(e.data.target).textbox('clear').textbox('textbox').focus();
+					$(this).css('visibility','hidden');
+				}
+			});
+			t.textbox();
+			if (!t.textbox('getText')){
+				t.textbox('getIcon',0).css('visibility','hidden');
+			}
+			t.textbox('textbox').bind('keyup', function(){
+				var icon = t.textbox('getIcon',0);
+				if ($(this).val()){
+					icon.css('visibility','visible');
+				} else {
+					icon.css('visibility','hidden');
+				}
+			});
+		});
+	}
+});
+
+var setRemoteMessage = function(message) 
+{
+	remoteMessage = message;
+}
+
+function showSuccessMsg(message) 
+{
+	if(message == undefined || '' == message) 
+	{
+		message = '操作完成';
+	}
+	showNotification({
+		message: message,
+		type: "success", // type of notification is success
+		autoClose: true, // auto close to true
+		duration: 5 // display duration
+	});
+} 
+
+function showFailureMsg(errorMsg) 
+{
+	if(errorMsg == undefined || '' == errorMsg) 
+	{
+		errorMsg = '操作失败';
+	}
+	showNotification({
+        message: errorMsg,
+        type: "error", // type of notification is error
+        autoClose: true, // auto close to true
+        duration: 5 // display duration
+    });
+} 
+function showWarningMsg(warningMsg) 
+{
+	showNotification({
+        message: warningMsg,
+        type: "warning", // type of notification is warning
+        autoClose: true, // auto close to true
+        duration: 5 // display duration
+    });
+}
+
+var typeFormatter = function (value,row,index) 
+{
+	if(row.typeBean) 
+	{
+		return row.typeBean.name;
+	}	
+}
+var customerLevelFormatter = function (value,row,index) 
+{
+	if(row.levelBean) 
+	{
+		return row.levelBean.name;
+	}	
+}
+var contactNameFormatter = function (value,row,index) 
+{
+	if(row.contactBeans && row.contactBeans.length > 0) 
+	{
+		var contactName = '';
+		for(var i = 0; i < row.contactBeans.length; i ++) 
+		{
+			if(row.contactBeans[i].prefered)
+			{
+				contactName = row.contactBeans[i].name;
+			}
+		}
+		return contactName;
+	}
+} 
+var contactMobilePhoneFormatter = function (value,row,index) 
+{
+	if(row.contactBeans && row.contactBeans.length > 0) 
+	{
+		var contactName = '';
+		for(var i = 0; i < row.contactBeans.length; i ++) 
+		{
+			if(row.contactBeans[i].prefered)
+			{
+				contactName = row.contactBeans[i].mobilePhone;
+			}
+		}
+		return contactName;
+	}
+} 
+var contactFixedPhoneFormatter = function (value,row,index) 
+{
+	if(row.contactBeans && row.contactBeans.length > 0) 
+	{
+		var contactName = '';
+		for(var i = 0; i < row.contactBeans.length; i ++) 
+		{
+			if(row.contactBeans[i].prefered)
+			{
+				contactName = row.contactBeans[i].fixedPhone;
+			}
+		}
+		return contactName;
+	}
+} 
+var contactAddressFormatter = function (value,row,index) 
+{
+	if(row.contactBeans && row.contactBeans.length > 0) 
+	{
+		var contactName = '';
+		for(var i = 0; i < row.contactBeans.length; i ++) 
+		{
+			if(row.contactBeans[i].prefered)
+			{
+				contactName = row.contactBeans[i].address;
+			}
+		}
+		return contactName;
+	}
+} 
+var contactNetCommunityIdFormatter = function (value,row,index) 
+{
+	if(row.contactBeans && row.contactBeans.length > 0) 
+	{
+		var contactName = '';
+		for(var i = 0; i < row.contactBeans.length; i ++) 
+		{
+			if(row.contactBeans[i].prefered)
+			{
+				contactName = row.contactBeans[i].netCommunityId;
+			}
+		}
+		return contactName;
+	}
+} 
+var customerNameFormatter = function (value,row,index) 
+{
+	if(row.customerBean) 
+	{
+		return '<span style="display:block" title="'+ row.customerBean.shortName +'">' + row.customerBean.shortName + '</span>';
+	}
+}
+var orderUserSignedFormatter = function (value,row,index) 
+{
+	if(row.customerBean) 
+	{
+		return row.customerBean.userSignedTo;
+	}
+}
+var orderStatusFormatter = function (value,row,index) 
+{
+	if(value == 'CANCELED') 
+	{
+		return "<span class='icon-no' style='display:block;' title='订单已取消，不可编辑状态'>&nbsp</span>";
+	}
+	else if(value == 'COMPLETED') 
+	{
+		return "<span class='icon-ok' style='display:block;' title='订单已完成，不可编辑状态'>&nbsp</span>";
+	}
+	else if(value == 'NEW') 
+	{
+		return "<span class='iconSpan16 new16' style='display:inline-block;' title='新建订单，可编辑状态'>&nbsp</span>";
+	}
+	else if(value == 'SHIPPED') 
+	{
+		return "<span title='已发货'>已发货</span>";
+	}
+}
+var orderTypeFormatter = function (value,row,index) 
+{
+	if(value == 'IN') 
+	{
+		return "<span class='ui-label ui-label-green'>入库正单</span>";
+	}
+	else if(value == 'IN_RETURN') 
+	{
+		return "<span class='ui-label ui-label-gray'>入库退单</span>";
+	}
+	else if(value == 'OUT') 
+	{
+		return "<span class='ui-label ui-label-green'>出库正单</span>";
+	}
+	else if(value == 'OUT_RETURN') 
+	{
+		return "<span class='ui-label ui-label-gray'>出库退单</span>";
+	}
+}
+var formatter_orderItemGoodsDepository = function (value,row,index) 
+{
+	if(row.depositoryBean) 
+	{
+		return row.depositoryBean.name;
+	}
+}
+var cellFormatter_enable = function(value,row,index) 
+{
+	if(value) 
+	{
+		return "<span class='icon-ok' style='display:block;' title='可用'>&nbsp</span>";
+	}
+	else 
+	{
+		return "<span class='icon-cancel' style='display:block;' title='不可用'>&nbsp</span>";
+	}
+}		
+var cellFormatter_gender = function(value,row,index) 
+{
+	if(value == "MALE") 
+	{
+		return "男";
+	}
+	if(value == "FEMALE") 
+	{
+		return "女";
+	}
+	return "未知";
+}
+
+var cleanInput = function (inputIdArr)
+{
+	for(var i = 0; i < inputIdArr.length; i ++) 
+	{
+		if($(inputIdArr[i])) 
+		{
+			$(inputIdArr[i]).val('');
+		}
+	}
+}
+var focusAsPointer = function (inputId) 
+{
+	if($(inputId)) 
+	{
+		$(inputId).css('cursor','pointer');
+		$(inputId).css('cursor','hand');
+	}
+}
+var comboboxFilter = function (q, row)
+{
+	var opts = $(this).combobox('options');
+	return row[opts.textField].indexOf(q) >= 0 || row['shortCode'].indexOf(q) >= 0;
+}
+function getRowIndex(target)
+{
+	var tr = $(target).closest('tr.datagrid-row');
+	return parseInt(tr.attr('datagrid-row-index'));
+}
+
+
+/**
+ * 
+ */
+function refreshView(target) {
+	var opts = $(target).datagrid('options');
+	var vc = $(target).datagrid('getPanel').children('div.datagrid-view');
+	vc.children('div.datagrid-empty').remove();
+	if (!$(target).datagrid('getRows').length){
+		var d = $('<div class="datagrid-empty"></div>').html(opts.emptyMsg || 'no records').appendTo(vc);
+		d.css({
+			position:'absolute',
+			left:0,
+			top:50,
+			width:'100%',
+			textAlign:'center'
+		});
+	}
+}
+
+var myDataGridView = $.extend({},$.fn.datagrid.defaults.view,{
+	onAfterRender:function(target){
+		$.fn.datagrid.defaults.view.onAfterRender.call(this,target);
+		refreshView(target);
+	},
+	insertRow: function(target, index, row) {
+		$.fn.datagrid.defaults.view.insertRow.call(this, target, index, row);
+		refreshEmpty(target);
+	},
+	deleteRow: function(target, index) {
+		$.fn.datagrid.defaults.view.deleteRow.call(this, target, index);
+		refreshEmpty(target);
+	}
+});
+
+
+//the header of DataGrid to display context menu
+var cmenu;
+function createColumnMenu(datagrid){
+    cmenu = $('<div/>').appendTo('body');
+    cmenu.menu({
+        onClick: function(item){
+            if (item.iconCls == 'icon-ok'){
+                datagrid.datagrid('hideColumn', item.name);
+                cmenu.menu('setIcon', {
+                    target: item.target,
+                    iconCls: 'icon-empty'
+                });
+            } else {
+                datagrid.datagrid('showColumn', item.name);
+                cmenu.menu('setIcon', {
+                    target: item.target,
+                    iconCls: 'icon-ok'
+                });
+            }
+        }
+    });
+    var fields = datagrid.datagrid('getColumnFields');
+    for(var i=0; i<fields.length; i++){
+        var field = fields[i];
+        var col = datagrid.datagrid('getColumnOption', field);
+        //console.log(col);
+        if(col.title) 
+        {
+        	if(!col.hidden) 
+        	{
+	            cmenu.menu('appendItem', {
+	                text: col.title,
+	                name: field,
+	                iconCls: 'icon-ok'
+	            });
+        	}
+        	else 
+        	{
+        		cmenu.menu('appendItem', {
+	                text: col.title,
+	                name: field,
+	                iconCls: 'icon-empty'
+	            });
+        	}
+        }
+    }
+}
+
+/**
+ ** 乘法函数，用来得到精确的乘法结果
+ ** 说明：javascript的乘法结果会有误差，在两个浮点数相乘的时候会比较明显。这个函数返回较为精确的乘法结果。
+ ** 调用：accMul(arg1,arg2)
+ ** 返回值：arg1乘以 arg2的精确结果
+ **/
+function accMul(arg1, arg2) {
+    var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+    try {
+        m += s1.split(".")[1].length;
+    }
+    catch (e) {
+    }
+    try {
+        m += s2.split(".")[1].length;
+    }
+    catch (e) {
+    }
+    return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+// 给Number类型增加一个mul方法，调用起来更加方便。
+Number.prototype.mul = function (arg) {
+    return accMul(arg, this);
+}
+/**
+ ** 加法函数，用来得到精确的加法结果
+ ** 说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数返回较为精确的加法结果。
+ ** 调用：accAdd(arg1,arg2)
+ ** 返回值：arg1加上arg2的精确结果
+ **/
+function accAdd(arg1, arg2) {
+    var r1, r2, m, c;
+    try {
+        r1 = arg1.toString().split(".")[1].length;
+    }
+    catch (e) {
+        r1 = 0;
+    }
+    try {
+        r2 = arg2.toString().split(".")[1].length;
+    }
+    catch (e) {
+        r2 = 0;
+    }
+    c = Math.abs(r1 - r2);
+    m = Math.pow(10, Math.max(r1, r2));
+    if (c > 0) {
+        var cm = Math.pow(10, c);
+        if (r1 > r2) {
+            arg1 = Number(arg1.toString().replace(".", ""));
+            arg2 = Number(arg2.toString().replace(".", "")) * cm;
+        } else {
+            arg1 = Number(arg1.toString().replace(".", "")) * cm;
+            arg2 = Number(arg2.toString().replace(".", ""));
+        }
+    } else {
+        arg1 = Number(arg1.toString().replace(".", ""));
+        arg2 = Number(arg2.toString().replace(".", ""));
+    }
+    return (arg1 + arg2) / m;
+}
+
+//给Number类型增加一个add方法，调用起来更加方便。
+Number.prototype.add = function (arg) {
+    return accAdd(arg, this);
+}
+/**
+ ** 减法函数，用来得到精确的减法结果
+ ** 说明：javascript的减法结果会有误差，在两个浮点数相减的时候会比较明显。这个函数返回较为精确的减法结果。
+ ** 调用：accSub(arg1,arg2)
+ ** 返回值：arg1加上arg2的精确结果
+ **/
+function accSub(arg1, arg2) {
+    var r1, r2, m, n;
+    try {
+        r1 = arg1.toString().split(".")[1].length;
+    }
+    catch (e) {
+        r1 = 0;
+    }
+    try {
+        r2 = arg2.toString().split(".")[1].length;
+    }
+    catch (e) {
+        r2 = 0;
+    }
+    m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
+    n = (r1 >= r2) ? r1 : r2;
+    return ((arg1 * m - arg2 * m) / m).toFixed(n);
+}
+
+// 给Number类型增加一个mul方法，调用起来更加方便。
+Number.prototype.sub = function (arg) {
+    return accSub(arg, this);
+}
+/** 
+ ** 除法函数，用来得到精确的除法结果
+ ** 说明：javascript的除法结果会有误差，在两个浮点数相除的时候会比较明显。这个函数返回较为精确的除法结果。
+ ** 调用：accDiv(arg1,arg2)
+ ** 返回值：arg1除以arg2的精确结果
+ **/
+function accDiv(arg1, arg2) {
+    var t1 = 0, t2 = 0, r1, r2;
+    try {
+        t1 = arg1.toString().split(".")[1].length;
+    }
+    catch (e) {
+    }
+    try {
+        t2 = arg2.toString().split(".")[1].length;
+    }
+    catch (e) {
+    }
+    with (Math) {
+        r1 = Number(arg1.toString().replace(".", ""));
+        r2 = Number(arg2.toString().replace(".", ""));
+        return (r1 / r2) * pow(10, t2 - t1);
+    }
+}
+
+//给Number类型增加一个div方法，调用起来更加方便。
+Number.prototype.div = function (arg) {
+    return accDiv(this, arg);
+}
+
+
+String.prototype.trim = function(){
+    return this.replace(/(^[\s]*)|([\s]*$)/g, "");
+}
+String.prototype.startsWith = function(str){
+    return (this.match("^"+str)==str);
+}
+String.prototype.endsWith = function(str){
+    return (this.match(str+"$")==str);
+}
+
+var date_format = "yyyy-MM-dd";
+Date.prototype.format = function(fmt)
+{
+	var o = {
+		"M+" : this.getMonth()+1,                 //月份
+		"d+" : this.getDate(),                    //日
+		"h+" : this.getHours(),                   //小时
+		"m+" : this.getMinutes(),                 //分
+		"s+" : this.getSeconds(),                 //秒
+		"q+" : Math.floor((this.getMonth()+3)/3), //季度
+		"S"  : this.getMilliseconds()             //毫秒
+	};
+	if(/(y+)/.test(fmt))
+		fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+	for(var k in o)
+		if(new RegExp("("+ k +")").test(fmt))
+			fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+	return fmt;
+}
+function getDateBeforeDays(day){
+    var zdate=new Date();
+    var sdate=zdate.getTime()-(1*24*60*60*1000);
+    var edate=new Date(sdate-(day*24*60*60*1000)).format(date_format);
+    return edate;
+}
+function generateStartDate (value) 
+{
+	var nowDate = new Date();
+	var startDate = nowDate.format(date_format);
+	if(value == 'RECENT_THREE_DAYS') 
+	{
+		startDate = getDateBeforeDays(2);
+	} 
+	else if(value == 'RECENT_SEVEN_DAYS') 
+	{
+		startDate = getDateBeforeDays(6);
+	} 
+	else if(value == 'RECENT_FIFTEEN_DAYS') 
+	{
+		startDate = getDateBeforeDays(14);
+	}
+	else if(value == 'RECENT_THIRTY_DAYS') 
+	{
+		startDate = getDateBeforeDays(29);
+	}
+	else if(value == 'CURRENT_MONTH') 
+	{
+		startDate = getDateBeforeDays(nowDate.getDate() - 2);
+	}
+	else if(value == 'CUSTOMIZE') 
+	{
+		startDate = getDateBeforeDays(-2);
+	}
+	else 
+	{
+		startDate = getDateBeforeDays(value);
+	}
+	return startDate;
+}
+
+//根据之前的编码生成下一个编码
+var getSuggestNum = function(prevNum){
+	if (prevNum == '' || !prevNum) {
+		return '';
+	}
+	var reg = /^([a-zA-Z0-9\-_]*[a-zA-Z\-_]+)?(\d+)$/;
+	var match = prevNum.match(reg);
+	if (match) {
+		var prefix = match[1] || '';
+		var prevNum = match[2];
+		var num = parseInt(prevNum, 10) + 1;
+		var delta = prevNum.toString().length - num.toString().length;
+		if (delta > 0) {
+			for (var i = 0; i < delta; i++) {
+				num = '0' + num;
+			}
+		}
+		return prefix + num;
+	} else {
+		return '';
+	}
+}
+
+function _displayMessage(itemName, contents){
+    var contentDiv = document.getElementById(itemName);
+    if(contentDiv){
+        // Create a div with the new text
+        var divEle = document.createElement('div');
+        divEle.innerHTML = contents;
+    
+        if (!contentDiv.hasChildNodes()){
+            // Content is empty, append new element as a child
+            contentDiv.appendChild(divEle);
+        }else{
+            // Content is not empty, replace first child with
+            // new element
+            contentDiv.replaceChild(divEle, contentDiv.firstChild);
+        }
+    }
+}
+
+function showElement(id){
+    var e;
+    if(typeof id == 'string'){
+        e = document.getElementById(id);
+    }else{
+        e = id;
+    }
+    if(e){
+        e.style.visibility = "visible";
+        e.style.display = "block";
+    }
+}
+
+function hideElement(id){
+    var e;
+    if(typeof id == 'string'){
+        e = document.getElementById(id);
+    }else{
+        e = id;
+    }
+    if(e){
+        e.style.visibility = "hidden";
+        e.style.display = "none";
+    }
+}
+function setVisible(id,yes){
+    var e;
+    if(typeof id == 'string'){
+        e = document.getElementById(id);
+    }else{
+        e = id;
+    }
+    
+    if(e){
+        if(yes){
+            e.style.visibility = "visible";
+            e.style.display = "";
+        }else{
+            e.style.visibility = "hidden";
+            e.style.display = "none";
+        }
+    }
+}
+function isInteger(value){
+    return !isNaN(value) && parseFloat(value) == parseInt(value);
+}
+function parseInteger(value){
+    if(isNaN(value))
+        return null;
+    var i = parseInt(value);
+    if(parseFloat(value) == i)
+        return i;
+    else
+        return null;    
+}
+function parseNumber(value){
+    if(isNaN(value))
+        return null;
+    var i = parseInt(value);
+    var f = parseFloat(value);
+    if(f == i)
+        return i;
+    else
+        return f;   
+}
+function getWindowWidth(){
+    return getWindowSize()['Width'];    
+}
+function getWindowHeight(){
+	return getWindowSize()['Height'];    
+}
+function getWindowSize(){
+    var winW, winH;
+    if (document.body && document.body.offsetWidth) {
+        winW = document.body.offsetWidth;
+        winH = document.body.offsetHeight;
+    }
+    if (document.compatMode=='CSS1Compat' &&
+        document.documentElement &&
+        document.documentElement.offsetWidth ) {
+        winW = document.documentElement.offsetWidth;
+        winH = document.documentElement.offsetHeight;
+    }
+    if (window.innerWidth && window.innerHeight) {
+        winW = window.innerWidth;
+        winH = window.innerHeight;
+    }
+    return {Width: winW, Height: winH};
+}   
+function getElementTop(elm){
+    return getTopLeft(elm)['Top'];
+}
+function getElementLeft(elm){
+    return getTopLeft(elm)['Left'];
+}
+function getTopLeft(elm){
+    var x, y = 0;
+    // set x to elmâs offsetLeft
+    x = elm.offsetLeft;
+    // set y to elmâs offsetTop
+    y = elm.offsetTop;
+    // set elm to its offsetParent
+    elm = elm.offsetParent;
+    // use while loop to check if elm is null
+    // if not then add current elmâs offsetLeft to x
+    // offsetTop to y and set elm to its offsetParent
+    while(elm != null){
+        x = parseInt(x) + parseInt(elm.offsetLeft);
+        y = parseInt(y) + parseInt(elm.offsetTop);
+        elm = elm.offsetParent;
+    }
+    // return Object with two properties
+    // Top and Left
+    return {Top:y, Left: x};
+}
+function getElementHeight(id){
+    var e;
+    if(typeof id == 'string'){
+        e = document.getElementById(id);
+    }else{
+        e = id;
+    }
+    if(e == null){
+    	return null;
+    }
+    if (typeof e.clip !== "undefined") {
+        return e.clip.height;
+    } else {
+        if (e.style.pixelHeight) {
+            return e.style.pixelHeight;
+        } else {
+            return e.offsetHeight;
+        }
+    }
+}
+function getElementWidth(id){
+    var e;
+    if(typeof id == 'string'){
+        e = document.getElementById(id);
+    }else{
+        e = id;
+    }
+    if(e == null){
+    	return null;
+    }
+    if (typeof e.clip !== "undefined") {
+        return e.clip.width;
+    } else {
+        if (e.style.pixelWidth) {
+            return e.style.pixelWidth;
+        } else {
+            return e.offsetWidth;
+        }
+    }
+}

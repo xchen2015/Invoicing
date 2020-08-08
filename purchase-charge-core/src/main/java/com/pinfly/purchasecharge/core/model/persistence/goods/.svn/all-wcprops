@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1034/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods
+END
+GoodsStorage.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsStorage.java
+END
+GoodsStoragePriceRevise.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsStoragePriceRevise.java
+END
+GoodsIssue.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsIssue.java
+END
+GoodsStorageTransfer.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsStorageTransfer.java
+END
+GoodsPicture.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsPicture.java
+END
+Goods.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/Goods.java
+END
+GoodsUnit.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsUnit.java
+END
+GoodsDepository.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsDepository.java
+END
+GoodsType.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsType.java
+END
+GoodsStorageCheck.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/goods/GoodsStorageCheck.java
+END

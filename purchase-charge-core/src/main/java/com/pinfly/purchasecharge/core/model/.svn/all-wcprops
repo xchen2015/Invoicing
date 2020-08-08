@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1059/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model
+END
+GoodsStorageTransferData.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/1183/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/GoodsStorageTransferData.java
+END
+PaymentAccountMode.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/PaymentAccountMode.java
+END
+UserRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/UserRole.java
+END
+OrderItemSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1195/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/OrderItemSearchForm.java
+END
+AccountingSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/AccountingSearchForm.java
+END
+ProjectStatusCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1075/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/ProjectStatusCode.java
+END
+LoginUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/LoginUser.java
+END
+OrderTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1183/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/OrderTypeCode.java
+END
+ContractTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1071/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/ContractTypeCode.java
+END
+OrderStatusCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1067/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/OrderStatusCode.java
+END
+PaymentTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1177/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/PaymentTypeCode.java
+END
+RoleAuthority.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/RoleAuthority.java
+END
+RegionCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/RegionCode.java
+END
+PaymentTransferTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1167/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/PaymentTransferTypeCode.java
+END
+GoodsStorageCourse.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1195/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/GoodsStorageCourse.java
+END
+GoodsIssueStatusCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/GoodsIssueStatusCode.java
+END
+OrderSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1201/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/OrderSearchForm.java
+END
+PaymentSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/PaymentSearchForm.java
+END
+ReceiptTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1030/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/ReceiptTypeCode.java
+END
+SearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/SearchForm.java
+END
+AccountingModeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/AccountingModeCode.java
+END
+LogSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/LogSearchForm.java
+END
+GoodsStorageCourseSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/GoodsStorageCourseSearchForm.java
+END
+CustomerSearchField.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/CustomerSearchField.java
+END
+BaseModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/BaseModel.java
+END
+PaymentTransferSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/1177/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/PaymentTransferSearchForm.java
+END
+GoodsIssueSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1155/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/GoodsIssueSearchForm.java
+END

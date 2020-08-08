@@ -1,0 +1,543 @@
+# Add message keys here, and they will automatically be generated in building
+pc.name = 品飞进销存管理
+
+title = 买卖管理
+save = 保存
+cancel = 取消
+close = 关闭
+reset = 清空
+comment = 备注
+id = 唯一编号
+name = 名称
+newType = 新增类型
+editType = 编辑类型
+removeType = 删除类型
+new = 新增
+edit = 编辑
+remove = 删除
+refresh = 刷新
+pleaseInputValue = 请输入查询关键字
+print = 打印
+selectOneRow = 选择一行
+checkOneOrMultiple = 勾选一行或多行
+checkOneOrMultiple2 = 勾选一个或多个
+doing = 处理中...
+loading = 加载中...
+action = 操作
+continueAdd = 保存后继续新增
+addAndClose = 保存后关闭
+all = 所有
+requiredField = 必填
+requiredFieldAndUnique = 必填且唯一
+export = 导出
+query = 查询
+
+framework.sessionTimeout = 您的浏览器会话已经过期.
+
+# Message Source
+generic.message.requestArgs.error = 请求参数不正确
+generic.message.add.fail = 添加失败
+generic.message.add.success = 添加成功
+generic.message.add.fail2 = 添加{0}失败
+generic.message.add.success2 = 添加{0}成功
+
+generic.message.update.fail = 更新失败
+generic.message.update.success = 更新成功
+generic.message.update.fail2 = 更新{0}失败
+generic.message.update.success2 = 更新{0}成功
+
+generic.message.delete.fail = 删除失败
+generic.message.delete.success = 删除成功
+generic.message.delete.fail2 = 删除{0}失败
+generic.message.delete.success2 = 删除{0}成功
+generic.message.enable.fail = 启用{0}失败
+generic.message.enable.success = 启用{0}成功
+generic.message.disable.fail = 禁用{0}失败
+generic.message.disable.success = 禁用{0}成功
+
+generic.message.unrepeatable.warn = {0}已经存在，不能添加或更新
+
+pc.reset.pwd.success = 重置密码成功
+pc.reset.pwd.fail = 重置密码失败
+pc.data.backup.success = 备份数据成功
+pc.data.backup.fail = 备份数据失败
+pc.data.restore.success = 恢复数据成功
+pc.data.restore.fail = 恢复数据失败
+pc.nonAdminOperate.warn = 非管理员用户不能进行此操作
+
+
+CUSTOMER = 客户
+CUSTOMER_TYPE = 客户类型
+CUSTOMER_LEVEL = 客户等级
+CUSTOMER_PAID = 客户收款
+
+PROVIDER = 供应商
+PROVIDER_TYPE = 供应商类型
+PROVIDER_PAID = 供应商付款
+CONTACT = 联系人
+
+GOODS = 货物
+GOODS_STORAGE = 货物库存
+GOODS_STORAGE_TRANSFER = 货物库存调拨
+GOODS_STORAGE_CHECK = 货物库存盘点
+GOODS_STORAGE_PRICE_REVISE = 货物库存调价
+GOODS_TYPE = 货物类型
+GOODS_UNIT = 货物单位
+GOODS_DEPOSITORY = 货物仓库
+GOODS_ISSUE = 货物返修
+GOODS_SERIAL_NUMBER = 货物序列号
+
+IN_ORDER = 进货单
+IN_ORDER_STATUS = 进货单状态
+OUT_ORDER = 出货单
+OUT_ORDER_STATUS = 出货单状态
+
+MEMORIAL_DAY_TYPE = 纪念日类型
+PAYMENT_WAY = 支付方式
+PAYMENT_ACCOUNT = 支付账号
+PAYMENT_ACCOUNT_TRANSFER = 内部转账
+CUSTOMER_FOLLOW_WAY = 客户跟踪方式
+REGION = 区域
+
+LOG_EVENT = 日志事件
+
+USER = 系统用户
+ROLE = 系统角色
+AUTHORITY = 系统权限
+PASSWORD = 密码
+
+EXPENSE = 记账单
+EXPENSE_TYPE = 记账单类型
+
+DELIVERY_COMPANY = 物流公司
+ORDER_DELIVERY = 订单物流
+ORDER_RECEIPT = 订单发票
+
+CONTRACT = 合同
+PROJECT = 工程
+DATA_BACKUP = 数据备份
+
+# User Management
+userId = 用户名
+firstName = 名
+lastName = 姓
+phone = 电话
+email = 电子邮件
+userManagement = 用户管理
+newUser = 新增用户
+editUser = 编辑用户
+removeUser = 删除用户
+user = 用户
+user.gender = 性别
+user.gender.male = 男
+user.gender.female = 女
+user.birthday = 生日
+user.role = 角色
+user.ifAdmin = 是否管理员
+user.ifAvailable = 是否可用
+
+role = 角色
+role.mgmt = 角色管理
+role.name = 角色名
+role.ifAvailable = 是否可用
+role.authority = 权限
+role.newRole = 新增角色
+role.editRole = 编辑角色
+role.removeRole = 删除角色
+
+authority = 权限
+authority.mgmt = 权限管理
+authority.newAuth = 新增权限
+authority.editAuth = 编辑权限
+authority.removeAuth = 删除权限
+authority.name = 权限名
+authority.ifAvailable = 是否可用
+authority.url = 可访问资源
+
+# Customer Type Management
+customerTypeManagement = 客户类型管理
+customerType = 客户类型
+
+# Provider Type Management
+providerTypeManagement = 供应商类型管理
+providerType = 供应商类型
+
+# Follow Way Management
+followWayManagement = 客户跟进方式管理
+followWay = 客户跟进方式
+newWay = 新增方式
+editWay = 编辑方式
+removeWay = 删除方式
+
+# Goods Type Management
+goodsTypeManagement = 货物类型管理
+goodsType = 货物类型
+appendRootType = 新增根类型
+appendSubType = 新增子类型
+expand = 展开
+collapse = 收缩
+expandAll = 展开所有
+collapseAll = 收缩所有
+parentId = 父结点编号
+
+# Region Management
+regionManagement = 区域管理
+region = 区域
+newRootRegion = 新增顶级区域
+appendRegion = 追加子区域
+editRegion = 编辑区域
+removeRegion = 删除区域
+
+# Goods Unit Management
+goodsUnitManagement = 货物单位管理
+goodsUnit = 货物单位
+newUnit = 新增单位
+editUnit = 编辑单位
+removeUnit = 删除单位
+
+# MemorialDay Type Management
+memorialDayTypeManagement = 纪念日类型管理
+memorialDayType = 纪念日类型
+
+# Payment Type Management
+paymentTypeManagement = 支付类型管理
+paymentType = 支付类型
+paymentAccount = 支付账号
+
+# Goods Management
+goods.goodsManagement = 货物管理
+goods.serialNumber = 序列号
+goods.specificationModel = 规格型号
+goods.shortCode = 编码
+goods.depository = 仓库
+goods.preferedDepository = 首选仓库
+goods.barCode = 条形码
+goods.technicalParameters = 技术参数
+goods.importPrice = 预计采购价
+goods.tradePrice = 批发参考价
+goods.retailPrice = 零售参考价
+goods.vipPrice = 会员价
+goods.discount1 = 折扣率一(%)
+goods.discount2 = 折扣率二(%)
+goods.averagePrice = 单位成本价
+goods.totalValue = 库存总价
+goods.initialAmount = 期初数量
+goods.initialTotal = 期初总价
+goods.available = 是否可用
+goods.unit = 单位
+goods.newGoods = 新增货物
+goods.newStorage = 新增库存
+goods.editGoods = 编辑货物
+goods.searchGoodsCourse = 查看经营历程
+goods.searchGoodsStorage = 库存盘点
+goods.warnGoodsStorage = 库存预警
+goods.goods = 货物
+goods.removeGoods = 删除货物
+goods.enable = 可用
+goods.unavailable = 不可用
+goods.type = 类型
+goods.selectAnType = 选择一个类型...
+goods.deleteGoodsType = 删除货物类型
+goods.comment = 备注
+goods.hasStorage = 有库存
+
+# Goods storage
+goodsStorage.management = 货物库存管理
+goodsStorage.goods = 货物
+goodsStorage.initialStock = 初始库存
+goodsStorage.currentStock = 当前库存
+goodsStorage.minStock = 最低库存
+goodsStorage.maxStock = 最高库存
+goodsStorage.createDate = 创建时间
+goodsStorage.updateDate = 最近更新时间
+goodsStorage.updateUser = 最近更新人
+goodsStorage.comment = 备注
+
+goodsStorage.storageCheck = 库存盘点历史
+goodsStorage.storageTransfer = 库存调拨历史
+goodsStorage.storagePriceRevise = 库存调价历史
+goodsStorage.newTransfer = 新增调拨
+goodsStorage.depository = 仓库
+goodsStorage.fromDepository = 源仓库
+goodsStorage.toDepository = 目标仓库
+goodsStorage.amount = 数量
+goodsStorage.operator = 操作者
+goodsStorage.transferDate = 日期
+goodsStorage.removeTransfer = 删除货物序列号
+
+# Customer
+customerManagement = 客户管理
+customer = 客户
+newCustomer = 新增客户
+editCustomer = 编辑客户
+removeCustomer = 删除客户
+customer.shortName = 简称
+customer.type = 类型
+customer.level = 等级
+customer.shortCode = 编码
+customer.contact = 联系人
+customer.address = 地址
+customer.mobilePhone = 手机
+customer.email = 电子邮箱
+customer.netCommunityId = 网络通讯号
+customer.fixedPhone = 固定电话
+customer.isDeleted = 是否删除
+customer.comment = 备注
+customer.debt = 应收款
+customer.initialUnpayMoney = 期初应收款
+customer.payment.addUnPaid = 新增应收款
+customer.payment.returnUnPaid = 退回应收款
+customer.payment.addPaid = 已收应收款
+customer.payment.totalUnPaid = 应收款余额
+customer.payment.operator = 操作人
+customer.payment.date = 单据日期
+customer.payment.type = 业务类型
+customer.payment.receiptId = 单据号
+customer.payment.duedInterval = 已到期时间
+customer.payment.allUnPay = 未收总金额
+customer.payment.duedUnPay = 已到期未收金额
+customer.payment.remainUnPay = 剩余未收金额
+customer.createDate = 创建日期
+customer.lastUpdated = 最后更新
+customer.signUserId = 所属业务员
+customer.isSharable = 是否共享
+customer.option.enSharable = 可共享
+customer.option.unSharable = 不可共享
+customer.lastPaidDate = 最近付款时间
+customer.lastSaleDate = 最近下单时间
+
+customerFinanceManagement = 客户应收款
+providerFinanceManagement = 供应商应付款
+expenseRecordManagement = 其他收支记录
+orderProfitManagement = 订单利润
+
+provider = 供应商
+provider.providerManagement = 供应商管理
+provider.initialUnpayMoney = 期初应付款
+provider.payment.addUnPaid = 新增应付款
+provider.payment.returnUnPaid = 退回应付款
+provider.payment.addPaid = 已付应付款
+provider.payment.totalUnPaid = 应付款余额
+
+countPriceByType = 按类型统计货物价格
+countQuantityByType = 按类型统计货物数量
+
+# Order Management
+order.orderManagement = 订单管理
+order.orderInManagement = 采购单管理
+order.orderOutManagement = 销售单管理
+order.orderOutDeliveryManagement = 销售单配送管理
+order.customer = 客户
+order.dealMoney = 应付额
+order.inDealMoney = 应收额
+order.outDealMoney = 应付额
+order.paidMoney = 实付额
+order.outPaidMoney = 实收额
+order.profit = 利润
+order.payDate = 付款日期
+order.payDeadline = 付款期限
+order.signUserId = 业务员
+order.statusCode = 状态
+order.order = 订单
+order.newOrder = 新增订单
+order.editOrder = 编辑订单
+order.removeOrder = 删除订单
+order.option.new = 新建
+order.option.return = 退回
+order.option.cancel = 取消
+order.option.finished = 完成
+order.product = 产品
+order.unit = 单位
+order.unitPrice = 单价
+order.amount = 数量
+order.sum = 金额
+order.note = 备注
+order.append = 添加货物
+order.accept = 保存
+order.remove = 删除货物
+order.items = 订单项
+order.viewOrder = 查看订单
+order.updatePaid = 新增回款
+order.updateStatus = 编辑状态
+order.paidRecord = 回款记录
+order.searchAndSelectCustomer = 查询和选择客户
+order.payMoney = 金额
+order.createDate = 创建日期
+order.updateDate = 更新日期
+order.id = 订单号
+
+# Report
+report.countHighLowPrice = 统计货物价格
+report.countGoodsQuantityByType = 统计货物数量(饼图)
+report.countGoodsQuantityByType2 = 统计货物数量(柱图)
+report.outLayPie = 支出(饼图)
+report.outLayColumn = 支出(柱状图)
+report.inComePie = 收入(饼图)
+report.inComeColumn = 收入(柱状图)
+report.providerSalesPie = 供应商采购(饼图)
+report.providerSalesColumn = 供应商采购(柱状图)
+report.customerSalesPie = 客户销量(饼图)
+report.customerSalesColumn = 客户销量(柱状图)
+report.customerProfitPie = 客户利润(饼图)
+report.customerProfitColumn = 客户利润(柱状图)
+report.goodsSalesAmountPie = 货物销售数量(饼图)
+report.goodsSalesAmountColumn = 货物销售数量(柱状图)
+report.goodsSalesSumPie = 货物销售金额(饼图)
+report.goodsSalesSumColumn = 货物销售金额(柱状图)
+report.orderSalesLinePerMonth = 销售按月统计(折线图)
+report.orderSalesColumnPerMonth = 销售按月统计(柱状图)
+report.orderProfitLinePerMonth = 利润按月统计(折线图)
+report.orderProfitColumnPerMonth = 利润按月统计(柱状图)
+report.pencentage = 占比
+report.quantity = 数量
+report.money = 金额(元)
+report.goods = 货物
+report.customer = 客户
+report.provider = 供应商
+report.outLay = 支出
+report.inCome = 收入
+
+# Change Password
+password.oldPwdIncorrect = 旧密码不正确！
+password.oldPwdAndNewPwdCannotSame = 新密码和旧密码不能相同！
+password.newPwdAndNewPwdConfirmMustBeSame = 新密码和确认密码必须相同！
+password.userId = 用户ID
+password.oldPwd = 旧密码
+password.newPwd = 新密码
+password.newPwdConfirm = 确认新密码
+
+# Log
+log.logManagement = 查看操作日志
+log.log = 操作日志
+log.eventPattern = 目标格式
+log.eventEnable = 是否启用
+log.removeLog = 删除日志
+log.logEventManagement = 管理日志事件
+log.logEvent = 日志事件
+log.newEvent = 新增事件
+log.editEvent = 编辑事件
+log.removeEvent = 删除事件
+
+# Backup and Restore
+backupAndRestore.backup = 备份
+backupAndRestore.restore = 恢复
+backupAndRestore.backup.info = 如从未备份过数据，请先进行备份(备份是将远程服务器上的所有数据备份到本地，相当于在本地保存了一份远程服务器上的数据，供未来用于恢复，请注意不要将备份文件保存在系统盘)
+backupAndRestore.restore.info = 如已经备份过数据，可进行恢复(恢复是把本地以前保存过的数据上传到服务器，请注意是覆盖服务器上的所有数据，此操作不可回滚！建议恢复前先进行备份，以防数据丢失，造成不必要的损失)
+backupAndRestore.backup.tip = 定期备份，以防数据丢失
+backupAndRestore.restore.tip = 恢复前请先备份
+backupAndRestore.restore.selectFile = 选择备份文件...
+
+# Expense
+expense.expense = 记账
+expense.expenseManagement = 记账管理
+
+# Goods Depository
+goodsDepository.depositoryManagement = 货物仓库管理
+goodsDepository.newDepository = 新增仓库
+goodsDepository.editDepository = 编辑仓库
+goodsDepository.removeDepository = 删除仓库
+goodsDepository.location = 位置
+goodsDepository.otherInfo = 备注
+
+payment.paymentAccountManagement = 支付账号管理
+payment.paymentAccountDetailView = 支付账号明细
+payment.paymentWayManagement = 支付方式管理
+payment.transferType.internal = 内部转账
+payment.transferType.customer = 客户收款
+payment.transferType.provider = 供应商付款
+payment.transferType.remain = 期初结余
+payment.transferType.accountingOut = 其它出账
+payment.transferType.accountingIn = 其它进账
+payment.transferType.recharge = 充值
+
+goodsIssue.goodsIssueManagement = 货物返修管理
+goodsIssue.goodsIssue = 货物返修
+goodsIssue.goods = 货物
+goodsIssue.goodsSerialNumber = 货物序列号
+goodsIssue.customer = 客户
+goodsIssue.provider = 供应商
+goodsIssue.date = 日期
+goodsIssue.saledDate = 销售日期
+goodsIssue.createDate = 创建日期
+goodsIssue.signUser = 经手人
+goodsIssue.updateUser = 更新人
+goodsIssue.updateDate = 更新日期
+goodsIssue.status = 状态
+goodsIssue.description = 描述
+goodsIssue.comment = 备注
+goodsIssue.new = 新建的
+goodsIssue.approved = 批准的
+goodsIssue.processed = 处理中的
+goodsIssue.completed = 处理完成的
+goodsIssue.invalid = 无效的
+goodsIssue.newGoodsIssue = 新增货物返修
+goodsIssue.editGoodsIssue = 编辑货物返修
+goodsIssue.removeGoodsIssue = 删除货物返修
+
+goodsSerial.goodsSerialManagement = 货物序列号管理
+goodsSerial.goods = 货物
+goodsSerial.goodsSerialNumber = 货物序列号
+goodsSerial.customer = 客户
+goodsSerial.provider = 供应商
+goodsSerial.inDate = 入库日期
+goodsSerial.outDate = 出库日期
+goodsSerial.newGoodsSerial = 新增货物序列号
+goodsSerial.editGoodsSerial = 编辑货物序列号
+goodsSerial.removeGoodsSerial = 删除货物序列号
+
+deliveryCompanyManagement = 物流公司管理
+
+contract.contractManagement = 合同管理
+contract.contract = 合同
+contract.name = 名称
+contract.source = 甲方
+contract.dealMoney = 合同额
+contract.type = 类型
+contract.comment = 备注
+contract.userCreated = 创建人
+contract.dateCreated = 创建时间
+
+contract.type.project = 工程合同
+contract.type.orderIn = 采购合同
+contract.type.orderOut = 销售合同
+contract.newContract = 新增合同
+contract.editContract = 编辑合同
+contract.removeContract = 删除合同
+
+project.projectManagement = 工程管理
+project.project = 工程
+project.name = 名称
+project.customer = 客户
+project.start = 开始时间
+project.end = 结束时间
+project.status = 当前状态
+project.constructionFee = 施工费
+project.otherFee = 辅材及其他费
+project.orderMoney = 设备费
+project.order = 设备销售单
+project.dealMoney = 总额
+project.profit = 利润
+project.userCreated = 创建人
+project.userUpdated = 更新人
+project.comment = 备注
+
+project.status.new = 新建的
+project.status.approved = 批准的
+project.status.processed = 进行中的
+project.status.completed = 完成的
+project.status.canceled = 取消的
+project.newProject = 新增工程
+project.editProject = 编辑工程
+project.removeProject = 删除工程
+
+customerLevel = 客户等级
+customerLevel.mgmt = 客户等级管理
+customerLevel.newLevel = 新增等级
+customerLevel.name = 名称
+customerLevel.order = 高低
+customerLevel.paymentDays = 账期(天)
+customerLevel.maxDebt = 最多允许欠账
+customerLevel.priceRate = 价格折扣率(%)
+customerLevel.saleMoney = 销售额
+customerLevel.profitMoney = 利润额
+customerLevel.enabled = 是否可用

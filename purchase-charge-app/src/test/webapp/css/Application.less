@@ -1,0 +1,165 @@
+/*
+ * Defines CSS styles used for laying out an application page.
+ *
+ */
+@charset "UTF-8";
+@import url("icons.css");
+
+// Minimum height of content area
+@content-size: 450px;
+
+body {
+    font: 80%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    background-color: @color-14;
+    margin: 0;
+    padding: 0;
+    color: @color-01;
+}
+
+ul, ol, dl {
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+}
+h1, h3, h5 { color: @color-03; font-family: Arial, Helvetica, sans-serif;}
+h2, h4, h6 { color: @color-05; font-family: Arial, Helvetica, sans-serif;}
+
+a {
+	img { border: none; }
+	&:link { color: @color-04; text-decoration: none; }
+	&:visited { text-decoration: none; color: @color-04; }
+	&:hover, &:focus, &:active { text-decoration: underline; }
+}
+
+.loadingProgress {
+	width:100%;
+    min-height: @content-size;
+    height: auto !important;
+    height: @content-size;
+    img {
+    	margin-left: 50%;
+    	margin-top: 100px;
+    }
+}
+
+.loginBox { 
+	margin: 10px 10px 10px 0px; border: 1px solid @color-10; background-color: @color-17; padding: 3px;
+	div { background-color: @color-11; padding: 1px; }
+	h3 { margin-top: 5px; margin-bottom: 5px;}
+	h3, p { padding-left: 10px; padding-right: 10px;}
+	label { color: @color-02; }
+}
+
+.header {
+    background: @color-07 url("@{bg-url}") 0px -182px repeat-x; 
+    border-bottom: 1px solid @color-17; position: relative;
+    img { vertical-align: middle; }
+}
+
+.logo {
+    padding: 10px 10px 15px 10px;
+}
+
+.ccowIcon {
+    padding-top: 3px;
+}
+
+.userMenu { 
+	font-size: .85em;
+	float: right;
+	padding-top:0px;
+	margin-right:3px;
+	button { 
+	    font-size: 12px;
+		padding: 4px 5px 4px 5px;
+		border: 1px;
+		background:url("@{bg-url}") 0 -421px repeat-x;
+		&:hover {background:url("@{bg-url}") 0 -292px repeat-x; }
+	}
+}
+
+.principalName {
+    color: @color-04;
+}
+
+// The spacing between components.
+@componentSpacing: 7px;
+
+#content {
+    min-height: @content-size;
+    height: auto !important;
+    height: @content-size;  
+    padding-top: @componentSpacing;  
+}
+#subContent {
+    min-height: 400px;
+    height: auto !important;
+    height: 400px;  
+    padding: 3px;  
+}
+
+.component {
+  margin-bottom: @componentSpacing;
+}
+
+.footer {
+    padding: 10px;
+    background: @color-07 url("@{bg-url}") 0px 0px repeat-x;
+    border-top: 1px solid @color-17;
+    text-align: center;
+    position: fixed;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+    clear: both;
+    min-height: 1.2em;
+    font-size: .9em;
+    ul {
+    	list-style: none;
+    	li {
+			background: url("@{icons-url}") no-repeat scroll -555px -76px transparent;
+		    display: inline-block;
+		    float: left;
+		    padding: 0 10px;
+		    &:first-child { background: none;}
+		}
+    }
+}
+
+.footerMenu {
+	position: absolute; top: 7px; right: 10px; font-size: .85em;
+	ul {
+		list-style: none;
+		li {
+			&:first-child { background: none;}
+		}
+	}
+	button {
+		background:url("@{bg-url}") 0 -421px repeat-x; margin-top: -5px;
+		&:hover {background:url("@{bg-url}") 0 -292px repeat-x; }
+	}
+}
+
+.tab 
+{
+	padding: 5px;
+}
+
+.pcSettingMenuAndHelpMenu 
+{
+	margin-right: 12px;
+	cursor: pointer;
+}
+.pcSettingMenuAndHelpMenu a
+{
+	text-decoration: none;
+	padding: 6px 1px 9px 6px;
+}
+
+.userMenu .pcSettingMenuAndHelpMenu a:hover {
+	background:url("@{bg-url}") 0 -292px repeat-x; 
+	border:1px #CBDEEE solid;
+	padding: 5px 0px 7px 5px;
+}

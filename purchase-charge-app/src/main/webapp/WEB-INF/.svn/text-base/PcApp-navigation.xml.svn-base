@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 
+         Define page navigation structure here.
+         
+         While you can have multiple Navigation Service beans, this bean should ALWAYS be named
+         navigationService and should provide the primary site navigation.  If this is changed,
+         it could impact functionality in index.jsp
+    -->
+    <bean id="navigationService" class="com.pinfly.purchasecharge.app.nav.SimpleNavigationService">
+        <property name="configuration">
+            <list>
+				<!-- dashboard -->
+				<bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/dashboard" />
+                    <property name="titleCode" value="navigation.Dashboard" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/dashboard/index" />
+                    <property name="titleCode" value="navigation.Dashboard" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="myIndexWidget" />
+									<ref bean="inOrderAddWidget" />
+									<ref bean="outOrderAddWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+                <!-- goods tabs -->
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/goods" />
+                    <property name="titleCode" value="navigation.Goods" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/goods/inOrderManagement" />
+                    <property name="titleCode" value="navigation.inOrderManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_special_grid" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="inOrderManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/goods/providerManagement" />
+                    <property name="titleCode" value="navigation.providerManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="providerManagementWidget" />
+									<ref bean="providerTypeManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/goods/goodsManagement" />
+                    <property name="titleCode" value="navigation.GoodsManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_goods" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsManagementWidget" />
+									<ref bean="goodsUnitManagementWidget" />
+									<ref bean="goodsDepositoryManagementWidget" />
+									<ref bean="goodsStorageWarnWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+                <!-- goods storage tabs -->
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage" />
+                    <property name="titleCode" value="navigation.storageManagement" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage/storageTransfer" />
+                    <property name="titleCode" value="navigation.storageTransfer" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsStorageTransferWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage/storageCheck" />
+                    <property name="titleCode" value="navigation.storageCheck" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_special_grid" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsStorageCheckWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage/goodsCostRevise" />
+                    <property name="titleCode" value="navigation.goodsCostRevise" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsStoragePriceReviseWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage/goodsSerialManagement" />
+                    <property name="titleCode" value="navigation.goodsSerialManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsSerialManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/storage/afterSaleManagement" />
+                    <property name="titleCode" value="navigation.afterSaleManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsIssueManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+                <!-- order tab -->
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order" />
+                    <property name="titleCode" value="navigation.Order" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order/outOrderManagement" />
+                    <property name="titleCode" value="navigation.outOrderManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_special_grid" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="outOrderManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order/orderDelivery" />
+                    <property name="titleCode" value="navigation.orderDelivery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_special_grid" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="outOrderDeliveryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order/customerManagement" />
+                    <property name="titleCode" value="navigation.CustomerManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="customerManagementWidget" />
+									<ref bean="customerTypeManagementWidget" />
+									<ref bean="customerLevelManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order/projectManagement" />
+                    <property name="titleCode" value="navigation.projectManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_special_grid" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="projectMgmtWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/order/contractManagement" />
+                    <property name="titleCode" value="navigation.contractManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="contractMgmtWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+				<!-- report tabs -->
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report" />
+                    <property name="titleCode" value="navigation.Report" />
+                    <property name="type" value="LABEL" />
+                </bean>
+				<bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/financeReport" />
+                    <property name="titleCode" value="navigation.financeReport" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_report" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="reportIndexWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/accountingReport" />
+                    <property name="titleCode" value="navigation.accountingReportQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_report" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="accountingReportQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/goodsReport" />
+                    <property name="titleCode" value="navigation.goodsReportQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_report" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="goodsReportQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/customerReport" />
+                    <property name="titleCode" value="navigation.customerReportQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_report" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="customerReportQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/providerReport" />
+                    <property name="titleCode" value="navigation.providerReportQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout_report" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="providerReportQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/orderProfitReport" />
+                    <property name="titleCode" value="navigation.orderProfitQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="orderProfitViewWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/orderOutItemQuery" />
+                    <property name="titleCode" value="navigation.orderOutItemQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="orderOutItemQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/orderInItemQuery" />
+                    <property name="titleCode" value="navigation.orderInItemQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="orderInItemQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/report/storageStatisticQuery" />
+                    <property name="titleCode" value="navigation.storageStatisticQuery" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="storageStatisticQueryWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+                <!-- finance -->
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/finance" />
+                    <property name="titleCode" value="navigation.financeManagement" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/finance/payInManagement" />
+                    <property name="titleCode" value="navigation.financeInManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="customerPayManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/finance/payOutManagement" />
+                    <property name="titleCode" value="navigation.financeOutManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="providerPayManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/finance/expenseRecordManagement" />
+                    <property name="titleCode" value="navigation.expenseRecordManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="accountingMgmtWidget" />
+									<ref bean="accountingTypeMgmtWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/finance/payAccountFinance" />
+                    <property name="titleCode" value="navigation.payAccountFinance" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="paymentAccountFinanceWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+
+				<!-- basic setting tabs -->
+				<bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/admin" />
+                    <property name="titleCode" value="navigation.basicData" />
+                    <property name="type" value="LABEL" />
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/admin/userManagement" />
+                    <property name="titleCode" value="navigation.UserManagement" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+                    		<entry key="main">
+                    			<list>
+                    				<ref bean="userManagementWidget" />
+                    				<ref bean="roleManagementWidget" />
+							        <!-- <ref bean="authorityManagementWidget" /> -->
+                    			</list>
+                    		</entry>
+                    	</map>
+                    </property>
+                </bean>
+
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/admin/auditLog" />
+                    <property name="titleCode" value="navigation.AuditLog" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="logManagementWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/admin/backupAndRestore" />
+                    <property name="titleCode" value="navigation.BackupAndRestore" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="dataBackupAndRestoreWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                <bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+                    <property name="path" value="/admin/resetSystem" />
+                    <property name="titleCode" value="navigation.ResetSystem" />
+                    <property name="type" value="PAGE" />
+                    <property name="template" value="layout1" />
+                    <property name="regionWidgetMap">
+                    	<map>
+							<entry key="main">
+								<list>
+									<ref bean="resetSystemWidget" />
+								</list>
+							</entry>
+						</map>
+                    </property>
+                </bean>
+                
+            </list>
+        </property>
+    </bean>
+
+    <util:map id="emptyRegionMap">
+        <entry key="main" value-ref="noWidgets"/>
+    </util:map>
+    <util:map id="widgetRegionMap">
+        <entry key="main" value-ref="mainWidgets"/>
+    </util:map>
+    <util:list id="noWidgets">
+    </util:list>
+    <util:list id="mainWidgets">
+        
+    </util:list>
+    
+    <!-- another one page navigation service for sub navigation accessing it
+		will be refferenced by a servlet controller in PcApp-servlet.xml -->
+	<bean id="subNavigationService"
+		class="com.pinfly.purchasecharge.app.nav.SimpleNavigationService">
+		<property name="configuration" ref="subNavigationConfigItems" />
+	</bean>
+	<!-- util list is configured as list of NavigationItem which configure the
+		layout for components. this util list instance will also be referenced by
+		popup navigation component. don't change its id. To configure this NavigationItems,
+		just follow the rule of Spring bean navigationService. And note the path
+		is different from the one in above. and the template is the name with prefix
+		of 'sub'. -->
+	<util:list id="subNavigationConfigItems">
+		<bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+			<property name="path" value="/page2" />
+			<property name="titleCode" value="appSetting.changePassword" />
+			<property name="type" value="PAGE" />
+			<property name="template" value="sublayout" />
+			<property name="regionWidgetMap">
+				<map>
+					<entry key="main">
+						<list>
+							<ref bean="passwordManagementWidget" />
+						</list>
+					</entry>
+				</map>
+			</property>
+		</bean>
+	</util:list>
+	
+    <!-- another one page navigation service for sub navigation accessing it
+		will be refferenced by a servlet controller in PcApp-servlet.xml -->
+	<bean id="helpNavigationService"
+		class="com.pinfly.purchasecharge.app.nav.SimpleNavigationService">
+		<property name="configuration" ref="helpNavigationConfigItems" />
+	</bean>
+	<!-- util list is configured as list of NavigationItem which configure the
+		layout for components. this util list instance will also be referenced by
+		popup navigation component. don't change its id. To configure this NavigationItems,
+		just follow the rule of Spring bean navigationService. And note the path
+		is different from the one in above. and the template is the name with prefix
+		of 'sub'. -->
+	<util:list id="helpNavigationConfigItems">
+		<bean class="com.pinfly.purchasecharge.app.nav.NavigationItem">
+			<property name="path" value="/companyBankAccount.pdf" />
+			<property name="titleCode" value="CompanyBankAccount" />
+			<property name="type" value="PAGE" />
+			<!-- <property name="template" value="sublayout" /> -->
+			<property name="regionWidgetMap" ref="emptyRegionMap" />
+		</bean>
+	</util:list>
+
+    <!-- Report Widgets -->
+    <bean id="myIndexWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="MyIndex" />
+        <property name="getViewServletPath" value="/index/getView.html" />
+        <property name="getCssServletPath" value="/index/getCss.html" />
+    </bean>
+    <bean id="reportIndexWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/reportIndex/.html" />
+        <property name="uniqueName" value="ReportIndex" />
+    </bean>
+    <bean id="goodsReportQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/reportGoods/getView.html" />
+        <property name="uniqueName" value="GoodsReportQuery" />
+    </bean>
+    <bean id="customerReportQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/reportCustomer/getView.html" />
+        <property name="uniqueName" value="CustomerReportQuery" />
+    </bean>
+    <bean id="providerReportQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/reportProvider/getView.html" />
+        <property name="uniqueName" value="ProviderReportQuery" />
+    </bean>
+    <bean id="accountingReportQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/reportAccounting/getView.html" />
+        <property name="uniqueName" value="AccountingReportQuery" />
+    </bean>
+    
+    <!-- User -->
+    <bean id="userManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/user/getView.html" />
+        <property name="getJsServletPath" value="/user/getJs.html" />
+        <property name="uniqueName" value="UserManagement" />
+    </bean>
+    <bean id="roleManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/role/getView.html" />
+        <property name="getJsServletPath" value="/role/getJs.html" />
+        <property name="uniqueName" value="RoleManagement" />
+    </bean>
+    <bean id="authorityManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/authority/getView.html" />
+        <property name="uniqueName" value="AuthorityManagement" />
+    </bean>
+    <bean id="passwordManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/password/getView.html" />
+        <property name="uniqueName" value="PasswordManagement" />
+    </bean>
+    
+    <!-- Goods -->
+    <bean id="goodsUnitManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsUnit/getView.html" />
+        <property name="getJsServletPath" value="/goodsUnit/getJs.html" />
+        <property name="uniqueName" value="GoodsUnitManagement" />
+    </bean>
+    <bean id="goodsDepositoryManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsDepository/getView.html" />
+        <property name="getJsServletPath" value="/goodsDepository/getJs.html" />
+        <property name="uniqueName" value="GoodsDepositoryManagement" />
+    </bean>
+    <bean id="goodsTypeManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsType/getView.html" />
+        <property name="getJsServletPath" value="/goodsType/getJs.html" />
+        <property name="uniqueName" value="GoodsTypeManagement" />
+    </bean>
+    <bean id="goodsManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.GoodsManagement" />
+        <property name="getViewServletPath" value="/goods/getView.html" />
+        <property name="getJsServletPath" value="/goods/getJs.html" />
+        <property name="getCssServletPath" value="/goods/getCss.html" />
+    </bean>
+    <bean id="goodsStorageTransferWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="GoodsStorageTransfer" />
+        <property name="getViewServletPath" value="/goodsStorage/getView.html" />
+        <property name="getJsServletPath" value="/goodsStorage/getJs.html" />
+    </bean>
+    <bean id="goodsStorageCheckWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="GoodsStorageCheck" />
+        <property name="getViewServletPath" value="/goodsStorage/getCheckStorageViewName.html" />
+        <property name="getJsServletPath" value="/goodsStorage/getCheckStorageJsName.html" />
+    </bean>
+    <bean id="goodsStoragePriceReviseWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="GoodsStoragePriceRevise" />
+        <property name="getViewServletPath" value="/goodsStorage/getPriceReviseViewName.html" />
+        <property name="getJsServletPath" value="/goodsStorage/getPriceReviseJsName.html" />
+    </bean>
+    <bean id="goodsStorageWarnWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="GoodsStorageWarn" />
+        <property name="getViewServletPath" value="/goodsStorage/getWarnStorageViewName.html" />
+        <property name="getJsServletPath" value="/goodsStorage/getWarnStorageJsName.html" />
+    </bean>
+    <bean id="goodsSerialManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsSerialNumber/getView.html" />
+        <property name="uniqueName" value="GoodsSerialManagement" />
+    </bean>
+    <bean id="goodsIssueManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsIssue/getView.html" />
+        <property name="uniqueName" value="GoodsIssueManagement" />
+    </bean>
+    <!-- End Goods -->
+    
+    <!-- Customer -->
+    <bean id="customerManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.CustomerManagement" />
+        <property name="getViewServletPath" value="/customer/getView.html" />
+        <property name="getJsServletPath" value="/customer/getJs.html" />
+        <property name="getCssServletPath" value="/customer/getCss.html" />
+    </bean>
+    <bean id="providerManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.providerManagement" />
+        <property name="getViewServletPath" value="/provider/getView.html" />
+        <property name="getJsServletPath" value="/provider/getJs.html" />
+        <property name="getCssServletPath" value="/provider/getCss.html" />
+    </bean>
+    <bean id="customerTypeManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/customerType/getView.html" />
+        <property name="getJsServletPath" value="/customerType/getJs.html" />
+        <property name="uniqueName" value="CustomerTypeManagement" />
+    </bean>
+    <bean id="customerLevelManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/customerLevel/getView.html" />
+        <property name="getJsServletPath" value="/customerLevel/getJs.html" />
+        <property name="uniqueName" value="CustomerLevelManagement" />
+    </bean>
+    <bean id="providerTypeManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/providerType/getView.html" />
+        <property name="getJsServletPath" value="/providerType/getJs.html" />
+        <property name="uniqueName" value="ProviderTypeManagement" />
+    </bean>
+    <!-- End Customer -->
+    
+    
+    <bean id="regionManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/region/getView.html" />
+        <property name="uniqueName" value="RegionManagement" />
+    </bean>
+    <bean id="followWayManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/followWay/getView.html" />
+        <property name="uniqueName" value="FollowWayManagement" />
+    </bean>
+    <bean id="memorialDayTypeManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/memorialDayType/getView.html" />
+        <property name="uniqueName" value="MemorialDayTypeManagement" />
+    </bean>
+    
+    <bean id="outOrderManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="OutOrderManagement" />
+        <property name="getViewServletPath" value="/outOrder/getView.html" />
+        <property name="getJsServletPath" value="/outOrder/getJs.html" />
+        <property name="getCssServletPath" value="/outOrder/getCss.html" />
+    </bean>
+    <bean id="outOrderAddWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="OutOrderAdd" />
+        <property name="getViewServletPath" value="/outOrder/getAddView.html" />
+        <property name="getJsServletPath" value="/outOrder/getJs.html" />
+    </bean>
+    <bean id="outOrderDeliveryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="OutOrderDelivery" />
+        <property name="getViewServletPath" value="/outOrderDelivery/getView.html" />
+        <property name="getJsServletPath" value="/outOrder/getJs.html" />
+        <property name="getCssServletPath" value="/outOrder/getCss.html" />
+    </bean>
+    <bean id="orderProfitViewWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/outOrder/outOrderProfitQuery.html" />
+        <property name="uniqueName" value="navigation.orderProfitManagement" />
+    </bean>
+    <bean id="orderInItemQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/inOrder/getOrderItemQueryView.html" />
+        <property name="uniqueName" value="OrderInItemQuery" />
+    </bean>
+    <bean id="orderOutItemQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/outOrder/getOrderItemQueryView.html" />
+        <property name="uniqueName" value="OrderOutItemQuery" />
+    </bean>
+    <bean id="storageStatisticQueryWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/goodsStorage/getStorageStatisticViewName.html" />
+        <property name="uniqueName" value="StorageStatisticQuery" />
+    </bean>
+    <bean id="inOrderManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.inOrderManagement" />
+        <property name="getViewServletPath" value="/inOrder/getView.html" />
+        <property name="getJsServletPath" value="/inOrder/getJs.html" />
+        <property name="getCssServletPath" value="/inOrder/getCss.html" />
+    </bean>
+    <bean id="inOrderAddWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="inOrderAdd" />
+        <property name="getViewServletPath" value="/inOrder/getAddView.html" />
+        <property name="getJsServletPath" value="/inOrder/getJs.html" />
+    </bean>
+    
+    <!-- finance start -->
+    <bean id="customerPayManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.customerFinanceManagement" />
+        <property name="getViewServletPath" value="/customerPay/getView.html" />
+        <property name="getJsServletPath" value="/customerPay/getJs.html" />
+    </bean>
+    <bean id="providerPayManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.providerFinanceManagement" />
+        <property name="getViewServletPath" value="/providerPay/getView.html" />
+        <property name="getJsServletPath" value="/providerPay/getJs.html" />
+    </bean>
+    <bean id="paymentAccountFinanceWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.payAccountFinance" />
+        <property name="getViewServletPath" value="/paymentAccount/getView.html" />
+        <property name="getJsServletPath" value="/paymentAccount/getJs.html" />
+    </bean>
+    <bean id="paymentWayViewWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/paymentWay/getView.html" />
+        <property name="uniqueName" value="navigation.payWayManagement" />
+    </bean>
+    <bean id="accountingTypeMgmtWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/accountingType/getView.html" />
+        <property name="getJsServletPath" value="/accountingType/getJs.html" />
+        <property name="uniqueName" value="navigation.expenseTypeManagement" />
+    </bean>
+	<bean id="accountingMgmtWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="navigation.expenseRecordManagement" />
+        <property name="getViewServletPath" value="/accounting/getView.html" />
+        <property name="getJsServletPath" value="/accounting/getJs.html" />
+    </bean>
+    <!-- finance end -->
+    
+    <bean id="projectMgmtWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="projectManagement" />
+        <property name="getViewServletPath" value="/project/getView.html" />
+    </bean>
+    <bean id="contractMgmtWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="uniqueName" value="contractManagement" />
+        <property name="getViewServletPath" value="/contract/getView.html" />
+    </bean>
+    
+    <bean id="dataBackupAndRestoreWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/dataBackupAndRestore/getView.html" />
+        <property name="uniqueName" value="DataBackupAndLoad" />
+    </bean>
+    <bean id="logManagementWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/log/getView.html" />
+        <property name="uniqueName" value="navigation.LogManagement" />
+    </bean>
+    <bean id="resetSystemWidget" class="com.pinfly.purchasecharge.app.nav.Widget">
+        <property name="getViewServletPath" value="/dataBackupAndRestore/getResetSystemViewName.html" />
+        <property name="uniqueName" value="ResetSystem" />
+    </bean>
+</beans>

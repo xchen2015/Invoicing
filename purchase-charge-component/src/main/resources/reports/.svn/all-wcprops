@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/147/trunk/purchase-charge-component/src/main/resources/reports
+END
+crosstabs-goodsType.jasper
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/147/trunk/purchase-charge-component/src/main/resources/reports/crosstabs-goodsType.jasper
+END
+barChart-goodsType.jasper
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/147/trunk/purchase-charge-component/src/main/resources/reports/barChart-goodsType.jasper
+END
+pieChart-goodsType.jasper
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/147/trunk/purchase-charge-component/src/main/resources/reports/pieChart-goodsType.jasper
+END

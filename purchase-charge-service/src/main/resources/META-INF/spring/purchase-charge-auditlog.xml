@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Aop for log -->
+	
+	<!-- 调用日志类 -->
+	<!-- <aop:config proxy-target-class="false">
+		<aop:pointcut id="addScope"
+			expression="execution(* com.cxx.purchasecharge.service.impl.AuditLogServiceImpl.add*(..))" />
+		<aop:pointcut id="updateScope"
+			expression="execution(* com.cxx.purchasecharge.service.impl.AuditLogServiceImpl.update*(..))" />
+		<aop:pointcut id="deleteScope"
+			expression="execution(* com.cxx.purchasecharge.service.impl.AuditLogServiceImpl.delete*(..))" />
+		<aop:pointcut id="loginScope"
+			expression="execution(* com.cxx.purchasecharge.service.impl.AuditLogServiceImpl.login*(..))" />
+		<aop:pointcut id="logoutScope"
+			expression="execution(* com.cxx.purchasecharge.service.impl.AuditLogServiceImpl.logout*(..))" />
+			
+		<aop:aspect id="logAspect" ref="logManagement">
+			<aop:before pointcut-ref="deleteScope" method="before" />
+			<aop:around pointcut-ref="updateScope" method="around" />
+			<aop:after pointcut-ref="addScope" method="after" />
+			<aop:after pointcut-ref="loginScope" method="login" />
+			<aop:after pointcut-ref="logoutScope" method="logout" />
+		</aop:aspect>
+	</aop:config> -->
+	<!-- Aop for log -->
+	
+</beans>

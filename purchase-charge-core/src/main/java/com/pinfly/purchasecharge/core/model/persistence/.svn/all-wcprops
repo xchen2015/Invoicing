@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1042/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence
+END
+PaymentTransfer.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1190/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/PaymentTransfer.java
+END
+Region.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/Region.java
+END
+Project.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/Project.java
+END
+DeliveryCompany.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/1030/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/DeliveryCompany.java
+END
+Accounting.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1190/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/Accounting.java
+END
+PaymentAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/PaymentAccount.java
+END
+AccountingType.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1030/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/AccountingType.java
+END
+Contract.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/1188/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/Contract.java
+END
+PaymentWay.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1015/trunk/purchase-charge-core/src/main/java/com/pinfly/purchasecharge/core/model/persistence/PaymentWay.java
+END

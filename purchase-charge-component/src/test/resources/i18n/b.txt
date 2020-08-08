@@ -1,0 +1,244 @@
+navigation.GoodsManagement = \u8d27\u7269\u7ba1\u7406
+navigation.GoodsUnitAndType = \u8d27\u7269\u5355\u4f4d\u53ca\u7c7b\u578b
+navigation.UserManagement = \u7528\u6237
+navigation.FollowWayManagement = \u5ba2\u6237\u8ddf\u8fdb\u65b9\u5f0f
+navigation.PaymentTypeManagement = \u8ba2\u5355\u652f\u4ed8\u65b9\u5f0f
+navigation.MemorialDayTypeManagement = \u5ba2\u6237\u7eaa\u5ff5\u65e5\u7c7b\u578b
+navigation.LoggerEventManagement = \u7cfb\u7edf\u65e5\u5fd7\u4e8b\u4ef6
+navigation.CustomerAndContact = \u5ba2\u6237\u53ca\u8054\u7cfb\u4eba
+navigation.CustomerManagement = \u5ba2\u6237\u7ba1\u7406
+navigation.providerManagement = \u4f9b\u5e94\u5546\u7ba1\u7406
+navigation.ContactManagement = \u8054\u7cfb\u4eba\u7ba1\u7406
+navigation.inOrderManagement = \u91c7\u8d2d\u5355\u7ba1\u7406
+navigation.outOrderManagement = \u9500\u552e\u5355\u7ba1\u7406
+navigation.storageManagement = \u5e93\u5b58\u7ba1\u7406
+navigation.afterSaleManagement = \u552e\u540e\u7ba1\u7406
+navigation.financeManagement = \u8d22\u52a1
+
+# Contact Type Management
+contactTypeManagement = \u8054\u7cfb\u4eba\u7c7b\u578b\u7ba1\u7406
+contactType = \u8054\u7cfb\u4eba\u7c7b\u578b
+
+# Customer Level Management
+customerLevelManagement = \u5ba2\u6237\u7ea7\u522b\u7ba1\u7406
+customerLevel = \u5ba2\u6237\u7ea7\u522b
+newLevel = \u65b0\u589e\u7ea7\u522b
+editLevel = \u7f16\u8f91\u7ea7\u522b
+removeLevel = \u5220\u9664\u7ea7\u522b
+
+# Customer Scale Management
+customerScaleManagement = \u5ba2\u6237\u516c\u53f8\u89c4\u6a21\u7ba1\u7406
+customerScale = \u5ba2\u6237\u516c\u53f8\u89c4\u6a21
+newScale = \u65b0\u589e\u89c4\u6a21
+editScale = \u7f16\u8f91\u89c4\u6a21
+removeScale = \u5220\u9664\u89c4\u6a21
+
+# Customer Source Management
+customerSourceManagement = \u5ba2\u6237\u6765\u6e90\u7ba1\u7406
+customerSource = \u5ba2\u6237\u6765\u6e90
+newSource = \u65b0\u589e\u6765\u6e90
+editSource = \u7f16\u8f91\u6765\u6e90
+removeSource = \u5220\u9664\u6765\u6e90
+
+# Customer Status Management
+customerStatusManagement = \u5ba2\u6237\u72b6\u6001\u7ba1\u7406
+customerStatus = \u5ba2\u6237\u72b6\u6001
+newStatus = \u65b0\u589e\u72b6\u6001
+editStatus = \u7f16\u8f91\u72b6\u6001
+removeStatus = \u5220\u9664\u72b6\u6001
+
+# Customer Trade Management
+customerTradeManagement = \u5ba2\u6237\u884c\u4e1a\u7ba1\u7406
+customerTrade = \u5ba2\u6237\u884c\u4e1a
+newTrade = \u65b0\u589e\u884c\u4e1a
+editTrade = \u7f16\u8f91\u884c\u4e1a
+removeTrade = \u5220\u9664\u884c\u4e1a
+
+# Follow Way Management
+followWayManagement = \u5ba2\u6237\u8ddf\u8fdb\u65b9\u5f0f\u7ba1\u7406
+followWay = \u5ba2\u6237\u8ddf\u8fdb\u65b9\u5f0f
+newWay = \u65b0\u589e\u65b9\u5f0f
+editWay = \u7f16\u8f91\u65b9\u5f0f
+removeWay = \u5220\u9664\u65b9\u5f0f
+
+# Goods Type Management
+goodsTypeManagement = \u8d27\u7269\u7c7b\u578b\u7ba1\u7406
+goodsType = \u8d27\u7269\u7c7b\u578b
+newRootType = \u65b0\u589e\u9876\u7ea7\u7c7b\u578b
+appendType = \u8ffd\u52a0\u5b50\u7c7b\u578b
+expand = \u5c55\u5f00
+collapse = \u6536\u7f29
+parentId = \u7236\u7ed3\u70b9\u7f16\u53f7
+
+# Region Management
+regionManagement = \u533a\u57df\u7ba1\u7406
+region = \u533a\u57df
+newRootRegion = \u65b0\u589e\u9876\u7ea7\u533a\u57df
+appendRegion = \u8ffd\u52a0\u5b50\u533a\u57df
+editRegion = \u7f16\u8f91\u533a\u57df
+removeRegion = \u5220\u9664\u533a\u57df
+
+# Goods Unit Management
+goodsUnitManagement = \u8d27\u7269\u5355\u4f4d\u7ba1\u7406
+goodsUnit = \u8d27\u7269\u5355\u4f4d
+newUnit = \u65b0\u589e\u5355\u4f4d
+editUnit = \u7f16\u8f91\u5355\u4f4d
+removeUnit = \u5220\u9664\u5355\u4f4d
+
+# Logger Event Management
+loggerEventManagement = \u65e5\u5fd7\u4e8b\u4ef6\u7ba1\u7406
+loggerEvent = \u65e5\u5fd7\u4e8b\u4ef6
+newEvent = \u65b0\u589e\u4e8b\u4ef6
+editEvent = \u7f16\u8f91\u4e8b\u4ef6
+removeEvent = \u5220\u9664\u4e8b\u4ef6
+
+# MemorialDay Type Management
+memorialDayTypeManagement = \u7eaa\u5ff5\u65e5\u7c7b\u578b\u7ba1\u7406
+memorialDayType = \u7eaa\u5ff5\u65e5\u7c7b\u578b
+
+# Payment Type Management
+paymentTypeManagement = \u652f\u4ed8\u7c7b\u578b\u7ba1\u7406
+paymentType = \u652f\u4ed8\u7c7b\u578b
+
+# Goods Management
+goodsManagement = \u8d27\u7269\u7ba1\u7406
+serialNumber = \u5e8f\u5217\u53f7
+maker = \u5236\u9020\u5382
+barCode = \u6761\u5f62\u7801
+specification = \u89c4\u683c
+technicalParameters = \u6280\u672f\u53c2\u6570
+importPrice = \u8fdb\u8d27\u4ef7
+retailPrice = \u96f6\u552e\u53c2\u8003\u4ef7
+tradePrice = \u6279\u53d1\u4ef7
+available = \u662f\u5426\u53ef\u7528
+newGoods = \u65b0\u589e\u8d27\u7269
+editGoods = \u7f16\u8f91\u8d27\u7269
+goods = \u8d27\u7269
+removeGoods = \u5220\u9664\u8d27\u7269
+enable = \u53ef\u7528
+unavailable = \u4e0d\u53ef\u7528
+
+unit = \u5355\u4f4d
+goods.type = \u7c7b\u578b
+goods.selectAnType = \u9009\u62e9\u4e00\u4e2a\u7c7b\u578b...
+
+# Customer
+customerManagement = \u5ba2\u6237\u7ba1\u7406
+customer = \u5ba2\u6237
+newCustomer = \u65b0\u589e\u5ba2\u6237
+editCustomer = \u7f16\u8f91\u5ba2\u6237
+removeCustomer = \u5220\u9664\u5ba2\u6237
+customer.shortName = \u7b80\u79f0
+customer.type = \u7c7b\u578b
+customer.companyName = \u516c\u53f8\u540d\u79f0
+customer.companyIntroduction = \u516c\u53f8\u7b80\u4ecb
+customer.address = \u5730\u5740
+customer.zipCode = \u90ae\u653f\u7f16\u53f7
+customer.email = \u7535\u5b50\u90ae\u7bb1
+customer.fax = \u4f20\u771f
+customer.fixedPhone = \u56fa\u5b9a\u7535\u8bdd
+customer.isDeleted = \u662f\u5426\u5220\u9664
+customer.scale = \u89c4\u6a21
+customer.trade = \u884c\u4e1a
+customer.source = \u6765\u6e90
+customer.goodsIntention = \u610f\u5411\u4ea7\u54c1
+customer.legalPerson = \u6cd5\u4eba
+customer.memberAccount = \u4f1a\u5458\u5e10\u53f7
+customer.webSite = \u7f51\u5740
+customer.registerDate = \u6ce8\u518c\u65f6\u95f4
+customer.registerFund = \u6ce8\u518c\u8d44\u91d1
+customer.region = \u533a\u57df
+customer.comment = \u5907\u6ce8
+customer.createDate = \u521b\u5efa\u65e5\u671f
+customer.lastUpdated = \u6700\u540e\u66f4\u65b0
+customer.signUserId = \u6240\u5c5e\u4e1a\u52a1\u5458
+customer.isSharable = \u662f\u5426\u5171\u4eab
+customer.level = \u7ea7\u522b
+customer.status = \u72b6\u6001
+customer.option.enSharable = \u53ef\u5171\u4eab
+customer.option.unSharable = \u4e0d\u53ef\u5171\u4eab
+customer.option.enterprise = \u4f01\u4e1a
+customer.option.individual = \u4e2a\u4eba
+
+# Contact
+contact.contactManagement = \u8054\u7cfb\u4eba\u7ba1\u7406
+contact.contact = \u8054\u7cfb\u4eba
+contact.newContact = \u65b0\u589e\u8054\u7cfb\u4eba
+contact.editContact = \u7f16\u8f91\u8054\u7cfb\u4eba
+contact.removeContact = \u5220\u9664\u8054\u7cfb\u4eba
+
+contact.name = \u540d\u79f0
+contact.customer = \u5bf9\u5e94\u5ba2\u6237
+contact.genderCode = \u6027\u522b
+contact.mobilePhone = \u624b\u673a
+contact.qq = QQ
+contact.skype = Skype
+contact.email = \u7535\u5b50\u90ae\u7bb1
+contact.weiXin = \u5fae\u4fe1
+contact.wangWang = \u963f\u91cc\u65fa\u65fa
+contact.dept = \u90e8\u95e8
+contact.post = \u804c\u4f4d
+contact.concernedBusiness = \u5173\u5fc3\u7684\u4e1a\u52a1
+contact.interest = \u5174\u8da3\u7231\u597d
+contact.address = \u5730\u5740
+contact.webSite = \u4e2a\u4eba\u4e3b\u9875
+contact.region = \u533a\u57df
+contact.type = \u7c7b\u578b
+
+contact.option.male = \u7537
+contact.option.female = \u5973
+
+Report = \u7edf\u8ba1
+navigation.basicData = \u57fa\u7840\u6570\u636e
+GoodsReportManagement = \u8d27\u7269\u7edf\u8ba1
+countPriceByType=\u6309\u7c7b\u578b\u7edf\u8ba1\u8d27\u7269\u4ef7\u683c
+countQuantityByType=\u6309\u7c7b\u578b\u7edf\u8ba1\u8d27\u7269\u6570\u91cf
+
+Order = \u8ba2\u5355
+OrderManagement = \u8ba2\u5355\u7ba1\u7406
+Customer = \u5ba2\u6237
+Goods = \u8d27\u7269
+
+# Order Management
+order.orderManagement=\u8ba2\u5355\u7ba1\u7406
+order.customer=\u5ba2\u6237
+order.dealMoney=\u5e94\u4ed8\u989d
+order.paidMoney=\u5b9e\u4ed8\u989d
+order.profit=\u5229\u6da6
+order.payDate=\u4ed8\u6b3e\u65e5\u671f
+order.payDeadline=\u4ed8\u6b3e\u671f\u9650
+order.signUserId=\u4e1a\u52a1\u5458
+order.statusCode=\u72b6\u6001
+order.order=\u8ba2\u5355
+order.newOrder=\u65b0\u589e\u8ba2\u5355
+order.editOrder=\u7f16\u8f91\u8ba2\u5355
+order.removeOrder=\u5220\u9664\u8ba2\u5355
+order.option.start=\u5f00\u59cb
+order.option.return=\u9000\u56de
+order.option.cancel=\u53d6\u6d88
+order.option.finished=\u5b8c\u6210
+order.product=\u4ea7\u54c1
+order.unit=\u5355\u4f4d
+order.unitPrice=\u5355\u4ef7
+order.amount=\u6570\u91cf
+order.sum=\u91d1\u989d
+order.note=\u5907\u6ce8
+order.append=\u6dfb\u52a0
+order.accept=\u4fdd\u5b58
+order.remove=\u5220\u9664
+order.items=\u8ba2\u5355\u9879
+
+order.viewOrder=\u67e5\u770b\u8ba2\u5355
+order.updatePaid=\u65b0\u589e\u56de\u6b3e
+order.updateStatus=\u7f16\u8f91\u72b6\u6001
+order.paidRecord=\u56de\u6b3e\u8bb0\u5f55
+print=\u6253\u5370
+order.searchAndSelectCustomer=\u67e5\u8be2\u548c\u9009\u62e9\u5ba2\u6237
+order.payMoney=\u91d1\u989d
+order.createDate=\u521b\u5efa\u65e5\u671f
+order.id=\u8ba2\u5355\u53f7
+
+# Report
+report.countHighLowPrice=\u7edf\u8ba1\u8d27\u7269\u4ef7\u683c
+report.countGoodsQuantityByType=\u7edf\u8ba1\u8d27\u7269\u6570\u91cf(\u997c\u56fe)
+report.countGoodsQuantityByType2=\u7edf\u8ba1\u8d27\u7269\u6570\u91cf(\u67f1\u56fe)

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd 
+	http://www.springframework.org/schema/data/jpa 
+	http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd">
+
+<!-- 	<bean id="pcProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file://localhost/${pinfly.props.dir}/pc-config.properties</value>
+			</list>
+		</property> -->
+	<bean id="pcProperties"
+		class="com.pinfly.common.config.PfyPropertiesPlaceholderConfigurer">
+		<property name="groupNames">
+			<list>
+				<value>pc-config</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="jpa.dbDriver">com.mysql.jdbc.Driver</prop>
+				<prop key="jpa.dbUrl">jdbc:mysql://localhost:3306/test</prop>
+				<prop key="jpa.dbUser">root</prop>
+				<prop key="jpa.dbPassword">root</prop>
+				<prop key="jpa.dbMaxActive">10</prop>
+				<prop key="jpa.showSql">true</prop>
+				<prop key="jpa.generateDdl">true</prop>
+				<prop key="jpa.database">MYSQL</prop>
+				<prop key="jpa.dbTestOnBorrow">true</prop>
+				<prop key="jpa.dbValidationQuery">SELECT 1</prop>
+				<prop key="pc.dataInitFlag">false</prop>
+				
+				<prop key="pc.finishOrderHoursAgo">24</prop>
+				<prop key="pc.finishOrderSchedulerExpression">10 * 12 * * ?</prop>
+				<prop key="pc.deleteLogDaysAgo">180</prop>
+				<prop key="pc.deleteLogSchedulerExpression">10 * 13 * * ?</prop>
+			</props>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="false" />
+		<property name="ignoreResourceNotFound" value="false" />
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jpa.dbDriver}" />
+		<property name="url" value="${jpa.dbUrl}" />
+		<property name="username" value="${jpa.dbUser}" />
+		<property name="password" value="${jpa.dbPassword}" />
+		<property name="maxActive" value="${jpa.dbMaxActive}" />
+		<property name="testOnBorrow" value="${jpa.dbTestOnBorrow}" />
+		<property name="validationQuery" value="${jpa.dbValidationQuery}" />
+	</bean>
+
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter">
+		<property name="showSql" value="${jpa.showSql}" />
+		<property name="generateDdl" value="${jpa.generateDdl}" />
+		<property name="database" value="${jpa.database}" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="persistenceUnitName" value="pc-persistence-unit" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/pc-persistence.xml" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- spring exception translation -->
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<bean
+        class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+		
+	<!-- <tx:advice id="ticketAdvice" transaction-manager="hibernateTransaction">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED"
+				rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="ticketCut"
+			expression="execution(* net.carefx.messaging.dao.impl.ProfileDaoImpl.*(..))" />
+		<aop:advisor id="ticketAdvisor" advice-ref="ticketAdvice"
+			pointcut-ref="ticketCut" />
+	</aop:config> -->
+
+	<!-- <jpa:repositories base-package="com.pinfly.purchasecharge.dal" repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager">
+	</jpa:repositories> -->
+	
+	<context:component-scan base-package="com.pinfly.purchasecharge.dal">
+	</context:component-scan>
+	
+	<bean id="dataBackupAndLoad" class="com.pinfly.purchasecharge.dal.impl.MysqlBackupAndRestore" />
+	
+	<bean id="accountingTypeDao" class="com.pinfly.purchasecharge.dal.impl.AccountingTypeDaoImpl" />
+	<bean id="accountingDao" class="com.pinfly.purchasecharge.dal.impl.AccountingDaoImpl" />
+	<bean id="paymentAccountDao" class="com.pinfly.purchasecharge.dal.impl.PaymentAccountDaoImpl" />
+	<bean id="paymentTransferDao" class="com.pinfly.purchasecharge.dal.impl.PaymentTransferDaoImpl" />
+	<bean id="paymentWayDao" class="com.pinfly.purchasecharge.dal.impl.PaymentWayDaoImpl" />
+	
+	<bean id="logDao" class="com.pinfly.purchasecharge.dal.impl.auditlog.LogDaoImpl" />
+	<bean id="logEventDao" class="com.pinfly.purchasecharge.dal.impl.auditlog.LogEventDaoImpl" />
+	<bean id="deliveryCompanyDao" class="com.pinfly.purchasecharge.dal.impl.DeliveryCompanyDaoImpl" />
+	<bean id="contractDao" class="com.pinfly.purchasecharge.dal.impl.ContractDaoImpl" />
+	<bean id="projectDao" class="com.pinfly.purchasecharge.dal.impl.ProjectDaoImpl" />
+	
+	<bean id="authorityDao" class="com.pinfly.purchasecharge.dal.impl.usersecurity.AuthorityDaoImpl" />
+	<bean id="roleDao" class="com.pinfly.purchasecharge.dal.impl.usersecurity.RoleDaoImpl" />
+	<bean id="userDao" class="com.pinfly.purchasecharge.dal.impl.usersecurity.UserDaoImpl" />
+	
+	<bean id="goodsDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsDaoImpl" />
+	<bean id="goodsTypeDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsTypeDaoImpl" />
+	<bean id="goodsUnitDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsUnitDaoImpl" />
+	<bean id="goodsDepositoryDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsDepositoryDaoImpl" />
+	<bean id="goodsPictureDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsPictureDaoImpl" />
+	<bean id="goodsStorageDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsStorageDaoImpl" />
+	<bean id="goodsStorageTransferDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsStorageTransferDaoImpl" />
+	<bean id="goodsStorageCheckDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsStorageCheckDaoImpl" />
+	<bean id="goodsStoragePriceReviseDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsStoragePriceReviseDaoImpl" />
+	<bean id="goodsIssueDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsIssueDaoImpl" />
+	<bean id="goodsSerialNumberDao" class="com.pinfly.purchasecharge.dal.impl.goods.GoodsSerialNumberDaoImpl" />
+	
+	<bean id="orderInDao" class="com.pinfly.purchasecharge.dal.impl.in.OrderInDaoImpl" />
+	<bean id="orderInItemDao" class="com.pinfly.purchasecharge.dal.impl.in.OrderInItemDaoImpl" />
+	<bean id="providerDao" class="com.pinfly.purchasecharge.dal.impl.in.ProviderDaoImpl" />
+	<bean id="providerTypeDao" class="com.pinfly.purchasecharge.dal.impl.in.ProviderTypeDaoImpl" />
+	<bean id="providerContactDao" class="com.pinfly.purchasecharge.dal.impl.in.ProviderContactDaoImpl" />
+	<bean id="providerPaymentDao" class="com.pinfly.purchasecharge.dal.impl.in.ProviderPaymentDaoImpl" />
+	<bean id="providerPaymentRecordDao" class="com.pinfly.purchasecharge.dal.impl.in.ProviderPaymentRecordDaoImpl" />
+	
+	<bean id="orderOutDao" class="com.pinfly.purchasecharge.dal.impl.out.OrderOutDaoImpl" />
+	<bean id="orderOutItemDao" class="com.pinfly.purchasecharge.dal.impl.out.OrderOutItemDaoImpl" />
+	<bean id="orderDeliveryDao" class="com.pinfly.purchasecharge.dal.impl.out.OrderDeliveryDaoImpl" />
+	<bean id="orderReceiptDao" class="com.pinfly.purchasecharge.dal.impl.out.OrderReceiptDaoImpl" />
+	<bean id="customerDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerDaoImpl" />
+	<bean id="customerTypeDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerTypeDaoImpl" />
+	<bean id="customerLevelDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerLevelDaoImpl" />
+	<bean id="customerContactDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerContactDaoImpl" />
+	<bean id="customerPaymentDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerPaymentDaoImpl" />
+	<bean id="customerPaymentRecordDao" class="com.pinfly.purchasecharge.dal.impl.out.CustomerPaymentRecordDaoImpl" />
+	
+
+</beans>

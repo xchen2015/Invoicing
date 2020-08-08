@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+	name="pieChart-goodsType" columnCount="1" pageWidth="595" pageHeight="842" columnWidth="515" 
+	columnSpacing="0" leftMargin="40" rightMargin="40" topMargin="30" bottomMargin="30">
+	
+	<!--<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Bold" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Italic" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>-->
+	
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="reportSubTitle" class="java.lang.String"/>
+	
+	<queryString>
+    	<![CDATA[SELECT g.name as goodsName, gt.name as goodsType FROM pc_goods g left join pc_goods_type gt on g.type_id=gt.id order by gt.name]]>
+  	</queryString>
+  	<field name="goodsName" class="java.lang.String"/>
+  	<field name="goodsType" class="java.lang.String"/>
+
+  	<variable name="totalType" class="java.lang.Integer" calculation="Count" resetType="Group" resetGroup="modelGroup">
+    	<variableExpression>
+      		<![CDATA[$F{goodsName}]]>
+    	</variableExpression>
+    	<initialValueExpression>
+      		<![CDATA[new java.lang.Integer(0)]]>
+    	</initialValueExpression>
+  	</variable>
+  	<group name="modelGroup">
+    	<groupExpression>
+      		<![CDATA[$F{goodsType}]]>
+    	</groupExpression>
+    	<groupFooter>
+    	</groupFooter>
+  	</group>
+  	
+  	<title>
+		<band height="70">
+			<line>
+				<reportElement x="0" y="0" width="515" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement x="0" y="10" width="515" height="30"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{reportTitle}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="40" width="515" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{reportSubTitle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	
+  	<detail>
+  	</detail>
+  	
+  	<summary>
+  		<band height="650">
+      		<!-- Start 2D Pie Chart -->
+      		<pieChart>
+        		<chart evaluationTime="Report">
+          			<reportElement x="0" y="0" width="515" height="300"/>
+          			<chartTitle>
+						<titleExpression><![CDATA["2D Pie Chart"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle />
+        		</chart>
+        		<pieDataset>
+          			<dataset incrementType="None"/>
+      				<keyExpression>
+        				<![CDATA[$F{goodsType} == null ? "Not specified" : $F{goodsType}]]>
+      				</keyExpression>
+      				<valueExpression>
+        				<![CDATA[$V{totalType}]]>
+      				</valueExpression>
+        		</pieDataset>
+        		<piePlot labelFormat="{0} {2}" legendLabelFormat="{0} {1}">
+          			<plot />
+          			<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+        		</piePlot>
+      		</pieChart>
+
+			<!-- Start 3D Pie Chart -->
+      		<pie3DChart>
+        		<chart evaluationTime="Report">
+          			<reportElement x="0" y="350" width="515" height="300"/>
+          			<chartTitle>
+						<titleExpression><![CDATA["3D Pie Chart"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle />
+        		</chart>
+        		<pieDataset>
+          			<dataset incrementType="None"/>
+      				<keyExpression>
+        				<![CDATA[$F{goodsType} == null ? "Not specified" : $F{goodsType}]]>
+      				</keyExpression>
+      				<valueExpression>
+        				<![CDATA[$V{totalType}]]>
+      				</valueExpression>
+        		</pieDataset>
+        		<pie3DPlot depthFactor="0.2" labelFormat="{0} {2}" legendLabelFormat="{0} {1}">
+          			<plot foregroundAlpha="0.5"/>
+          			<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+        		</pie3DPlot>
+      		</pie3DChart>
+    	</band>
+  	</summary>
+  	
+</jasperReport>

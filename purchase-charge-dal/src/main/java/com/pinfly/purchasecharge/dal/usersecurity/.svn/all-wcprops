@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/usersecurity
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/usersecurity/UserDao.java
+END
+RoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/usersecurity/RoleDao.java
+END
+AuthorityDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/usersecurity/AuthorityDao.java
+END

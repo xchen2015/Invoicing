@@ -1,0 +1,37 @@
+ALTER TABLE pc_user DROP enabled;
+ALTER TABLE pc_user CHANGE enable enabled bit(1);
+
+ALTER TABLE pc_customer DROP signUserId;
+update pc_customer set userSigned=152 where signUserId = '银梅';
+
+http://chenzehe.iteye.com/blog/1558619
+
+ALTER TABLE pc_contact DROP signUserId;
+update pc_contact set userSigned=152 where signUserId = '银梅';
+
+ALTER TABLE pc_goods DROP unit;
+update pc_goods set unit_id=3459 where unit = '个';
+update pc_goods set unit_id=3457 where unit = '台';
+update pc_goods set unit_id=3460 where unit = '卷';
+update pc_goods set unit_id=8751 where unit = '块';
+update pc_goods set unit_id=6601 where unit = '对';
+update pc_goods set unit_id=22751 where unit = '把';
+update pc_goods set unit_id=8101 where unit = '条';
+update pc_goods set unit_id=19251 where unit = '片';
+update pc_goods set unit_id=3461 where unit = '盒';
+update pc_goods set unit_id=3458 where unit = '箱';
+update pc_goods set unit_id=3463 where unit = '米';
+
+ALTER TABLE pc_goods_storage DROP signUser;
+update pc_goods_storage set userCreatedBy=152 where signUser = '银梅';
+update pc_goods_storage set userUpdatedBy=152 where signUser = '银梅';
+
+ALTER TABLE pc_order DROP signUserId;
+update pc_order set userSigned=152 where signUserId = '银梅';
+update pc_order set userSigned=152 where signUserId = 'yinmei';
+update pc_order set userOperatedBy=152 where signUserId = '银梅';
+update pc_order set userOperatedBy=152 where signUserId = 'yinmei';
+
+ALTER TABLE pc_payment DROP operator;
+update pc_payment set userCreatedBy=152 where operator = '银梅';
+

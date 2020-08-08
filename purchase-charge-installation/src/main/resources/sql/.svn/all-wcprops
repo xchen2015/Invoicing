@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/801/trunk/purchase-charge-installation/src/main/resources/sql
+END
+DDL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/626/trunk/purchase-charge-installation/src/main/resources/sql/DDL.txt
+END
+user_security.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/573/trunk/purchase-charge-installation/src/main/resources/sql/user_security.sql
+END
+delete_business_data.sql
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/801/trunk/purchase-charge-installation/src/main/resources/sql/delete_business_data.sql
+END
+basic_test_data.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/573/trunk/purchase-charge-installation/src/main/resources/sql/basic_test_data.sql
+END

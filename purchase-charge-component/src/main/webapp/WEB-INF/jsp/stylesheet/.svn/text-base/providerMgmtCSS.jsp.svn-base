@@ -1,0 +1,2 @@
+﻿<% response.setContentType ("text/css"); %>
+

@@ -1,0 +1,142 @@
+﻿jpa.database=MYSQL
+
+# JDBC Driver Name
+#dbDriver=org.gjt.mm.mysql.Driver
+jpa.dbDriver=com.mysql.jdbc.Driver
+
+# Database Connection String
+#dbUrl=jdbc:sqlserver://192.168.66.60:1433;DatabaseName=jamesdev
+jpa.dbUrl=jdbc:mysql://localhost:3306/test
+
+# Database instance for bakup and restore data
+jpa.dbInstance=test
+
+# Database User
+jpa.dbUser=root
+
+# Database Password
+jpa.dbPassword=root
+
+# Show SQL
+jpa.showSql=false
+
+# GenerateDdl
+jpa.generateDdl=true
+
+# Maximum Number of Database Connections
+jpa.dbMaxActive=10
+jpa.dbTestOnBorrow=true 
+jpa.dbValidationQuery=SELECT 1
+
+pc.defaultUser = admin
+pc.defaultPassword = PinFei
+pc.defaultRole = admin
+pc.defaultProvider = 期初库存
+pc.defaultDepository = 默认仓库
+pc.defaultDelivery = 自提,无需物流
+pc.defaultPaymentAccount = 现金
+pc.defaultPaymentWay = 现金,网银转账,支付宝
+pc.defaultCustomerType = 零售客户
+pc.defaultProviderType = 总代理
+pc.defaultGoodsUnit = 个
+pc.defaultAccountingInType = 安装施工
+pc.defaultAccountingOutType = 房租,水电费,运费
+
+pc.dataInitFlag = true
+pc.passwordEncryptFlag = true
+pc.allowNegativeStorageFlag = true
+pc.allowNegativePriceFlag = true
+pc.allowNegativePaymentFlag = true
+pc.allowCacheGoods = true
+pc.allowCachePaymentAccount = true
+
+pc.inorder.addPaid.comment = 新增采购进货单
+pc.inorder.delPaid.comment = 新增采购退货单
+pc.outorder.addPaid.comment = 新增销售出货单
+pc.outorder.delPaid.comment = 新增销售退货单
+
+pc.defaultPaymentDueDays = 30
+pc.defaultCustomerMaxDebt = 10000
+
+pc.header.title = 长沙品飞信息技术有限公司
+pc.title = 品飞进销存管理
+pc.print.order.header = 长沙品飞信息
+pc.print.order.footer = 地址：长沙市解放东路华瑞大厦A栋1122 电话：18670001184 82079196 收到货后请及时核对，如发现数量和单价有异，请当日告之，逾期视为认可
+
+pc.link.hostPage = http://kuerwang.taobao.com/
+pc.link.aboutUs = http://kuerwang.taobao.com/
+pc.link.contactUs = http://kuerwang.taobao.com/
+
+
+pc.systemDataException = 系统数据异常
+pc.storageNotEnough = 货物"{0}"在仓库"{1}"中库存不足
+pc.accountRemainMoneyNotEnough = 账号"{0}"余额不足
+pc.storageFromAndStorageToNotSame = 源仓库和目标仓库不能相同
+pc.accountFromAndAccountToNotSame = 源账号和目标账号不能相同
+pc.paymentAccountNotExist = 支付账号不存在
+pc.paymentAccountCannotBeDeleted = 支付账号({0})已经有交易记录，不能被删除
+pc.paymentWayCannotBeDeleted = 支付方式({0})已经有交易记录，不能被删除
+pc.expenseTypeCannotBeDeleted = 收支类型({0})下已经有记账记录，不能被删除
+pc.goodsDepositoryCannotBeDeleted = 货物仓库({0})下已经存有货物，不能被删除
+pc.goodsNotInDepository = 货物"{0}"在仓库"{1}"中不存在
+pc.goodsCannotBeDeleted = 货物"{0}"已经有出入库记录，不能被删除
+pc.orderItemFindDuplicateGoodsAndDepository = 订单中有重复货物"{0}"和仓库"{1}"的子项，不能新增
+pc.orderOutCannotBeDeleted = 出库单({0})为非取消状态的，不能被删除
+pc.orderInCannotBeDeleted = 入库单({0})不能被删除
+pc.goodsIssueCannotBeDeleted = 货物返修({0})为非新建和无效状态的，不能被删除
+pc.goodsSerialCannotBeDeleted = 货物序列号({0})正在使用中，不能被删除
+pc.goodsTypeCannotBeDeleted = 货物类型({0})正在使用中，不能被删除
+pc.goodsUnitCannotBeDeleted = 货物单位({0})正在使用中，不能被删除
+pc.addOrderOutFail = 添加出库单失败，请联系管理员
+pc.addOrderInFail = 添加入库单失败，请联系管理员
+pc.noCustomerError = 添加出库单要求指定客户
+pc.customerCannotBeDeleted = 客户"{0}"已经有出库记录，不能被删除
+pc.customerTypeCannotBeDeleted = 客户类型({0})正在使用中，不能被删除
+pc.customerLevelCannotBeDeleted = 客户等级({0})正在使用中，不能被删除
+pc.systemCustomerCannotBeDeleted = 系统预设客户"{0}"不能被删除
+pc.systemDeliveryCannotBeUpdated = 系统预设物流公司"{0}"不能被编辑
+pc.systemDeliveryCannotBeDeleted = 系统预设物流公司"{0}"不能被删除
+pc.deliveryCannotBeDeleted = 物流公司"{0}"正在使用中，不能被删除
+pc.systemDepositoryCannotBeUpdated = 系统预设货物仓库"{0}"不能被编辑
+pc.systemDepositoryCannotBeDeleted = 系统预设货物仓库"{0}"不能被删除
+pc.systemPaymentAccountCannotBeUpdated = 系统预设支付账号"{0}"不能被编辑
+pc.systemPaymentAccountCannotBeDeleted = 系统预设支付账号"{0}"不能被删除
+pc.systemPaymentWayCannotBeUpdated = 系统预设支付方式"{0}"不能被编辑
+pc.systemPaymentWayCannotBeDeleted = 系统预设支付方式"{0}"不能被删除
+pc.noProviderError = 添加入库单要求指定供应商
+pc.providerCannotBeDeleted = 供应商"{0}"已经有入库记录，不能被删除
+pc.providerTypeCannotBeDeleted = 供应商类型({0})正在使用中，不能被删除
+pc.projectCannotBeDeleted = 工程({0})正在使用中或被出库单引用，不能被删除
+pc.systemProviderCannotBeUpdated = 系统预设供应商"{0}"不能被编辑
+pc.systemProviderCannotBeDeleted = 系统预设供应商"{0}"不能被删除
+pc.systemUserCannotBeDeleted = 系统预设用户({0})不能被删除
+pc.systemUserIdCannotBeUpdated = 系统预设用户({0})的用户名不能被编辑
+pc.systemRoleCannotBeDeleted = 系统预设角色({0})不能被删除
+pc.systemRoleCannotBeUpdated = 系统预设角色({0})不能被编辑
+pc.exportPriceMustGreaterThanAveragePrice = 货物({0})出库价不能低于采购价
+pc.importPriceMustLowerThanTradePriceOrRetailPrice = 货物({0})入库价不能高于批发价或零售价
+pc.finishOutOrderComment = 系统自动完成{0}小时之前的新建出库单
+pc.sendReportMailTitle = {0}年{1}月销售利润报告
+pc.sendPasswordChangeMailTitle = 您的{0}系统账号登录密码已被重置！
+pc.sendPasswordChangeMailBody = 亲爱的{0}用户，您的登录密码已被重置，如非本人操作，请及时登录并修改密码以保证账户安全。(此信由{1}系统发出，系统不接收回信，因此请勿直接回复。如有任何疑问，请联系管理员{2})
+
+# Scheduler
+# Field Name	 	Allowed Values	 	Allowed Special Characters
+# Seconds	 		0-59	 			, - * /
+# Minutes	 		0-59	 			, - * /
+# Hours	 			0-23	 			, - * /
+# Day-of-month	 	1-31	 			, - * ? / L W
+# Month	 			1-12 or JAN-DEC	 	, - * /
+# Day-of-Week	 	1-7 or SUN-SAT	 	, - * ? / L #
+# Year (Optional)	empty, 1970-2199	, - * /
+pc.finishOrderHoursAgo = 24
+pc.finishOrderSchedulerExpression = 10 10 10,12,16 * * ?
+pc.deleteLogDaysAgo = 180
+pc.deleteLogSchedulerExpression = 10 10 11,13,17 * * ?
+pc.backupDataSchedulerExpression = 10 10 9,10 * * ?
+pc.sendReportMailSchedulerExpression = 10 10 10 1W * ?
+
+# Password validation
+password.validation.regex = ^.{6,}$||(?=.*[A-Z].*).*$||(?=.*[0-9].*).*$||(?=.*[^A-Z,a-z,0-9].*).*$
+password.validation.expression = 长度至少为6个字符||至少包含一个大写字母||至少包含一个数字||至少包含一个特殊字符,如@!#$%&等
+

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1051/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal
+END
+GoodsDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1162/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GoodsDaoTest.java
+END
+GoodsUnitDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GoodsUnitDaoTest.java
+END
+ContractDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/ContractDaoTest.java
+END
+CustomerContactDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/CustomerContactDaoTest.java
+END
+GoodsTypeDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GoodsTypeDaoTest.java
+END
+GenerateTableTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1036/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GenerateTableTest.java
+END
+UserDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/UserDaoTest.java
+END
+LogDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/LogDaoTest.java
+END
+RegionDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/RegionDaoTest.java
+END
+GoodsSerialNumberDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GoodsSerialNumberDaoTest.java
+END
+LogEventTypeDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/LogEventTypeDaoTest.java
+END
+AuthorityDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/AuthorityDaoTest.java
+END
+GenericTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/GenericTest.java
+END
+OrderItemDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/OrderItemDaoTest.java
+END
+PaymentAccountDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/PaymentAccountDaoTest.java
+END
+ProviderDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/ProviderDaoTest.java
+END
+AccountingTypeDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1173/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/AccountingTypeDaoTest.java
+END
+CustomerDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/CustomerDaoTest.java
+END
+RoleDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/RoleDaoTest.java
+END
+InOrderDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1192/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/InOrderDaoTest.java
+END
+OutOrderDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1211/trunk/purchase-charge-dal/src/test/java/com/cxx/purchasecharge/dal/OutOrderDaoTest.java
+END

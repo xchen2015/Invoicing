@@ -1,0 +1,69 @@
+/*
+ * Defines CSS styles for pages that have one or two columns of components.
+ * Most of the information is from the imported LayoutCommon file.  This
+ * file only defines the styles associated with the divs containing the
+ * components.
+ *
+ */
+ 
+@import 'LayoutCommon.less';
+
+// Definition for single column layout
+#main {
+    width:100%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-left: @componentSpacing;
+        margin-right: @componentSpacing;
+    }
+}
+
+// Definitions for two column layouts
+// Due to a glitch with IE7, when there are two columns the
+// widths must total less than 100%.  To make everything line
+// up, the top and bottom widths must match the total of the
+// column widths.  Thus the somewhat odd values here.
+#top {
+    width:99.8%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-left: @componentSpacing;
+        margin-right: @componentSpacing;
+    }
+}
+
+#left {
+    width:49.9%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-left: @componentSpacing;
+        margin-right: @componentSpacing;
+    }
+}
+
+#right {
+    width:49.9%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-right: @componentSpacing;
+    }
+}
+
+#bottom {
+    width:99.8%;
+    display: inline;
+    float: left;
+    
+    .component {
+        margin-left: @componentSpacing;
+        margin-right: @componentSpacing;
+    }
+}

@@ -1,0 +1,195 @@
+/*
+ * Defines CSS styles associated with the navigation area of an application page.
+ *
+ */
+ 
+.navigation {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px 0px;
+    clear: none;
+    background-color: @color-12;
+    width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+}
+
+/* First Level Nav Styles */
+
+.navigationMenu1 {
+    margin: 0px;
+    padding: 0px;
+    
+    ul {
+        li {
+            position: relative;
+            top: 1px;
+            float: left;
+            
+            margin: 0px 0px 0px 0px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: @color-12;
+            list-style: none;
+            border-left: none;
+            border-bottom: solid 1px @color-06;
+            border-top: none;
+            border-right: solid 1px @color-06;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            cursor: pointer;          
+        }
+    }
+    
+    a {
+        display: block;
+        padding: 5px 15px;
+        border-bottom: 1px solid @color-12;
+        color: black;
+        text-decoration: none;
+        &:hover, &:focus {
+            background-color: @color-11;
+        }
+    }    
+    
+    .selected, .selected a, .selected a:hover, .selected a:focus {
+        background-color: @color-14;
+        border-bottom: 1px solid @color-14; 
+    }
+}
+
+/* Second Level Nav Styles */
+
+.navigationMenuContentGroup2 {
+    border: 0;
+    clear: both;
+    border-top: solid 1px @color-06;
+    background-color: @color-14;
+}
+
+.navigationMenuContent2 {
+    overflow: hidden;
+    background-color: @color-13;
+    position: relative;
+}
+
+.navigationMenuContentVisible2 {
+}
+
+.navigationMenu2 { 
+    border-bottom: 1px solid @color-06;
+    background: url("@{bg-url}") repeat-x 0 -458px;
+    padding: 0.2em 1em 0.4em;
+    line-height: 1.5em;
+    height: 1.7em;
+    font-size: .9em;
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            font-family: Verdana, Geneva, sans-serif;
+            font-weight: normal;
+            float: left;
+            display: inline-block;
+            padding: 0 .5em 0 0;
+            &:first-child {
+                backgound: none;
+            }
+        }
+    }
+    
+    a, a:visited {
+        border-top: 3px solid transparent;
+        text-decoration: none; 
+        color: @color-01;
+        display: block; 
+        text-align: center;
+        cursor: pointer;
+        padding: 0 1em .5em 1em;
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+        
+        &:hover, &:focus {
+            border-top: 3px solid @color-16; 
+            text-decoration: none; 
+        }
+    }
+    
+    .selected, .selected a, .selected a:hover, .selected a:focus {
+        border-top-color: @color-15;
+        font-weight: 400;
+    }
+}
+
+/* Third Level Nav Styles */
+
+.navigationMenuContentGroup3 {
+    border: 0;
+    clear: both;
+    border-left: solid 1px @color-08;
+    border-bottom: solid 1px @color-08;
+    border-top: solid 1px @color-06;
+    border-right: solid 1px @color-06;
+    background-color: @color-14;
+}
+
+.navigationMenuContent3 {
+    overflow: hidden;
+    padding-top: 10px;
+    /*min-height: 400px;*/
+    background-color: @color-13;
+    position: relative;
+}
+
+.navigationMenuContentVisible3 {
+}
+
+.navigationMenu3 { 
+    background: url("@{bg-url}") repeat-x 0 -458px;
+    border-bottom: 1px solid @color-06;
+    margin: -10px -10px 0px -10px;
+    padding: .4em 1em .6em 1em;
+    line-height: 1.5em;
+    height: 1.7em;
+    font-size: .9em;
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            float: left;
+            display: inline-block;
+            padding: 0 .5em 0 0;
+            &:first-child {
+                backgound: none;
+            }
+        }
+    }
+    
+    a {
+        border-top: 3px solid transparent;
+        text-decoration: none; 
+        display: block; 
+        text-align: center;
+        cursor: pointer;
+        padding: 0 1em .5em 1em;
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+        
+        &:hover, &:focus {
+            border-top: 3px solid @color-16; 
+            text-decoration: none; 
+        }
+        
+    }
+    
+    .selected, .selected a, .selected a:hover, .selected a:focus {
+        border-top-color: @color-15;
+        font-weight: 400;
+    }
+}
+

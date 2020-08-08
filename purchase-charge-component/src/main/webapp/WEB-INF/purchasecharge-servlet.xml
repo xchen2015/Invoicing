@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:component-scan
+		base-package="com.pinfly.purchasecharge.component.controller" />
+		
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="1" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources/ directory -->
+<!-- 	<mvc:resources mapping="/userManagement/**" location="/userManagement/" /> -->
+
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="com.pinfly.purchasecharge.component.mvc.converter.StringHttpMessageConverter">
+					<constructor-arg value="UTF-8" />
+				</bean>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean> -->
+
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+				<bean
+					class="com.pinfly.purchasecharge.component.mvc.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+					<constructor-arg index="0" type="java.nio.charset.Charset">
+						<value>UTF-8</value>
+					</constructor-arg>
+				</bean>
+				<bean
+					class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>  -->
+	
+	<!-- 
+        This Handler Mapping is applied to any bean name URL mappings.
+    <bean id="frameworkServletHandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+    </bean>
+    -->
+	<bean name="/goodsReport/*" id="goodsReportController" class="com.pinfly.purchasecharge.component.controller.report.GoodsReportManager">
+    </bean>
+    
+    <bean id="frameworkSession" class="com.pinfly.purchasecharge.framework.session.FrameworkSessionImpl" scope="globalSession">
+        <aop:scoped-proxy proxy-target-class="false" />
+    </bean>
+    
+    <!-- Interceptor that checks for a valid session -->
+    <!-- <bean id="sessionValidator" class="com.pinfly.purchasecharge.framework.interceptor.SessionValidationInterceptor" /> -->
+
+    <!-- Interceptor that initializes the FrameworkSession -->
+    <!-- <bean id="frameworkSessionInitializer" class="com.pinfly.purchasecharge.framework.interceptor.FrameworkSessionInitializer" /> -->
+    
+    <!-- <util:list id="orderedInterceptors">
+        <ref bean="sessionValidator" />
+        <ref bean="frameworkSessionInitializer" />
+    </util:list> -->
+    
+    <!-- <bean id="handlerMapping" 
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+		<property name="interceptors">
+			<bean class="com.pinfly.purchasecharge.component.utils.SessionValidationInterceptor" />
+		</property>
+	</bean> -->
+	
+    <mvc:interceptors>
+   		<bean class="com.pinfly.purchasecharge.framework.interceptor.SessionValidationInterceptor" />
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**/*.html" />
+		    <bean class="com.pinfly.purchasecharge.framework.interceptor.FrameworkSessionInitializer" />
+    	</mvc:interceptor>
+    </mvc:interceptors>
+	
+</beans>

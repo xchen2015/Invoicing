@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1040/trunk/purchase-charge-app/src/main/webapp
+END
+timeout.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1222/trunk/purchase-charge-app/src/main/webapp/timeout.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1222/trunk/purchase-charge-app/src/main/webapp/index.jsp
+END
+accessDenied.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1222/trunk/purchase-charge-app/src/main/webapp/accessDenied.jsp
+END
+companyBankAccount.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/452/trunk/purchase-charge-app/src/main/webapp/companyBankAccount.pdf
+END
+concurrencyLogin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1222/trunk/purchase-charge-app/src/main/webapp/concurrencyLogin.jsp
+END

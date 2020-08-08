@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="pc-persistence-unit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		
+		<class>com.pinfly.purchasecharge.core.model.persistence.usersecurity.User</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.usersecurity.UserSession</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.usersecurity.Role</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.usersecurity.Authority</class>
+		
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.OrderIn</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.OrderInItem</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.Provider</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.ProviderType</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.ProviderContact</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.ProviderPayment</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.in.ProviderPaymentRecord</class>
+		
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.OrderOut</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.OrderOutItem</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.OrderDelivery</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.OrderReceipt</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.Customer</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.CustomerType</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.CustomerLevel</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.CustomerContact</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.CustomerPayment</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.out.CustomerPaymentRecord</class>
+		
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.Goods</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsType</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsUnit</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsDepository</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsStorage</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsStorageTransfer</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsStorageCheck</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsStoragePriceRevise</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsPicture</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsIssue</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.goods.GoodsSerialNumber</class>
+		
+		<class>com.pinfly.purchasecharge.core.model.persistence.PaymentWay</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.PaymentAccount</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.PaymentTransfer</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.DeliveryCompany</class>
+		
+		<!-- 资金流水记账 -->
+		<class>com.pinfly.purchasecharge.core.model.persistence.Accounting</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.AccountingType</class>
+		
+		<!-- 系统设置 -->
+		
+		<!-- 系统操作日志 -->
+		<class>com.pinfly.purchasecharge.core.model.persistence.auditlog.Log</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.auditlog.LogEvent</class>
+		
+		<!-- 
+		<class>com.pinfly.purchasecharge.core.model.persistence.Region</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.Knowledge</class> -->
+		<class>com.pinfly.purchasecharge.core.model.persistence.Project</class>
+		<class>com.pinfly.purchasecharge.core.model.persistence.Contract</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<!-- <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/> -->
+			<!-- <property name="openjpa.Multithreaded" value="true"/> -->
+		</properties>
+	</persistence-unit>
+</persistence>
+

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1043/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in
+END
+ProviderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1168/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/ProviderDaoImpl.java
+END
+ProviderTypeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/ProviderTypeDaoImpl.java
+END
+OrderInItemDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1197/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/OrderInItemDaoImpl.java
+END
+OrderInDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1202/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/OrderInDaoImpl.java
+END
+ProviderContactDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1185/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/ProviderContactDaoImpl.java
+END
+ProviderPaymentRecordDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/ProviderPaymentRecordDaoImpl.java
+END
+ProviderPaymentDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1202/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/impl/in/ProviderPaymentDaoImpl.java
+END

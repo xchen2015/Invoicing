@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1051/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal
+END
+AccountingTypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1168/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/AccountingTypeDao.java
+END
+ContractDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/ContractDao.java
+END
+PaymentWayDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/PaymentWayDao.java
+END
+PaymentTransferDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1197/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/PaymentTransferDao.java
+END
+RegionDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/RegionDao.java
+END
+DaoContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1192/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/DaoContext.java
+END
+ProjectDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/ProjectDao.java
+END
+BackupAndRestore.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1014/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/BackupAndRestore.java
+END
+AccountingDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1192/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/AccountingDao.java
+END
+PaymentAccountDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1157/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/PaymentAccountDao.java
+END
+DeliveryCompanyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1031/trunk/purchase-charge-dal/src/main/java/com/pinfly/purchasecharge/dal/DeliveryCompanyDao.java
+END

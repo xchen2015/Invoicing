@@ -1,0 +1,31 @@
+/*
+ * Defines some values that are common to various CSS styles.
+ *
+ */
+ 
+// Color definitions
+@color-01: #000000;
+@color-02: #000033;
+@color-03: #002733;
+@color-04: #003399;
+@color-05: #330000;
+@color-06: #98acbe;
+@color-07: #a6c2d9;
+@color-08: #acc3d7;
+@color-09: #acc7dc;
+@color-10: #c4d8eb;
+@color-11: #e5eefa;
+@color-12: #efefef;
+@color-13: #fbfafa;
+@color-14: #fefefe;
+@color-15: #ff9900;
+@color-16: #ffcc00;
+@color-17: #ffffff;
+
+// URL definitions
+@bg-url: "../images/bg.png";
+@icons-url: "../images/icons.png";
+
+@import 'Application.less';
+@import 'Navigation.less';
+

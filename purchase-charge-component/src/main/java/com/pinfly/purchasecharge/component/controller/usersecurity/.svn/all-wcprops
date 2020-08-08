@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1053/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/usersecurity
+END
+AuthorityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/usersecurity/AuthorityManager.java
+END
+UserManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/usersecurity/UserManager.java
+END
+RoleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/!svn/ver/1205/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/usersecurity/RoleManager.java
+END
+PasswordManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/!svn/ver/1194/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/component/controller/usersecurity/PasswordManager.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/341/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop
+END
+AopTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/AopTest.java
+END
+LogManagementAroundAdvice.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/341/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/LogManagementAroundAdvice.java
+END
+AopDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/338/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/AopDao.java
+END
+AopDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/338/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/AopDaoImpl.java
+END
+ModelClassHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/341/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/ModelClassHelper.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/User.java
+END
+LogManagementAspect.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1158/trunk/purchase-charge-app/src/test/java/com/cxx/purchasecharge/app/aop/LogManagementAspect.java
+END

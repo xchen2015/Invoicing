@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1017/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/utils
+END
+NotInitializedError.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/utils/NotInitializedError.java
+END
+Namespace.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/utils/Namespace.java
+END
+RequestNames.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/utils/RequestNames.java
+END
+MessageSourceResolvableError.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/1159/trunk/purchase-charge-component/src/main/java/com/pinfly/purchasecharge/framework/utils/MessageSourceResolvableError.java
+END
